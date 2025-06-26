@@ -1,21 +1,68 @@
 'use client';
 
-import { useRef } from 'react';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Experience from '@/components/Experience';
-import Projects from '@/components/Projects';
-import Skills from '@/components/Skills';
-import Contact from '@/components/Contact';
+import { useRef, useState, useEffect, Suspense, lazy } from 'react';
 import SidebarNavigation from '@/components/SidebarNavigation';
+import SplashScreen from '@/components/SplashScreen';
+import LoadingSpinner, { LoadingOverlay } from '@/components/LoadingSpinner';
+import {
+  HeroSkeleton,
+  AboutSkeleton,
+  ExperienceSkeleton,
+  ProjectsSkeleton,
+  SkillsSkeleton,
+  ContactSkeleton,
+} from '@/components/SkeletonLoaders';
+import PerformanceMonitor from '@/components/PerformanceMonitor';
 import { personalInfo } from '@/lib/data';
 import { useActiveSection } from '@/hooks/useActiveSection';
+
+// Lazy load components with dynamic imports
+const Hero = lazy(() => import('@/components/Hero'));
+const About = lazy(() => import('@/components/About'));
+const Experience = lazy(() => import('@/components/Experience'));
+const Projects = lazy(() => import('@/components/Projects'));
+const Skills = lazy(() => import('@/components/Skills'));
+const Contact = lazy(() => import('@/components/Contact'));
 
 export default function Home() {
   const mainContentRef = useRef<HTMLElement>(null);
   const activeSection = useActiveSection(mainContentRef);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedSections, setLoadedSections] = useState<Set<string>>(new Set());
+  const [isNavigating, setIsNavigating] = useState(false);
 
-  const handleScrollToSection = (sectionId: string) => {
+  // Handle splash screen completion
+  const handleSplashComplete = () => {
+    setIsLoading(false);
+  };
+
+  // Preload critical sections
+  useEffect(() => {
+    if (!isLoading) {
+      // Load all sections immediately when splash screen completes
+      setLoadedSections(
+        new Set([
+          'hero',
+          'about',
+          'experience',
+          'projects',
+          'skills',
+          'contact',
+        ])
+      );
+    }
+  }, [isLoading]);
+
+  const handleScrollToSection = async (sectionId: string) => {
+    setIsNavigating(true);
+
+    // Ensure section is loaded
+    if (!loadedSections.has(sectionId)) {
+      setLoadedSections(prev => new Set([...prev, sectionId]));
+      // Small delay to allow component to load
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+
     const element = document.getElementById(sectionId);
     if (element && mainContentRef.current) {
       // Calculate the offset relative to the main content area
@@ -28,10 +75,24 @@ export default function Home() {
         behavior: 'smooth',
       });
     }
+
+    // Reset navigation state after scroll completes
+    setTimeout(() => setIsNavigating(false), 1000);
   };
+
+  // Show splash screen on initial load
+  if (isLoading) {
+    return <SplashScreen onComplete={handleSplashComplete} duration={500} />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      {/* Performance Monitor (only in development) */}
+      <PerformanceMonitor />
+
+      {/* Navigation Loading Overlay */}
+      <LoadingOverlay isVisible={isNavigating} message="Navigating..." />
+
       {/* Sidebar Navigation */}
       <SidebarNavigation
         onNavigate={handleScrollToSection}
@@ -41,25 +102,41 @@ export default function Home() {
       {/* Main Content - Fixed offset */}
       <main ref={mainContentRef} className="lg:ml-70 h-screen overflow-y-auto">
         {/* Hero Section */}
-        <Hero
-          onScrollToSection={handleScrollToSection}
-          resumeUrl={personalInfo.resumeUrl}
-        />
+        <Suspense fallback={<HeroSkeleton />}>
+          {loadedSections.has('hero') && (
+            <Hero
+              onScrollToSection={handleScrollToSection}
+              resumeUrl={personalInfo.resumeUrl}
+            />
+          )}
+        </Suspense>
 
         {/* About Section */}
-        <About resumeUrl={personalInfo.resumeUrl} />
+        <Suspense fallback={<AboutSkeleton />}>
+          {loadedSections.has('about') && (
+            <About resumeUrl={personalInfo.resumeUrl} />
+          )}
+        </Suspense>
 
         {/* Experience Section */}
-        <Experience />
+        <Suspense fallback={<ExperienceSkeleton />}>
+          {loadedSections.has('experience') && <Experience />}
+        </Suspense>
 
         {/* Projects Section */}
-        <Projects />
+        <Suspense fallback={<ProjectsSkeleton />}>
+          {loadedSections.has('projects') && <Projects />}
+        </Suspense>
 
         {/* Skills Section */}
-        <Skills />
+        <Suspense fallback={<SkillsSkeleton />}>
+          {loadedSections.has('skills') && <Skills />}
+        </Suspense>
 
         {/* Contact Section */}
-        <Contact />
+        <Suspense fallback={<ContactSkeleton />}>
+          {loadedSections.has('contact') && <Contact />}
+        </Suspense>
       </main>
     </div>
   );
