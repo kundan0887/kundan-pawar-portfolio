@@ -108,7 +108,7 @@ export const viewport = {
 // Theme provider component
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+    <div className='min-h-screen bg-background text-foreground transition-colors duration-300'>
       {children}
     </div>
   );
@@ -121,7 +121,7 @@ function Analytics() {
       {/* Google Analytics */}
       <script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
       />
       <script
         dangerouslySetInnerHTML={{
@@ -150,9 +150,9 @@ function Analytics() {
       {/* Google Tag Manager (noscript) */}
       <noscript>
         <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-          height="0"
-          width="0"
+          src='https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX'
+          height='0'
+          width='0'
           style={{ display: 'none', visibility: 'hidden' }}
         />
       </noscript>
@@ -167,29 +167,29 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang='en'
       className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
         {/* Preconnect to external domains for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
         />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel='preconnect' href='https://www.googletagmanager.com' />
 
         {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+        <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+        <link rel='manifest' href='/manifest.json' />
 
         {/* DNS prefetch for performance */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+        <link rel='dns-prefetch' href='//www.googletagmanager.com' />
       </head>
       <body
         className={`${inter.className} antialiased bg-background text-foreground`}
@@ -197,9 +197,9 @@ export default function RootLayout({
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-            height="0"
-            width="0"
+            src='https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX'
+            height='0'
+            width='0'
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>

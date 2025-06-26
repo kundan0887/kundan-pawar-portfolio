@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
 
@@ -59,7 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {loading && (
-          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+          <div className='w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2' />
         )}
         {children}
       </button>

@@ -35,11 +35,11 @@ export function usePerformance() {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.href = options.href;
-    
+
     if (options.as) link.as = options.as;
     if (options.type) link.type = options.type;
     if (options.crossorigin) link.crossOrigin = options.crossorigin;
-    
+
     document.head.appendChild(link);
   }, []);
 
@@ -50,19 +50,19 @@ export function usePerformance() {
       href: '/fonts/inter-var.woff2',
       as: 'font',
       type: 'font/woff2',
-      crossorigin: 'anonymous'
+      crossorigin: 'anonymous',
     });
 
     // Preload critical images
     preloadResource({
       href: '/profile-placeholder.jpg',
-      as: 'image'
+      as: 'image',
     });
 
     // Preload critical CSS
     preloadResource({
       href: '/globals.css',
-      as: 'style'
+      as: 'style',
     });
   }, [preloadResource]);
 
@@ -70,51 +70,64 @@ export function usePerformance() {
   const measurePerformance = useCallback(() => {
     if (typeof window === 'undefined') return;
 
-    const navigationEntry = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    const navigationEntry = performance.getEntriesByType(
+      'navigation'
+    )[0] as PerformanceNavigationTiming;
     const paintEntries = performance.getEntriesByType('paint');
-    const fcpEntry = paintEntries.find(entry => entry.name === 'first-contentful-paint');
+    const fcpEntry = paintEntries.find(
+      entry => entry.name === 'first-contentful-paint'
+    );
     const fpEntry = paintEntries.find(entry => entry.name === 'first-paint');
 
     const metrics: PerformanceMetrics = {
-      loadTime: navigationEntry?.loadEventEnd - navigationEntry?.loadEventStart || 0,
-      domContentLoaded: navigationEntry?.domContentLoadedEventEnd - navigationEntry?.domContentLoadedEventStart || 0,
+      loadTime:
+        navigationEntry?.loadEventEnd - navigationEntry?.loadEventStart || 0,
+      domContentLoaded:
+        navigationEntry?.domContentLoadedEventEnd -
+          navigationEntry?.domContentLoadedEventStart || 0,
       firstPaint: fpEntry?.startTime || 0,
       firstContentfulPaint: fcpEntry?.startTime || 0,
       largestContentfulPaint: 0,
       firstInputDelay: 0,
       cumulativeLayoutShift: 0,
-      timeToFirstByte: navigationEntry?.responseStart - navigationEntry?.requestStart || 0,
+      timeToFirstByte:
+        navigationEntry?.responseStart - navigationEntry?.requestStart || 0,
     };
 
     // Measure LCP
-    new PerformanceObserver((list) => {
+    new PerformanceObserver(list => {
       const entries = list.getEntries();
       const lcp = entries[entries.length - 1];
       if (lcp) {
-        setMetrics(prev => prev ? { ...prev, largestContentfulPaint: lcp.startTime } : null);
+        setMetrics(prev =>
+          prev ? { ...prev, largestContentfulPaint: lcp.startTime } : null
+        );
       }
     }).observe({ entryTypes: ['largest-contentful-paint'] });
 
     // Measure FID
-    new PerformanceObserver((list) => {
+    new PerformanceObserver(list => {
       const entries = list.getEntries();
-      entries.forEach((entry) => {
+      entries.forEach(entry => {
         const firstInputEntry = entry as FirstInputPerformanceEntry;
         if (firstInputEntry.processingStart && firstInputEntry.startTime) {
-          const fid = firstInputEntry.processingStart - firstInputEntry.startTime;
-          setMetrics(prev => prev ? { ...prev, firstInputDelay: fid } : null);
+          const fid =
+            firstInputEntry.processingStart - firstInputEntry.startTime;
+          setMetrics(prev => (prev ? { ...prev, firstInputDelay: fid } : null));
         }
       });
     }).observe({ entryTypes: ['first-input'] });
 
     // Measure CLS
     let clsValue = 0;
-    new PerformanceObserver((list) => {
+    new PerformanceObserver(list => {
       const entries = list.getEntries();
       entries.forEach((entry: any) => {
         if (!entry.hadRecentInput) {
           clsValue += entry.value;
-          setMetrics(prev => prev ? { ...prev, cumulativeLayoutShift: clsValue } : null);
+          setMetrics(prev =>
+            prev ? { ...prev, cumulativeLayoutShift: clsValue } : null
+          );
         }
       });
     }).observe({ entryTypes: ['layout-shift'] });
@@ -131,8 +144,8 @@ export function usePerformance() {
 
   // Lazy load images
   const lazyLoadImage = useCallback((img: HTMLImageElement, src: string) => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           img.src = src;
           img.classList.remove('lazy');
@@ -155,10 +168,10 @@ export function usePerformance() {
   // Monitor bundle size
   const getBundleSize = useCallback(() => {
     if (typeof window === 'undefined') return 0;
-    
+
     const scripts = document.querySelectorAll('script[src]');
     let totalSize = 0;
-    
+
     scripts.forEach(script => {
       const src = script.getAttribute('src');
       if (src && src.includes('_next')) {
@@ -166,20 +179,23 @@ export function usePerformance() {
         totalSize += 100; // KB
       }
     });
-    
+
     return totalSize;
   }, []);
 
   // Performance budget check
-  const checkPerformanceBudget = useCallback((budget: number) => {
-    if (!metrics) return { isOverBudget: false, percentage: 0 };
-    
-    const currentLoadTime = metrics.loadTime;
-    const percentage = (currentLoadTime / budget) * 100;
-    const isOverBudget = percentage > 100;
-    
-    return { isOverBudget, percentage };
-  }, [metrics]);
+  const checkPerformanceBudget = useCallback(
+    (budget: number) => {
+      if (!metrics) return { isOverBudget: false, percentage: 0 };
+
+      const currentLoadTime = metrics.loadTime;
+      const percentage = (currentLoadTime / budget) * 100;
+      const isOverBudget = percentage > 100;
+
+      return { isOverBudget, percentage };
+    },
+    [metrics]
+  );
 
   return {
     metrics,
@@ -200,13 +216,13 @@ export function useComponentPerformance(componentName: string) {
 
   useEffect(() => {
     const startTime = performance.now();
-    
+
     return () => {
       const endTime = performance.now();
       const duration = endTime - startTime;
       setRenderTime(duration);
       setIsRendered(true);
-      
+
       // Log performance in development
       if (process.env.NODE_ENV === 'development') {
         console.log(`${componentName} render time: ${duration.toFixed(2)}ms`);
@@ -224,22 +240,28 @@ export function useIntersectionObserver(
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasIntersected, setHasIntersected] = useState(false);
 
-  const ref = useCallback((node: HTMLElement | null) => {
-    if (node) {
-      const observer = new IntersectionObserver(([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
-        if (entry.isIntersecting && !hasIntersected) {
-          setHasIntersected(true);
-        }
-      }, {
-        threshold: 0.1,
-        rootMargin: '50px',
-        ...options
-      });
+  const ref = useCallback(
+    (node: HTMLElement | null) => {
+      if (node) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            setIsIntersecting(entry.isIntersecting);
+            if (entry.isIntersecting && !hasIntersected) {
+              setHasIntersected(true);
+            }
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '50px',
+            ...options,
+          }
+        );
 
-      observer.observe(node);
-    }
-  }, [hasIntersected, options]);
+        observer.observe(node);
+      }
+    },
+    [hasIntersected, options]
+  );
 
   return { ref, isIntersecting, hasIntersected };
-} 
+}

@@ -28,33 +28,33 @@ export default function Experience() {
   };
 
   return (
-    <Section id="experience">
+    <Section id='experience'>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className='text-center mb-16'
       >
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-8">
+        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
           Work Experience
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
           My professional journey in software development
         </p>
       </motion.div>
 
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true }}
-        className="relative"
+        className='relative'
       >
         {/* Timeline Line */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-600 transform md:-translate-x-1/2"></div>
+        <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-600 transform md:-translate-x-1/2'></div>
 
-        <div className="space-y-12">
+        <div className='space-y-12'>
           {experiences.map((job: ExperienceType, index: number) => (
             <motion.div
               key={`${job.company}-${job.role}`}
@@ -64,7 +64,7 @@ export default function Experience() {
               }`}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-slate-800 transform md:-translate-x-1/2 z-10"></div>
+              <div className='absolute left-4 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-slate-800 transform md:-translate-x-1/2 z-10'></div>
 
               {/* Content Card */}
               <div
@@ -72,48 +72,48 @@ export default function Experience() {
                   index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                 }`}
               >
-                <Card variant="elevated" className="p-6">
+                <Card variant='elevated' className='p-6'>
                   {/* Header */}
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                  <div className='mb-4'>
+                    <h3 className='text-xl font-bold text-slate-900 dark:text-white mb-2'>
                       {job.role}
                     </h3>
-                    <div className="flex items-center gap-4 text-slate-600 dark:text-slate-300 text-sm mb-3">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
+                    <div className='flex items-center gap-4 text-slate-600 dark:text-slate-300 text-sm mb-3'>
+                      <div className='flex items-center gap-1'>
+                        <MapPin className='w-4 h-4' />
                         <span>{job.company}</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
+                      <div className='flex items-center gap-1'>
+                        <Calendar className='w-4 h-4' />
                         <span>{job.duration}</span>
                       </div>
                     </div>
                     {job.location && (
-                      <p className="text-slate-500 dark:text-slate-400 text-sm">
+                      <p className='text-slate-500 dark:text-slate-400 text-sm'>
                         📍 {job.location}
                       </p>
                     )}
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  <p className='text-slate-600 dark:text-slate-300 mb-4 leading-relaxed'>
                     {job.description}
                   </p>
 
                   {/* Achievements */}
                   {job.achievements && job.achievements.length > 0 && (
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-900 dark:text-white mb-2">
+                    <div className='mb-4'>
+                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
                         Key Achievements:
                       </h4>
-                      <ul className="space-y-1">
+                      <ul className='space-y-1'>
                         {job.achievements.map(
                           (achievement: string, idx: number) => (
                             <li
                               key={idx}
-                              className="text-slate-600 dark:text-slate-300 text-sm flex items-start gap-2"
+                              className='text-slate-600 dark:text-slate-300 text-sm flex items-start gap-2'
                             >
-                              <span className="text-blue-600 dark:text-blue-400 mt-1">
+                              <span className='text-blue-600 dark:text-blue-400 mt-1'>
                                 •
                               </span>
                               {achievement}
@@ -126,13 +126,13 @@ export default function Experience() {
 
                   {/* Technologies */}
                   {job.technologies && job.technologies.length > 0 && (
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-slate-900 dark:text-white mb-2">
+                    <div className='mb-4'>
+                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
                         Technologies:
                       </h4>
-                      <div className="flex flex-wrap gap-2">
+                      <div className='flex flex-wrap gap-2'>
                         {job.technologies.map((tech: string, idx: number) => (
-                          <Badge key={idx} variant="primary" size="sm">
+                          <Badge key={idx} variant='primary' size='sm'>
                             {tech}
                           </Badge>
                         ))}
@@ -143,19 +143,19 @@ export default function Experience() {
                   {/* Metrics */}
                   {job.metrics && job.metrics.length > 0 && (
                     <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-white mb-2">
+                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
                         Impact:
                       </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                         {job.metrics.map((metric, idx: number) => (
                           <div
                             key={idx}
-                            className="bg-slate-50 dark:bg-slate-700 p-3 rounded-lg"
+                            className='bg-slate-50 dark:bg-slate-700 p-3 rounded-lg'
                           >
-                            <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                            <div className='text-lg font-bold text-blue-600 dark:text-blue-400'>
                               {metric.value}
                             </div>
-                            <div className="text-xs text-slate-600 dark:text-slate-300">
+                            <div className='text-xs text-slate-600 dark:text-slate-300'>
                               {metric.label}
                             </div>
                           </div>

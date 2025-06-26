@@ -52,18 +52,18 @@ export default function SplashScreen({
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 z-50 flex items-center justify-center"
+          className='fixed inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 z-50 flex items-center justify-center'
         >
-          <div className="text-center">
+          <div className='text-center'>
             {/* Logo/Brand */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="mb-8"
+              className='mb-8'
             >
-              <div className="w-24 h-24 mx-auto bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <span className="text-3xl font-bold text-white">KP</span>
+              <div className='w-24 h-24 mx-auto bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm'>
+                <span className='text-3xl font-bold text-white'>KP</span>
               </div>
             </motion.div>
 
@@ -72,7 +72,7 @@ export default function SplashScreen({
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl font-bold text-white mb-2"
+              className='text-4xl font-bold text-white mb-2'
             >
               Kundan Pawar
             </motion.h1>
@@ -82,7 +82,7 @@ export default function SplashScreen({
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl text-white/80 mb-8"
+              className='text-xl text-white/80 mb-8'
             >
               Senior Frontend Developer
             </motion.p>
@@ -92,19 +92,19 @@ export default function SplashScreen({
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="mb-6"
+              className='mb-6'
             >
-              <LoadingSpinner size="lg" color="white" />
+              <LoadingSpinner size='lg' color='white' />
             </motion.div>
 
             {/* Progress Bar */}
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
-              className="h-1 bg-white/30 rounded-full overflow-hidden max-w-xs mx-auto"
+              className='h-1 bg-white/30 rounded-full overflow-hidden max-w-xs mx-auto'
             >
               <motion.div
-                className="h-full bg-white rounded-full"
+                className='h-full bg-white rounded-full'
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.1 }}
@@ -116,17 +116,17 @@ export default function SplashScreen({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-white/60 mt-4 text-sm"
+              className='text-white/60 mt-4 text-sm'
             >
               Loading portfolio...
             </motion.p>
 
             {/* Animated background elements - Fixed positions to avoid hydration mismatch */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className='absolute inset-0 overflow-hidden pointer-events-none'>
               {PARTICLE_POSITIONS.map((particle, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-2 h-2 bg-white/20 rounded-full"
+                  className='absolute w-2 h-2 bg-white/20 rounded-full'
                   initial={{
                     x: particle.x,
                     y: particle.y,
@@ -175,17 +175,17 @@ export function MinimalSplashScreen({
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-slate-900 z-50 flex items-center justify-center"
+          className='fixed inset-0 bg-slate-900 z-50 flex items-center justify-center'
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center"
+            className='text-center'
           >
-            <LoadingSpinner size="xl" color="primary" />
-            <p className="mt-4 text-slate-400 text-sm">Loading...</p>
+            <LoadingSpinner size='xl' color='primary' />
+            <p className='mt-4 text-slate-400 text-sm'>Loading...</p>
           </motion.div>
         </motion.div>
       )}

@@ -60,13 +60,13 @@ export default function LoadingSpinner({
   return (
     <div
       className={cn('flex flex-col items-center justify-center', className)}
-      role="status"
+      role='status'
       aria-label={label}
     >
       {/* Main Spinner */}
       <motion.div
         variants={spinnerVariants}
-        animate="animate"
+        animate='animate'
         className={cn(
           'relative',
           sizeClasses[size],
@@ -77,11 +77,11 @@ export default function LoadingSpinner({
         }
       >
         {/* Outer ring */}
-        <div className="absolute inset-0 rounded-full border-2 border-current border-t-transparent opacity-30" />
+        <div className='absolute inset-0 rounded-full border-2 border-current border-t-transparent opacity-30' />
 
         {/* Inner spinning ring */}
         <motion.div
-          className="absolute inset-0 rounded-full border-2 border-current border-t-transparent"
+          className='absolute inset-0 rounded-full border-2 border-current border-t-transparent'
           animate={{ rotate: 360 }}
           transition={{
             duration: 1,
@@ -92,11 +92,11 @@ export default function LoadingSpinner({
 
         {/* Center dot */}
         <motion.div
-          className="absolute inset-0 flex items-center justify-center"
+          className='absolute inset-0 flex items-center justify-center'
           variants={dotVariants}
-          animate="animate"
+          animate='animate'
         >
-          <div className="w-1 h-1 rounded-full bg-current" />
+          <div className='w-1 h-1 rounded-full bg-current' />
         </motion.div>
       </motion.div>
 
@@ -122,7 +122,7 @@ export default function LoadingSpinner({
       )}
 
       {/* Screen reader text */}
-      <span className="sr-only">{label}</span>
+      <span className='sr-only'>{label}</span>
     </div>
   );
 }
@@ -151,12 +151,12 @@ export function LoadingPulse({
   return (
     <div
       className={cn('flex flex-col items-center justify-center', className)}
-      role="status"
+      role='status'
       aria-label={label}
     >
       <motion.div
         variants={pulseVariants}
-        animate="animate"
+        animate='animate'
         className={cn(
           'rounded-full bg-current',
           sizeClasses[size],
@@ -189,7 +189,7 @@ export function LoadingPulse({
         </motion.p>
       )}
 
-      <span className="sr-only">{label}</span>
+      <span className='sr-only'>{label}</span>
     </div>
   );
 }
@@ -208,10 +208,10 @@ export function LoadingDots({
   return (
     <div
       className={cn('flex flex-col items-center justify-center', className)}
-      role="status"
+      role='status'
       aria-label={label}
     >
-      <div className="flex space-x-1">
+      <div className='flex space-x-1'>
         {dots.map((dot, index) => (
           <motion.div
             key={dot}
@@ -258,7 +258,7 @@ export function LoadingDots({
         </motion.p>
       )}
 
-      <span className="sr-only">{label}</span>
+      <span className='sr-only'>{label}</span>
     </div>
   );
 }
@@ -306,11 +306,11 @@ export function LoadingOverlay({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center"
+          className='fixed inset-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center'
         >
-          <div className="text-center">
-            <LoadingSpinner size="xl" color="primary" showLabel />
-            <p className="mt-4 text-lg font-medium text-slate-700 dark:text-slate-300">
+          <div className='text-center'>
+            <LoadingSpinner size='xl' color='primary' showLabel />
+            <p className='mt-4 text-lg font-medium text-slate-700 dark:text-slate-300'>
               {message}
             </p>
           </div>

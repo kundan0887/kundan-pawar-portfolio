@@ -94,18 +94,18 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact">
+    <Section id='contact'>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className='text-center mb-16'
       >
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-8">
+        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
           Get In Touch
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
           I'm always open to discussing new opportunities and interesting
           projects
         </p>
@@ -113,36 +113,36 @@ export default function Contact() {
 
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+        className='grid grid-cols-1 lg:grid-cols-2 gap-12'
       >
         {/* Contact Form */}
-        <motion.div variants={itemVariants} className="space-y-6">
-          <Card variant="elevated" className="p-8">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+        <motion.div variants={itemVariants} className='space-y-6'>
+          <Card variant='elevated' className='p-8'>
+            <h3 className='text-2xl font-bold text-slate-900 dark:text-white mb-6'>
               Send a Message
             </h3>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
               {/* Name Field */}
               <div>
                 <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  htmlFor='name'
+                  className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'
                 >
                   Name *
                 </label>
                 <input
                   {...register('name', { required: 'Name is required' })}
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
-                  placeholder="Your name"
+                  type='text'
+                  id='name'
+                  className='w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                  placeholder='Your name'
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className='mt-1 text-sm text-red-600 dark:text-red-400'>
                     {errors.name.message}
                   </p>
                 )}
@@ -151,8 +151,8 @@ export default function Contact() {
               {/* Email Field */}
               <div>
                 <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  htmlFor='email'
+                  className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'
                 >
                   Email *
                 </label>
@@ -164,13 +164,13 @@ export default function Contact() {
                       message: 'Invalid email address',
                     },
                   })}
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white"
-                  placeholder="your.email@example.com"
+                  type='email'
+                  id='email'
+                  className='w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                  placeholder='your.email@example.com'
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className='mt-1 text-sm text-red-600 dark:text-red-400'>
                     {errors.email.message}
                   </p>
                 )}
@@ -179,20 +179,20 @@ export default function Contact() {
               {/* Message Field */}
               <div>
                 <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  htmlFor='message'
+                  className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'
                 >
                   Message *
                 </label>
                 <textarea
                   {...register('message', { required: 'Message is required' })}
-                  id="message"
+                  id='message'
                   rows={5}
-                  className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white resize-vertical"
-                  placeholder="Tell me about your project or opportunity..."
+                  className='w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white resize-vertical'
+                  placeholder='Tell me about your project or opportunity...'
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+                  <p className='mt-1 text-sm text-red-600 dark:text-red-400'>
                     {errors.message.message}
                   </p>
                 )}
@@ -201,21 +201,21 @@ export default function Contact() {
               {/* Honeypot Field (Hidden) */}
               <input
                 {...register('honeypot')}
-                type="text"
-                className="hidden"
+                type='text'
+                className='hidden'
                 tabIndex={-1}
-                autoComplete="off"
+                autoComplete='off'
               />
 
               {/* Submit Button */}
               <Button
-                type="submit"
+                type='submit'
                 disabled={isSubmitting}
                 loading={isSubmitting}
                 fullWidth
-                className="flex items-center justify-center gap-2"
+                className='flex items-center justify-center gap-2'
               >
-                <Send className="w-4 h-4" />
+                <Send className='w-4 h-4' />
                 Send Message
               </Button>
 
@@ -224,10 +224,10 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg"
+                  className='flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg'
                 >
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
-                  <span className="text-green-800 dark:text-green-200">
+                  <CheckCircle className='w-5 h-5 text-green-600 dark:text-green-400' />
+                  <span className='text-green-800 dark:text-green-200'>
                     Message sent successfully! I'll get back to you soon.
                   </span>
                 </motion.div>
@@ -237,10 +237,10 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg"
+                  className='flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg'
                 >
-                  <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
-                  <span className="text-red-800 dark:text-red-200">
+                  <AlertCircle className='w-5 h-5 text-red-600 dark:text-red-400' />
+                  <span className='text-red-800 dark:text-red-200'>
                     Something went wrong. Please try again or contact me
                     directly.
                   </span>
@@ -251,54 +251,54 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Information */}
-        <motion.div variants={itemVariants} className="space-y-8">
-          <Card variant="elevated" className="p-8">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+        <motion.div variants={itemVariants} className='space-y-8'>
+          <Card variant='elevated' className='p-8'>
+            <h3 className='text-2xl font-bold text-slate-900 dark:text-white mb-6'>
               Contact Information
             </h3>
 
             {/* Contact Details */}
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                  <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            <div className='space-y-6'>
+              <div className='flex items-start gap-4'>
+                <div className='p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg'>
+                  <Mail className='w-6 h-6 text-blue-600 dark:text-blue-400' />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-1">
+                  <h4 className='font-semibold text-slate-900 dark:text-white mb-1'>
                     Email
                   </h4>
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className='text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors'
                   >
                     {contactInfo.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                  <MapPin className="w-6 h-6 text-green-600 dark:text-green-400" />
+              <div className='flex items-start gap-4'>
+                <div className='p-3 bg-green-100 dark:bg-green-900/30 rounded-lg'>
+                  <MapPin className='w-6 h-6 text-green-600 dark:text-green-400' />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-1">
+                  <h4 className='font-semibold text-slate-900 dark:text-white mb-1'>
                     Location
                   </h4>
-                  <p className="text-slate-600 dark:text-slate-300">
+                  <p className='text-slate-600 dark:text-slate-300'>
                     {contactInfo.location}
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                  <Clock className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className='flex items-start gap-4'>
+                <div className='p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg'>
+                  <Clock className='w-6 h-6 text-purple-600 dark:text-purple-400' />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-1">
+                  <h4 className='font-semibold text-slate-900 dark:text-white mb-1'>
                     Availability
                   </h4>
-                  <p className="text-slate-600 dark:text-slate-300">
+                  <p className='text-slate-600 dark:text-slate-300'>
                     {contactInfo.availability}
                   </p>
                 </div>
@@ -306,32 +306,32 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="mt-8">
-              <h4 className="font-semibold text-slate-900 dark:text-white mb-4">
+            <div className='mt-8'>
+              <h4 className='font-semibold text-slate-900 dark:text-white mb-4'>
                 Connect with me
               </h4>
-              <div className="flex gap-4">
+              <div className='flex gap-4'>
                 <a
                   href={socialLinks.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors'
                 >
-                  <Github className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+                  <Github className='w-6 h-6 text-slate-700 dark:text-slate-300' />
                 </a>
                 <a
                   href={socialLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors'
                 >
-                  <Linkedin className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+                  <Linkedin className='w-6 h-6 text-slate-700 dark:text-slate-300' />
                 </a>
                 <a
                   href={socialLinks.email}
-                  className="p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                  className='p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors'
                 >
-                  <Mail className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+                  <Mail className='w-6 h-6 text-slate-700 dark:text-slate-300' />
                 </a>
               </div>
             </div>

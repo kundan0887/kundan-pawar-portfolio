@@ -50,53 +50,53 @@ export default function Skills() {
   };
 
   return (
-    <Section id="skills">
+    <Section id='skills'>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className='text-center mb-16'
       >
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-8">
+        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
           Skills & Expertise
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
           My technical skills and proficiency levels across various technologies
         </p>
       </motion.div>
 
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial='hidden'
+        whileInView='visible'
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
       >
         {detailedSkills.map((skill: SkillType) => (
           <motion.div key={skill.name} variants={itemVariants}>
-            <Card variant="elevated" className="p-6">
+            <Card variant='elevated' className='p-6'>
               {/* Skill Header */}
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              <div className='flex items-center justify-between mb-4'>
+                <h3 className='text-lg font-semibold text-slate-900 dark:text-white'>
                   {skill.name}
                 </h3>
                 <motion.div
                   custom={skill.years}
                   variants={counterVariants}
-                  className="text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-full"
+                  className='text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-full'
                 >
                   {skill.years} years
                 </motion.div>
               </div>
 
               {/* Progress Bar */}
-              <div className="mb-3">
-                <div className="flex justify-between text-sm text-slate-600 dark:text-slate-300 mb-1">
+              <div className='mb-3'>
+                <div className='flex justify-between text-sm text-slate-600 dark:text-slate-300 mb-1'>
                   <span>Proficiency</span>
                   <span>{skill.level}%</span>
                 </div>
-                <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+                <div className='w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden'>
                   <motion.div
                     custom={skill.level}
                     variants={progressVariants}
@@ -106,11 +106,11 @@ export default function Skills() {
               </div>
 
               {/* Category Badge */}
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-slate-500 dark:text-slate-400">
+              <div className='flex justify-between items-center'>
+                <span className='text-xs text-slate-500 dark:text-slate-400'>
                   {skill.category}
                 </span>
-                <div className="flex space-x-1">
+                <div className='flex space-x-1'>
                   {[...Array(5)].map((_, i) => (
                     <div
                       key={i}
@@ -134,40 +134,40 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="mt-16 text-center"
+        className='mt-16 text-center'
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <Card variant="elevated" className="text-center p-6">
-            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+          <Card variant='elevated' className='text-center p-6'>
+            <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>
               {detailedSkills.length}
             </div>
-            <div className="text-slate-600 dark:text-slate-300">
+            <div className='text-slate-600 dark:text-slate-300'>
               Technologies
             </div>
           </Card>
-          <Card variant="elevated" className="text-center p-6">
-            <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+          <Card variant='elevated' className='text-center p-6'>
+            <div className='text-3xl font-bold text-green-600 dark:text-green-400 mb-2'>
               {Math.max(...detailedSkills.map(s => s.years))}
             </div>
-            <div className="text-slate-600 dark:text-slate-300">
+            <div className='text-slate-600 dark:text-slate-300'>
               Years Experience
             </div>
           </Card>
-          <Card variant="elevated" className="text-center p-6">
-            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+          <Card variant='elevated' className='text-center p-6'>
+            <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>
               {Array.from(new Set(detailedSkills.map(s => s.category))).length}
             </div>
-            <div className="text-slate-600 dark:text-slate-300">Categories</div>
+            <div className='text-slate-600 dark:text-slate-300'>Categories</div>
           </Card>
-          <Card variant="elevated" className="text-center p-6">
-            <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">
+          <Card variant='elevated' className='text-center p-6'>
+            <div className='text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2'>
               {Math.round(
                 detailedSkills.reduce((acc, s) => acc + s.level, 0) /
                   detailedSkills.length
               )}
               %
             </div>
-            <div className="text-slate-600 dark:text-slate-300">
+            <div className='text-slate-600 dark:text-slate-300'>
               Avg Proficiency
             </div>
           </Card>

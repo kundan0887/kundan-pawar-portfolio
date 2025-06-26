@@ -38,7 +38,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
     };
 
     const content = container ? (
-      <div className="container mx-auto px-4">{children}</div>
+      <div className='container mx-auto px-4'>{children}</div>
     ) : (
       children
     );

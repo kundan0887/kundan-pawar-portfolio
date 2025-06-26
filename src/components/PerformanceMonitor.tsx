@@ -212,34 +212,34 @@ export default function PerformanceMonitor() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className='fixed bottom-4 right-4 z-50'>
       <AnimatePresence>
         {showDetails ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 p-6 w-80"
+            className='bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 p-6 w-80'
           >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            <div className='flex items-center justify-between mb-4'>
+              <h3 className='text-lg font-semibold text-slate-900 dark:text-white'>
                 Performance Monitor
               </h3>
               <button
                 onClick={() => setShowDetails(false)}
-                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                className='text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
               >
                 <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  className='w-5 h-5'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
                 >
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
                     strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
+                    d='M6 18L18 6M6 6l12 12'
                   />
                 </svg>
               </button>
@@ -249,8 +249,8 @@ export default function PerformanceMonitor() {
             <div
               className={cn('p-4 rounded-lg mb-4', getRatingBg(overallRating))}
             >
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+              <div className='flex items-center justify-between'>
+                <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
                   Overall Score
                 </span>
                 <span
@@ -265,19 +265,19 @@ export default function PerformanceMonitor() {
             </div>
 
             {/* Web Vitals */}
-            <div className="space-y-3 mb-4">
-              <h4 className="text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className='space-y-3 mb-4'>
+              <h4 className='text-sm font-medium text-slate-700 dark:text-slate-300'>
                 Web Vitals
               </h4>
               {webVitals.map(vital => (
                 <div
                   key={vital.name}
-                  className="flex items-center justify-between"
+                  className='flex items-center justify-between'
                 >
-                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                  <span className='text-sm text-slate-600 dark:text-slate-400'>
                     {vital.name}
                   </span>
-                  <div className="flex items-center space-x-2">
+                  <div className='flex items-center space-x-2'>
                     <span
                       className={cn(
                         'text-sm font-medium',
@@ -299,26 +299,26 @@ export default function PerformanceMonitor() {
             </div>
 
             {/* Additional Metrics */}
-            <div className="space-y-3">
-              <h4 className="text-sm font-medium text-slate-700 dark:text-slate-300">
+            <div className='space-y-3'>
+              <h4 className='text-sm font-medium text-slate-700 dark:text-slate-300'>
                 Additional Metrics
               </h4>
               {metrics.loadTime && (
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                <div className='flex items-center justify-between'>
+                  <span className='text-sm text-slate-600 dark:text-slate-400'>
                     Load Time
                   </span>
-                  <span className="text-sm font-medium text-slate-900 dark:text-white">
+                  <span className='text-sm font-medium text-slate-900 dark:text-white'>
                     {metrics.loadTime.toFixed(0)}ms
                   </span>
                 </div>
               )}
               {metrics.bundleSize && (
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                <div className='flex items-center justify-between'>
+                  <span className='text-sm text-slate-600 dark:text-slate-400'>
                     Bundle Size
                   </span>
-                  <span className="text-sm font-medium text-slate-900 dark:text-white">
+                  <span className='text-sm font-medium text-slate-900 dark:text-white'>
                     ~{metrics.bundleSize}KB
                   </span>
                 </div>
@@ -336,20 +336,20 @@ export default function PerformanceMonitor() {
               'bg-white dark:bg-slate-800 hover:shadow-xl transition-shadow',
               'flex items-center justify-center'
             )}
-            title="Performance Monitor"
+            title='Performance Monitor'
           >
-            <div className="relative">
+            <div className='relative'>
               <svg
-                className="w-6 h-6 text-slate-600 dark:text-slate-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+                className='w-6 h-6 text-slate-600 dark:text-slate-400'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                   strokeWidth={2}
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
                 />
               </svg>
               <div
@@ -383,29 +383,29 @@ export function PerformanceBudgetAlert({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-4 right-4 bg-red-100 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 max-w-sm"
+      className='fixed top-4 right-4 bg-red-100 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 max-w-sm'
     >
-      <div className="flex items-start space-x-3">
-        <div className="flex-shrink-0">
+      <div className='flex items-start space-x-3'>
+        <div className='flex-shrink-0'>
           <svg
-            className="w-5 h-5 text-red-600 dark:text-red-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+            className='w-5 h-5 text-red-600 dark:text-red-400'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              strokeLinecap='round'
+              strokeLinejoin='round'
               strokeWidth={2}
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+              d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z'
             />
           </svg>
         </div>
         <div>
-          <h3 className="text-sm font-medium text-red-800 dark:text-red-200">
+          <h3 className='text-sm font-medium text-red-800 dark:text-red-200'>
             Performance Budget Exceeded
           </h3>
-          <p className="text-sm text-red-700 dark:text-red-300 mt-1">
+          <p className='text-sm text-red-700 dark:text-red-300 mt-1'>
             Current: {current}ms | Budget: {budget}ms ({percentage.toFixed(1)}%)
           </p>
         </div>

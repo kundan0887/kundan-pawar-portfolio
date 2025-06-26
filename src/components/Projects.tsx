@@ -48,18 +48,18 @@ export default function Projects() {
   };
 
   return (
-    <Section id="projects">
+    <Section id='projects'>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className='text-center mb-16'
       >
-        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-8">
+        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
           Featured Projects
         </h2>
-        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
           A showcase of my recent work and technical expertise
         </p>
       </motion.div>
@@ -70,14 +70,14 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex flex-wrap justify-center gap-3 mb-12"
+        className='flex flex-wrap justify-center gap-3 mb-12'
       >
         {categories.map(category => (
           <Button
             key={category}
             variant={selectedCategory === category ? 'primary' : 'outline'}
             onClick={() => handleCategoryChange(category)}
-            className="capitalize"
+            className='capitalize'
           >
             {category}
           </Button>
@@ -87,86 +87,86 @@ export default function Projects() {
       {/* Projects Grid */}
       <motion.div
         variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        initial='hidden'
+        animate='visible'
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode='wait'>
           {filteredProjects.map((project: ProjectType) => (
             <motion.div
               key={project.title}
               variants={itemVariants}
               layout
-              className="group"
+              className='group'
             >
-              <Card variant="elevated" className="h-full overflow-hidden">
+              <Card variant='elevated' className='h-full overflow-hidden'>
                 {/* Project Image */}
-                <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden">
+                <div className='relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden'>
                   {project.imageUrl ? (
                     <img
                       src={project.imageUrl}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-white">
-                      <div className="text-center">
-                        <div className="text-4xl font-bold mb-2">
+                    <div className='w-full h-full flex items-center justify-center text-white'>
+                      <div className='text-center'>
+                        <div className='text-4xl font-bold mb-2'>
                           {project.title.charAt(0)}
                         </div>
-                        <div className="text-sm opacity-75">
+                        <div className='text-sm opacity-75'>
                           Project Preview
                         </div>
                       </div>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                  <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300'></div>
                 </div>
 
                 {/* Project Content */}
                 <CardContent>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                  <h3 className='text-xl font-bold text-slate-900 dark:text-white mb-3'>
                     {project.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  <p className='text-slate-600 dark:text-slate-300 mb-4 leading-relaxed'>
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className='flex flex-wrap gap-2 mb-6'>
                     {project.technologies
                       .slice(0, 4)
                       .map((tech: string, idx: number) => (
-                        <Badge key={idx} variant="primary" size="sm">
+                        <Badge key={idx} variant='primary' size='sm'>
                           {tech}
                         </Badge>
                       ))}
                     {project.technologies.length > 4 && (
-                      <Badge variant="default" size="sm">
+                      <Badge variant='default' size='sm'>
                         +{project.technologies.length - 4} more
                       </Badge>
                     )}
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3">
+                  <div className='flex gap-3'>
                     <Button
-                      variant="outline"
-                      size="sm"
+                      variant='outline'
+                      size='sm'
                       onClick={() => window.open(project.githubUrl, '_blank')}
-                      className="flex items-center gap-2 flex-1"
+                      className='flex items-center gap-2 flex-1'
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className='w-4 h-4' />
                       Code
                     </Button>
                     {project.liveUrl && (
                       <Button
-                        variant="outline"
-                        size="sm"
+                        variant='outline'
+                        size='sm'
                         onClick={() => window.open(project.liveUrl, '_blank')}
-                        className="flex items-center gap-2 flex-1"
+                        className='flex items-center gap-2 flex-1'
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className='w-4 h-4' />
                         Live
                       </Button>
                     )}
