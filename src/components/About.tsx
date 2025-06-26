@@ -13,11 +13,15 @@ import {
   Zap,
   Shield,
   GitBranch,
+  MapPin,
+  Mail,
+  Calendar,
 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Button, Section, Card } from '@/components/ui';
+import { personalInfo } from '@/lib/data';
 
 interface AboutProps {
-  resumeUrl?: string;
+  resumeUrl: string;
 }
 
 export default function About({ resumeUrl }: AboutProps) {
@@ -90,186 +94,122 @@ export default function About({ resumeUrl }: AboutProps) {
   };
 
   return (
-    <section id="about" className="py-20 px-4 bg-slate-50 dark:bg-slate-900/50">
-      <div className="container mx-auto">
+    <Section id="about">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white mb-8">
+          About Me
+        </h2>
+        <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          Get to know me better and understand my journey in software
+          development
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left Side - Content */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="space-y-16"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6"
         >
-          {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-              About Me
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded-full"></div>
-          </motion.div>
-
-          {/* Main Content - Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left Column - Text Content */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              {/* Professional Summary */}
-              <div className="space-y-6">
-                <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed">
-                  With over{' '}
-                  <span className="font-semibold text-blue-600 dark:text-blue-400">
-                    12 years of experience
-                  </span>{' '}
-                  in software development, I've established myself as a Senior
-                  Frontend Developer with deep expertise in modern web
-                  technologies.
-                </p>
-
-                <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed">
-                  I specialize in{' '}
-                  <span className="font-semibold text-green-600 dark:text-green-400">
-                    React ecosystems
-                  </span>{' '}
-                  and
-                  <span className="font-semibold text-orange-600 dark:text-orange-400">
-                    {' '}
-                    AWS cloud services
-                  </span>
-                  , with particular focus on building scalable{' '}
-                  <span className="font-semibold text-purple-600 dark:text-purple-400">
-                    Micro-Frontend architectures
-                  </span>
-                  that enable teams to work independently while maintaining
-                  cohesive user experiences.
-                </p>
-
-                <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed">
-                  My leadership experience includes driving{' '}
-                  <span className="font-semibold text-teal-600 dark:text-teal-400">
-                    test coverage improvements
-                  </span>
-                  from 60% to 85%, implementing comprehensive testing
-                  strategies, and mentoring development teams to deliver
-                  high-quality, maintainable code.
-                </p>
-
-                <p className="text-lg md:text-xl text-slate-700 dark:text-slate-200 leading-relaxed">
-                  I believe in the power of{' '}
-                  <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    collaborative development
-                  </span>
-                  and have successfully led cross-functional teams, fostering
-                  environments where innovation thrives and technical excellence
-                  is the standard.
-                </p>
-              </div>
-
-              {/* Tech Stack Overview */}
-              <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">
-                  Tech Stack & Expertise
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {techStack.map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      variants={statsVariants}
-                      className="flex flex-col items-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
-                    >
-                      <tech.icon className={`w-8 h-8 ${tech.color} mb-2`} />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-200 text-center">
-                        {tech.name}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Download Resume Button */}
-              {resumeUrl && (
-                <motion.div variants={itemVariants} className="pt-4">
-                  <Button
-                    size="lg"
-                    className="flex items-center gap-2 px-8 py-3 text-lg"
-                    onClick={() => window.open(resumeUrl, '_blank')}
-                  >
-                    <Download className="w-5 h-5" />
-                    Download Resume
-                  </Button>
-                </motion.div>
-              )}
-            </motion.div>
-
-            {/* Right Column - Statistics & Image */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              {/* Key Statistics */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    variants={statsVariants}
-                    className={`${stat.bgColor} p-6 rounded-xl text-center hover:shadow-lg transition-shadow duration-200`}
-                  >
-                    <stat.icon
-                      className={`w-8 h-8 ${stat.color} mx-auto mb-3`}
-                    />
-                    <div className={`text-3xl font-bold ${stat.color} mb-1`}>
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-slate-600 dark:text-slate-300 font-medium">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Professional Image Placeholder */}
-              <motion.div variants={statsVariants} className="relative">
-                <div className="w-full h-80 bg-gradient-to-br from-blue-500 via-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl">
-                  <div className="text-center text-white">
-                    <div className="text-6xl font-bold mb-4">KP</div>
-                    <div className="text-xl font-medium opacity-90">
-                      Professional Photo
-                    </div>
-                    <div className="text-sm opacity-75 mt-2">(Placeholder)</div>
-                  </div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-green-400 rounded-full opacity-20 animate-pulse delay-1000"></div>
-                <div className="absolute top-1/2 -right-6 w-12 h-12 bg-pink-400 rounded-full opacity-20 animate-pulse delay-500"></div>
-              </motion.div>
-
-              {/* Additional Highlights */}
-              <motion.div
-                variants={statsVariants}
-                className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm"
-              >
-                <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">
-                  Key Achievements
-                </h4>
-                <ul className="space-y-3 text-slate-700 dark:text-slate-200">
-                  <li className="flex items-start gap-3">
-                    <Target className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span>Increased test coverage from 60% to 85%</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                    <span>Led development teams of 15+ members</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Zap className="w-5 h-5 text-yellow-500 mt-0.5 flex-shrink-0" />
-                    <span>Improved application performance by 40%</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Shield className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <span>Implemented security best practices</span>
-                  </li>
-                </ul>
-              </motion.div>
-            </motion.div>
+          <div>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+              {personalInfo.name}
+            </h3>
+            <p className="text-lg text-slate-700 dark:text-slate-200 mb-4">
+              {personalInfo.title}
+            </p>
+            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              {personalInfo.bio}
+            </p>
           </div>
+
+          {/* Key Information */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <span className="text-slate-600 dark:text-slate-300">
+                {personalInfo.location}
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                {personalInfo.email}
+              </a>
+            </div>
+            {personalInfo.phone && (
+              <div className="flex items-center gap-3">
+                <Calendar className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <span className="text-slate-600 dark:text-slate-300">
+                  {personalInfo.phone}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <Button
+            onClick={() => window.open(resumeUrl, '_blank')}
+            className="flex items-center gap-2"
+          >
+            <Download className="w-4 h-4" />
+            Download Resume
+          </Button>
+        </motion.div>
+
+        {/* Right Side - Stats */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid grid-cols-2 gap-6"
+        >
+          <Card variant="elevated" className="text-center p-6">
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+              12+
+            </div>
+            <div className="text-slate-600 dark:text-slate-300">
+              Years Experience
+            </div>
+          </Card>
+          <Card variant="elevated" className="text-center p-6">
+            <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+              50+
+            </div>
+            <div className="text-slate-600 dark:text-slate-300">
+              Projects Delivered
+            </div>
+          </Card>
+          <Card variant="elevated" className="text-center p-6">
+            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+              24
+            </div>
+            <div className="text-slate-600 dark:text-slate-300">
+              Technologies
+            </div>
+          </Card>
+          <Card variant="elevated" className="text-center p-6">
+            <div className="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">
+              15+
+            </div>
+            <div className="text-slate-600 dark:text-slate-300">
+              Team Members Led
+            </div>
+          </Card>
         </motion.div>
       </div>
-    </section>
+    </Section>
   );
 }
