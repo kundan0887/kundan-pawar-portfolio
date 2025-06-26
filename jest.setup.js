@@ -1,4 +1,8 @@
 import '@testing-library/jest-dom';
+import 'jest-axe/extend-expect';
+
+// Global test utilities can be imported here if needed
+// Example: import './tests/utils/test-utils';
 
 // Mock Next.js router
 jest.mock('next/router', () => ({
@@ -9,7 +13,7 @@ jest.mock('next/router', () => ({
       query: {},
       asPath: '/',
       push: jest.fn(),
-      pop: jest.fn(),
+      replace: jest.fn(),
       reload: jest.fn(),
       back: jest.fn(),
       prefetch: jest.fn().mockResolvedValue(undefined),
@@ -24,7 +28,7 @@ jest.mock('next/router', () => ({
   },
 }));
 
-// Mock Next.js navigation
+// Mock Next.js navigation (for app directory)
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
