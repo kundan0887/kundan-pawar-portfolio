@@ -50,7 +50,7 @@ export const mockPersonalInfo = {
     'Crafting exceptional digital experiences with modern web technologies.',
   longBio:
     'Experienced frontend developer with expertise in React, TypeScript, and modern web development.',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/assets/documents/kundan_resume.pdf'',
   github: 'https://github.com/kundanpawar',
   linkedin: 'https://linkedin.com/in/kundanpawar',
   twitter: 'https://twitter.com/kundanpawar',

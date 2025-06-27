@@ -85,8 +85,8 @@ export const personalInfo: PersonalInfo = {
   bio: "Senior Frontend Developer with 12+ years of IT experience and 6+ years in modern frontend development. Specialized in building scalable, high-performance applications using React, TypeScript, Node.js, and .NET. Proven success in micro-frontend architectures, CI/CD automation, and AWS serverless solutions for enterprise-grade systems. Passionate about clean code, test automation, and mentoring development teams.",
   shortBio:
     'Senior Frontend Developer with 12+ years of IT experience and 6+ years in modern frontend development. Specialized in React, TypeScript, Node.js, and .NET with expertise in micro-frontend architectures and AWS serverless solutions.',
-  resumeUrl: '/resume.pdf',
-  avatarUrl: '/Pic_Kundan.jpg',
+  resumeUrl: '/assets/documents/kundan_resume.pdf',
+  avatarUrl: '/assets/images/Pic_Kundan.jpg',
   coverImageUrl: '/cover.jpg',
 };
 

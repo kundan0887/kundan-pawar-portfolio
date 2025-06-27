@@ -100,29 +100,6 @@ export default function Projects() {
               className='group'
             >
               <Card variant='elevated' className='h-full overflow-hidden'>
-                {/* Project Image */}
-                <div className='relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden'>
-                  {project.imageUrl ? (
-                    <img
-                      src={project.imageUrl}
-                      alt={project.title}
-                      className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
-                    />
-                  ) : (
-                    <div className='w-full h-full flex items-center justify-center text-white'>
-                      <div className='text-center'>
-                        <div className='text-4xl font-bold mb-2'>
-                          {project.title.charAt(0)}
-                        </div>
-                        <div className='text-sm opacity-75'>
-                          Project Preview
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300'></div>
-                </div>
-
                 {/* Project Content */}
                 <CardContent>
                   <h3 className='text-xl font-bold text-slate-900 dark:text-white mb-3'>
@@ -133,7 +110,7 @@ export default function Projects() {
                   </p>
 
                   {/* Technologies */}
-                  <div className='flex flex-wrap gap-2 mb-6'>
+                  <div className='flex flex-wrap gap-2'>
                     {project.technologies
                       .slice(0, 4)
                       .map((tech: string, idx: number) => (
@@ -145,30 +122,6 @@ export default function Projects() {
                       <Badge variant='default' size='sm'>
                         +{project.technologies.length - 4} more
                       </Badge>
-                    )}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className='flex gap-3'>
-                    <Button
-                      variant='outline'
-                      size='sm'
-                      onClick={() => window.open(project.githubUrl, '_blank')}
-                      className='flex items-center gap-2 flex-1'
-                    >
-                      <Github className='w-4 h-4' />
-                      Code
-                    </Button>
-                    {project.liveUrl && (
-                      <Button
-                        variant='outline'
-                        size='sm'
-                        onClick={() => window.open(project.liveUrl, '_blank')}
-                        className='flex items-center gap-2 flex-1'
-                      >
-                        <ExternalLink className='w-4 h-4' />
-                        Live
-                      </Button>
                     )}
                   </div>
                 </CardContent>

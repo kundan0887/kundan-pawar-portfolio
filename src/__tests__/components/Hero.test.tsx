@@ -29,7 +29,7 @@ jest.mock('framer-motion', () => ({
 describe('Hero Component', () => {
   const defaultProps = {
     onScrollToSection: mockOnScrollToSection,
-    resumeUrl: '/resume.pdf',
+    resumeUrl: '/assets/documents/kundan_resume.pdf'',
   };
 
   beforeEach(() => {
@@ -275,7 +275,7 @@ describe('Hero Component', () => {
       });
 
       render(
-        <Hero onScrollToSection={mockErrorScroll} resumeUrl='/resume.pdf' />
+        <Hero onScrollToSection={mockErrorScroll} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
       );
 
       const primaryButton = screen.getByRole('button', {

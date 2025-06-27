@@ -69,7 +69,7 @@ import Hero from '../../src/components/Hero';
 describe('Hero Component', () => {
   it('renders hero content correctly', () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     expect(screen.getByText(/Kundan Pawar/i)).toBeInTheDocument();

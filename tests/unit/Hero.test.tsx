@@ -34,7 +34,7 @@ describe('Hero Component', () => {
 
   it('renders hero section with correct content', () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     // Check for main heading
@@ -51,7 +51,7 @@ describe('Hero Component', () => {
 
   it('displays CTA buttons', () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     // Check for primary CTA button
@@ -67,7 +67,7 @@ describe('Hero Component', () => {
 
   it('displays tech stack cards', () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     // Check for tech stack items
@@ -78,7 +78,7 @@ describe('Hero Component', () => {
 
   it('has proper accessibility attributes', () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     // Check for proper heading structure
@@ -94,7 +94,7 @@ describe('Hero Component', () => {
 
   it('handles button clicks', async () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     const primaryButton = screen.getByRole('button', { name: /get in touch/i });
@@ -107,7 +107,7 @@ describe('Hero Component', () => {
 
   it('displays profile image with initials', () => {
     render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     // Check for initials display
@@ -116,7 +116,7 @@ describe('Hero Component', () => {
 
   it('has responsive design classes', () => {
     const { container } = render(
-      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl='/resume.pdf' />
+      <Hero onScrollToSection={mockOnScrollToSection} resumeUrl: '/assets/documents/kundan_resume.pdf'' />
     );
 
     // Check for responsive container classes
