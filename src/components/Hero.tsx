@@ -42,7 +42,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             className='mb-4'
           >
             <span className='inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium'>
-              Available for opportunities
+              Available for Remote, Hybrid & On-site roles
             </span>
           </motion.div>
 
@@ -111,7 +111,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               Tech Stack:
             </span>
             <div className='flex flex-wrap justify-center lg:justify-start gap-2'>
-              {['React', 'TypeScript', 'Next.js', 'Node.js'].map(
+              {['React.js', 'TypeScript', '.NET Core', 'AWS'].map(
                 (tech, index) => (
                   <motion.span
                     key={tech}
@@ -143,25 +143,35 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
               {/* Main circle container */}
               <div className='relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-700 shadow-2xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-800'>
-                {/* Profile placeholder with initials */}
-                <div className='absolute inset-0 flex items-center justify-center'>
-                  <div className='text-center'>
-                    <div className='w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 lg:mb-4 shadow-lg'>
-                      <span className='text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white'>
-                        {personalInfo.name
-                          .split(' ')
-                          .map(n => n[0])
-                          .join('')}
-                      </span>
+                {/* Profile Image */}
+                {personalInfo.avatarUrl ? (
+                  <img
+                    src={personalInfo.avatarUrl}
+                    alt={`${personalInfo.name} - ${personalInfo.title}`}
+                    className='w-full h-full object-cover'
+                    loading='eager'
+                  />
+                ) : (
+                  /* Fallback to initials if no image */
+                  <div className='absolute inset-0 flex items-center justify-center'>
+                    <div className='text-center'>
+                      <div className='w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 lg:mb-4 shadow-lg'>
+                        <span className='text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white'>
+                          {personalInfo.name
+                            .split(' ')
+                            .map(n => n[0])
+                            .join('')}
+                        </span>
+                      </div>
+                      <p className='text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-slate-700 dark:text-slate-300'>
+                        {personalInfo.name}
+                      </p>
+                      <p className='text-xs sm:text-sm md:text-base text-slate-500 dark:text-slate-400 mt-1'>
+                        {personalInfo.title}
+                      </p>
                     </div>
-                    <p className='text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-slate-700 dark:text-slate-300'>
-                      {personalInfo.name}
-                    </p>
-                    <p className='text-xs sm:text-sm md:text-base text-slate-500 dark:text-slate-400 mt-1'>
-                      {personalInfo.title}
-                    </p>
                   </div>
-                </div>
+                )}
               </div>
             </div>
 
@@ -185,7 +195,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   </span>
                 </div>
                 <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-                  React
+                  React.js
                 </span>
               </div>
             </motion.div>
@@ -217,11 +227,11 @@ export default function Hero({ onScrollToSection }: HeroProps) {
 
             <motion.div
               animate={{
-                y: [0, -8, 0],
-                rotate: [0, 3, 0],
+                y: [0, -15, 0],
+                rotate: [0, -3, 0],
               }}
               transition={{
-                duration: 4,
+                duration: 5,
                 repeat: Infinity,
                 ease: 'easeInOut',
                 delay: 2,
@@ -231,11 +241,36 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               <div className='flex items-center space-x-2'>
                 <div className='w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded flex items-center justify-center'>
                   <span className='text-green-600 dark:text-green-400 font-bold text-sm'>
+                    A
+                  </span>
+                </div>
+                <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
+                  AWS
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{
+                y: [0, 15, 0],
+                rotate: [0, 3, 0],
+              }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 3,
+              }}
+              className='hidden lg:block absolute top-1/2 -left-8 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-3 border border-slate-200 dark:border-slate-700'
+            >
+              <div className='flex items-center space-x-2'>
+                <div className='w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded flex items-center justify-center'>
+                  <span className='text-orange-600 dark:text-orange-400 font-bold text-sm'>
                     N
                   </span>
                 </div>
                 <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-                  Next.js
+                  .NET
                 </span>
               </div>
             </motion.div>

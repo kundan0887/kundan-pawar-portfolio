@@ -198,12 +198,22 @@ function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
         <div className='flex items-center gap-4'>
           {/* Avatar */}
           <div className='relative flex-shrink-0'>
-            <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg'>
-              {personalInfo.name
-                .split(' ')
-                .map(n => n[0])
-                .join('')}
-            </div>
+            {personalInfo.avatarUrl ? (
+              <div className='w-12 h-12 rounded-full overflow-hidden border-2 border-slate-700 shadow-lg'>
+                <img
+                  src={personalInfo.avatarUrl}
+                  alt={`${personalInfo.name} - ${personalInfo.title}`}
+                  className='w-full h-full object-cover'
+                />
+              </div>
+            ) : (
+              <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg'>
+                {personalInfo.name
+                  .split(' ')
+                  .map(n => n[0])
+                  .join('')}
+              </div>
+            )}
             {/* Online Status */}
             <div className='absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-900 shadow-lg'>
               <div className='w-full h-full bg-green-400 rounded-full animate-pulse'></div>
@@ -212,11 +222,14 @@ function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
 
           {/* Brand Info - Elegant Two-Line Solution */}
           <div className='flex-1 min-w-0'>
-            <h2 className='text-white font-semibold text-base leading-tight'>
+            <h2 className='text-lg font-bold text-white truncate'>
               {personalInfo.name}
             </h2>
-            <p className='text-slate-400 text-xs leading-tight mt-0.5'>
+            <p className='text-sm text-slate-300 truncate'>
               {personalInfo.title}
+            </p>
+            <p className='text-xs text-slate-400 mt-1'>
+              Available for Remote, Hybrid & On-site
             </p>
           </div>
         </div>

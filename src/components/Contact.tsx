@@ -107,7 +107,7 @@ export default function Contact() {
         </h2>
         <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
           I'm always open to discussing new opportunities and interesting
-          projects
+          projects. Available for Remote, Hybrid & On-site roles.
         </p>
       </motion.div>
 

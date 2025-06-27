@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Section, Card, Badge } from '@/components/ui';
-import { experiences, Experience as ExperienceType } from '@/lib/data';
+import { experience, Experience as ExperienceType } from '@/lib/data';
 
 export default function Experience() {
   const containerVariants = {
@@ -55,7 +55,7 @@ export default function Experience() {
         <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-600 transform md:-translate-x-1/2'></div>
 
         <div className='space-y-12'>
-          {experiences.map((job: ExperienceType, index: number) => (
+          {experience.map((job: ExperienceType, index: number) => (
             <motion.div
               key={`${job.company}-${job.role}`}
               variants={itemVariants}
