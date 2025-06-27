@@ -4,7 +4,10 @@ import { z } from 'zod';
 import ContactEmail from '@/components/emails/ContactEmail';
 import { personalInfo } from '@/lib/data';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend only if API key is available
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters long.'),
@@ -14,6 +17,14 @@ const contactFormSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    // Check if Resend is configured
+    if (!resend) {
+      return NextResponse.json(
+        { success: false, error: 'Email service not configured.' },
+        { status: 503 },
+      );
+    }
+
     const body = await req.json();
     const validation = contactFormSchema.safeParse(body);
 
