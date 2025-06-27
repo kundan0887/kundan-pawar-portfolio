@@ -15,7 +15,7 @@ export function formatDate(date: string | Date): string {
 
 export function formatDateRange(
   startDate: string | Date,
-  endDate?: string | Date
+  endDate?: string | Date,
 ): string {
   const start = formatDate(startDate);
   const end = endDate ? formatDate(endDate) : 'Present';
@@ -24,7 +24,7 @@ export function formatDateRange(
 
 export function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength).trim() + '...';
+  return `${text.slice(0, maxLength).trim()}...`;
 }
 
 export function generateId(): string {
@@ -33,7 +33,7 @@ export function generateId(): string {
 
 export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
-  wait: number
+  wait: number,
 ): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout;
   return (...args: Parameters<T>) => {

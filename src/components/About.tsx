@@ -35,7 +35,7 @@ interface AboutProps {
 }
 
 export default function About({ resumeUrl }: AboutProps) {
-  const stats = [
+  const _stats = [
     {
       icon: Award,
       value: '12+',
@@ -70,7 +70,7 @@ export default function About({ resumeUrl }: AboutProps) {
     { name: 'AEM Headless', icon: Target, color: 'text-teal-500' },
   ];
 
-  const containerVariants = {
+  const _containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -92,7 +92,7 @@ export default function About({ resumeUrl }: AboutProps) {
     },
   };
 
-  const statsVariants = {
+  const _statsVariants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
@@ -268,7 +268,7 @@ export default function About({ resumeUrl }: AboutProps) {
                   key={index}
                   className='flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300'
                 >
-                  <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+                  <div className='w-2 h-2 bg-blue-500 rounded-full' />
                   {strength}
                 </div>
               ))}
@@ -287,7 +287,7 @@ export default function About({ resumeUrl }: AboutProps) {
                   key={index}
                   className='flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300'
                 >
-                  <div className='w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0'></div>
+                  <div className='w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0' />
                   <span>{achievement}</span>
                 </div>
               ))}

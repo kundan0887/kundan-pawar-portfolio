@@ -64,7 +64,7 @@ class Analytics {
     // Log to console in development
     if (!this.isProduction) {
       console.log(
-        `Performance: ${metric.name} = ${metric.value}${metric.unit}`
+        `Performance: ${metric.name} = ${metric.value}${metric.unit}`,
       );
     }
   }

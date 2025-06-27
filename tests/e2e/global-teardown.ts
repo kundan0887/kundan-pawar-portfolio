@@ -6,4 +6,4 @@ async function globalTeardown(config: FullConfig) {
   console.log('Global teardown completed');
 }
 
-export default globalTeardown; 
+export default globalTeardown;

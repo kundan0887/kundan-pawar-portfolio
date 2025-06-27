@@ -1,9 +1,9 @@
 'use client';
 
+import React from 'react';
 import { useRef, useState, useEffect, Suspense, lazy } from 'react';
 import SidebarNavigation from '@/components/SidebarNavigation';
 import SplashScreen from '@/components/SplashScreen';
-import LoadingSpinner, { LoadingOverlay } from '@/components/LoadingSpinner';
 import {
   HeroSkeleton,
   AboutSkeleton,
@@ -29,7 +29,7 @@ export default function Home() {
   const activeSection = useActiveSection(mainContentRef);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedSections, setLoadedSections] = useState<Set<string>>(new Set());
-  const [isNavigating, setIsNavigating] = useState(false);
+  const [_isNavigating, setIsNavigating] = useState(false);
 
   // Handle splash screen completion
   const handleSplashComplete = () => {
@@ -48,7 +48,7 @@ export default function Home() {
           'projects',
           'skills',
           'contact',
-        ])
+        ]),
       );
     }
   }, [isLoading]);
@@ -89,9 +89,6 @@ export default function Home() {
     <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900'>
       {/* Performance Monitor (only in development) */}
       <PerformanceMonitor />
-
-      {/* Navigation Loading Overlay */}
-      <LoadingOverlay isVisible={isNavigating} message='Navigating...' />
 
       {/* Sidebar Navigation */}
       <SidebarNavigation

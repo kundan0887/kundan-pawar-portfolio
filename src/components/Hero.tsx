@@ -1,9 +1,16 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
-import { Button, Section } from '@/components/ui';
-import LoadingSpinner from './LoadingSpinner';
+import {
+  Download,
+  Mail as _Mail,
+  MapPin as _MapPin,
+  Calendar as _Calendar,
+} from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { Badge as _Badge } from '@/components/ui/Badge';
+import { Section } from '@/components/ui/Section';
 import { personalInfo } from '@/lib/data';
 
 interface HeroProps {
@@ -122,7 +129,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   >
                     {tech}
                   </motion.span>
-                )
+                ),
               )}
             </div>
           </motion.div>

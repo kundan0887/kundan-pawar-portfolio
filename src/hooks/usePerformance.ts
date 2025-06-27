@@ -71,11 +71,11 @@ export function usePerformance() {
     if (typeof window === 'undefined') return;
 
     const navigationEntry = performance.getEntriesByType(
-      'navigation'
+      'navigation',
     )[0] as PerformanceNavigationTiming;
     const paintEntries = performance.getEntriesByType('paint');
     const fcpEntry = paintEntries.find(
-      entry => entry.name === 'first-contentful-paint'
+      entry => entry.name === 'first-contentful-paint',
     );
     const fpEntry = paintEntries.find(entry => entry.name === 'first-paint');
 
@@ -100,7 +100,7 @@ export function usePerformance() {
       const lcp = entries[entries.length - 1];
       if (lcp) {
         setMetrics(prev =>
-          prev ? { ...prev, largestContentfulPaint: lcp.startTime } : null
+          prev ? { ...prev, largestContentfulPaint: lcp.startTime } : null,
         );
       }
     }).observe({ entryTypes: ['largest-contentful-paint'] });
@@ -126,7 +126,7 @@ export function usePerformance() {
         if (!entry.hadRecentInput) {
           clsValue += entry.value;
           setMetrics(prev =>
-            prev ? { ...prev, cumulativeLayoutShift: clsValue } : null
+            prev ? { ...prev, cumulativeLayoutShift: clsValue } : null,
           );
         }
       });
@@ -194,7 +194,7 @@ export function usePerformance() {
 
       return { isOverBudget, percentage };
     },
-    [metrics]
+    [metrics],
   );
 
   return {
@@ -235,7 +235,7 @@ export function useComponentPerformance(componentName: string) {
 
 // Hook for intersection observer with performance optimization
 export function useIntersectionObserver(
-  options: IntersectionObserverInit = {}
+  options: IntersectionObserverInit = {},
 ) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [hasIntersected, setHasIntersected] = useState(false);
@@ -254,13 +254,13 @@ export function useIntersectionObserver(
             threshold: 0.1,
             rootMargin: '50px',
             ...options,
-          }
+          },
         );
 
         observer.observe(node);
       }
     },
-    [hasIntersected, options]
+    [hasIntersected, options],
   );
 
   return { ref, isIntersecting, hasIntersected };

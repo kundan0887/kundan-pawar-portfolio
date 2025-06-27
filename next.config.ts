@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
       config.plugins.push(
         new (require('@next/bundle-analyzer')({
           enabled: true,
-        }))()
+        }))(),
       );
       return config;
     },

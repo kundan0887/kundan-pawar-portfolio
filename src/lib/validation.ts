@@ -87,7 +87,7 @@ export const generateCSRFToken = (): string => {
 
 export const validateCSRFToken = (
   token: string,
-  storedToken: string
+  storedToken: string,
 ): boolean => {
   return token === storedToken;
 };
@@ -96,7 +96,7 @@ export const validateCSRFToken = (
 export const validateInputLength = (
   input: string,
   min: number,
-  max: number
+  max: number,
 ): boolean => {
   return input.length >= min && input.length <= max;
 };
@@ -130,7 +130,7 @@ export type ApiResponse = z.infer<typeof apiResponseSchema>;
 export class ValidationError extends Error {
   constructor(
     message: string,
-    public field?: string
+    public field?: string,
   ) {
     super(message);
     this.name = 'ValidationError';
@@ -140,6 +140,6 @@ export class ValidationError extends Error {
 export const handleValidationError = (error: z.ZodError): ValidationError[] => {
   return error.errors.map(
     (err: z.ZodIssue) =>
-      new ValidationError(err.message, err.path.join('.') as string)
+      new ValidationError(err.message, err.path.join('.') as string),
   );
 };

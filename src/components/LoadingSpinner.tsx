@@ -70,7 +70,7 @@ export default function LoadingSpinner({
         className={cn(
           'relative',
           sizeClasses[size],
-          color === 'custom' ? '' : colorClasses[color]
+          color === 'custom' ? '' : colorClasses[color],
         )}
         style={
           color === 'custom' && customColor ? { color: customColor } : undefined
@@ -109,7 +109,7 @@ export default function LoadingSpinner({
           className={cn(
             'mt-2 text-sm font-medium',
             color === 'custom' ? '' : colorClasses[color],
-            size === 'sm' ? 'text-xs' : 'text-sm'
+            size === 'sm' ? 'text-xs' : 'text-sm',
           )}
           style={
             color === 'custom' && customColor
@@ -160,7 +160,7 @@ export function LoadingPulse({
         className={cn(
           'rounded-full bg-current',
           sizeClasses[size],
-          color === 'custom' ? '' : colorClasses[color]
+          color === 'custom' ? '' : colorClasses[color],
         )}
         style={
           color === 'custom' && customColor
@@ -177,7 +177,7 @@ export function LoadingPulse({
           className={cn(
             'mt-2 text-sm font-medium',
             color === 'custom' ? '' : colorClasses[color],
-            size === 'sm' ? 'text-xs' : 'text-sm'
+            size === 'sm' ? 'text-xs' : 'text-sm',
           )}
           style={
             color === 'custom' && customColor
@@ -217,7 +217,7 @@ export function LoadingDots({
             key={dot}
             className={cn(
               'w-2 h-2 rounded-full bg-current',
-              color === 'custom' ? '' : colorClasses[color]
+              color === 'custom' ? '' : colorClasses[color],
             )}
             style={
               color === 'custom' && customColor
@@ -246,7 +246,7 @@ export function LoadingDots({
           className={cn(
             'mt-2 text-sm font-medium',
             color === 'custom' ? '' : colorClasses[color],
-            size === 'sm' ? 'text-xs' : 'text-sm'
+            size === 'sm' ? 'text-xs' : 'text-sm',
           )}
           style={
             color === 'custom' && customColor
@@ -280,7 +280,7 @@ export function LoadingSkeleton({
           key={index}
           className={cn(
             'bg-slate-200 dark:bg-slate-700 rounded animate-pulse',
-            height
+            height,
           )}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

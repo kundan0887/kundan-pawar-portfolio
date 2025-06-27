@@ -1,23 +1,28 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
+  Menu,
+  X,
   Home,
   User,
   Briefcase,
   Code,
-  Award,
+  FolderOpen,
+  MessageSquare,
+  MapPin as _MapPin,
   Mail,
-  Menu,
-  X,
+  Calendar as _Calendar,
+  Download as _Download,
+  ChevronRight,
   Github,
   Linkedin,
-  ExternalLink,
-  ChevronRight,
 } from 'lucide-react';
-import { Button } from '@/components/ui';
-import { personalInfo, socialLinks } from '@/lib/data';
+import { personalInfo } from '@/lib/data';
+import { Badge as _Badge } from '@/components/ui/Badge';
+import { Button as _Button } from '@/components/ui/Button';
+import { socialLinks } from '@/lib/data';
 
 interface SidebarNavigationProps {
   onNavigate: (sectionId: string) => void;
@@ -41,8 +46,8 @@ const navigationItems: NavigationItem[] = [
     href: '#experience',
   },
   { id: 'projects', label: 'Projects', icon: Code, href: '#projects' },
-  { id: 'skills', label: 'Skills', icon: Award, href: '#skills' },
-  { id: 'contact', label: 'Contact', icon: Mail, href: '#contact' },
+  { id: 'skills', label: 'Skills', icon: FolderOpen, href: '#skills' },
+  { id: 'contact', label: 'Contact', icon: MessageSquare, href: '#contact' },
 ];
 
 export default function SidebarNavigation({
@@ -50,22 +55,6 @@ export default function SidebarNavigation({
   currentSection,
 }: SidebarNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [portfolioProgress, setPortfolioProgress] = useState(85); // Mock progress
-
-  // Handle scroll progress
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Handle mobile overlay click
   const handleOverlayClick = () => {
@@ -79,7 +68,7 @@ export default function SidebarNavigation({
   };
 
   // Handle keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
+  const _handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       handleNavigation(sectionId);
@@ -166,25 +155,8 @@ interface SidebarContentProps {
 }
 
 function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [portfolioProgress, setPortfolioProgress] = useState(85); // Mock progress
-
-  // Handle scroll progress
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Handle keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
+  const _handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       onNavigate(sectionId);
@@ -216,7 +188,7 @@ function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
             )}
             {/* Online Status */}
             <div className='absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-900 shadow-lg'>
-              <div className='w-full h-full bg-green-400 rounded-full animate-pulse'></div>
+              <div className='w-full h-full bg-green-400 rounded-full animate-pulse' />
             </div>
           </div>
 
@@ -249,14 +221,13 @@ function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
             >
               <button
                 onClick={() => onNavigate(item.id)}
-                onKeyDown={e => handleKeyDown(e, item.id)}
+                onKeyDown={e => _handleKeyDown(e, item.id)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 group relative overflow-hidden ${
                   isActive
                     ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 text-white shadow-lg'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
                 }`}
                 tabIndex={0}
-                role='button'
                 aria-label={`Navigate to ${item.label} section`}
               >
                 {/* Active Indicator */}
@@ -301,42 +272,6 @@ function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
           );
         })}
       </nav>
-
-      {/* Progress Section */}
-      <div className='p-4 border-t border-slate-700/50'>
-        <div className='space-y-3'>
-          {/* Scroll Progress */}
-          <div>
-            <div className='flex justify-between text-sm text-slate-400 mb-1'>
-              <span>Scroll Progress</span>
-              <span>{Math.round(scrollProgress)}%</span>
-            </div>
-            <div className='w-full bg-slate-700/50 rounded-full h-1.5 overflow-hidden'>
-              <motion.div
-                className='h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full'
-                style={{ width: `${scrollProgress}%` }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </div>
-
-          {/* Portfolio Progress */}
-          <div>
-            <div className='flex justify-between text-sm text-slate-400 mb-1'>
-              <span>Portfolio Complete</span>
-              <span>{portfolioProgress}%</span>
-            </div>
-            <div className='w-full bg-slate-700/50 rounded-full h-1.5 overflow-hidden'>
-              <motion.div
-                className='h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full'
-                initial={{ width: 0 }}
-                animate={{ width: `${portfolioProgress}%` }}
-                transition={{ duration: 1, delay: 0.5 }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Social Links */}
       <div className='p-4 border-t border-slate-700/50'>

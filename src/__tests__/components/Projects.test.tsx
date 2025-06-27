@@ -92,10 +92,10 @@ describe('Projects Component', () => {
       expect(screen.getByRole('button', { name: /all/i })).toBeInTheDocument();
       expect(screen.getByRole('button', { name: /web/i })).toBeInTheDocument();
       expect(
-        screen.getByRole('button', { name: /mobile/i })
+        screen.getByRole('button', { name: /mobile/i }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('button', { name: /backend/i })
+        screen.getByRole('button', { name: /backend/i }),
       ).toBeInTheDocument();
     });
 
@@ -215,7 +215,7 @@ describe('Projects Component', () => {
       // Check modal content
       expect(screen.getByText('React App')).toBeInTheDocument();
       expect(
-        screen.getByText('A test project description')
+        screen.getByText('A test project description'),
       ).toBeInTheDocument();
     });
 
@@ -317,7 +317,7 @@ describe('Projects Component', () => {
 
       const gridContainer = container.querySelector('.grid');
       expect(gridContainer).toHaveClass(
-        /grid-cols-1|md:grid-cols-2|lg:grid-cols-3/
+        /grid-cols-1|md:grid-cols-2|lg:grid-cols-3/,
       );
     });
 
@@ -325,7 +325,7 @@ describe('Projects Component', () => {
       const { container } = render(<Projects />);
 
       const projectCards = container.querySelectorAll(
-        '[data-testid="project-card"]'
+        '[data-testid="project-card"]',
       );
       projectCards.forEach(card => {
         expect(card).toHaveClass(/col-span-1/);

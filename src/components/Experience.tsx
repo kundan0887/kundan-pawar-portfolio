@@ -1,8 +1,15 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
-import { Section, Card, Badge } from '@/components/ui';
+import {
+  Calendar,
+  MapPin,
+  ExternalLink as _ExternalLinkIcon,
+} from 'lucide-react';
+import { Section } from '@/components/ui/Section';
+import { Card } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
 import { experience, Experience as ExperienceType } from '@/lib/data';
 
 export default function Experience() {
@@ -52,7 +59,7 @@ export default function Experience() {
         className='relative'
       >
         {/* Timeline Line */}
-        <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-600 transform md:-translate-x-1/2'></div>
+        <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-600 transform md:-translate-x-1/2' />
 
         <div className='space-y-12'>
           {experience.map((job: ExperienceType, index: number) => (
@@ -64,7 +71,7 @@ export default function Experience() {
               }`}
             >
               {/* Timeline Dot */}
-              <div className='absolute left-4 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-slate-800 transform md:-translate-x-1/2 z-10'></div>
+              <div className='absolute left-4 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-slate-800 transform md:-translate-x-1/2 z-10' />
 
               {/* Content Card */}
               <div
@@ -118,7 +125,7 @@ export default function Experience() {
                               </span>
                               {achievement}
                             </li>
-                          )
+                          ),
                         )}
                       </ul>
                     </div>

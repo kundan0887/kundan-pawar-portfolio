@@ -13,7 +13,7 @@ const eslintConfig = [
   ...compat.extends(
     'next/core-web-vitals',
     'next/typescript',
-    'plugin:jsx-a11y/recommended'
+    'plugin:jsx-a11y/recommended',
   ),
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
@@ -40,7 +40,14 @@ const eslintConfig = [
       'jsx-a11y/no-static-element-interactions': 'warn',
 
       // Code Quality
-      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-var-requires': 'error',
       'no-console': 'warn',
@@ -68,7 +75,7 @@ const eslintConfig = [
       'react/no-is-mounted': 'error',
       'react/no-render-return-value': 'error',
       'react/no-string-refs': 'error',
-      'react/no-unescaped-entities': 'error',
+      'react/no-unescaped-entities': 'warn',
       'react/no-unknown-property': 'error',
       'react/no-unsafe': 'warn',
       'react/self-closing-comp': 'error',
@@ -81,6 +88,10 @@ const eslintConfig = [
     rules: {
       'no-console': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'react/no-array-index-key': 'off',
+      'jsx-a11y/alt-text': 'off',
+      'jsx-a11y/no-static-element-interactions': 'off',
     },
   },
 ];

@@ -65,7 +65,7 @@ describe('Contact Component', () => {
 
       // Check for submit button
       expect(
-        screen.getByRole('button', { name: /send message/i })
+        screen.getByRole('button', { name: /send message/i }),
       ).toBeInTheDocument();
     });
 
@@ -115,7 +115,7 @@ describe('Contact Component', () => {
       await user.tab(); // Trigger blur event
 
       expect(
-        screen.getByText(/please enter a valid email/i)
+        screen.getByText(/please enter a valid email/i),
       ).toBeInTheDocument();
     });
 
@@ -128,7 +128,7 @@ describe('Contact Component', () => {
       await user.tab(); // Trigger blur event
 
       expect(
-        screen.queryByText(/please enter a valid email/i)
+        screen.queryByText(/please enter a valid email/i),
       ).not.toBeInTheDocument();
     });
 
@@ -141,7 +141,7 @@ describe('Contact Component', () => {
       await user.tab(); // Trigger blur event
 
       expect(
-        screen.getByText(/message must be at least 10 characters/i)
+        screen.getByText(/message must be at least 10 characters/i),
       ).toBeInTheDocument();
     });
 
@@ -152,12 +152,12 @@ describe('Contact Component', () => {
       const messageInput = screen.getByLabelText(/message/i);
       await user.type(
         messageInput,
-        'This is a valid message with more than 10 characters.'
+        'This is a valid message with more than 10 characters.',
       );
       await user.tab(); // Trigger blur event
 
       expect(
-        screen.queryByText(/message must be at least 10 characters/i)
+        screen.queryByText(/message must be at least 10 characters/i),
       ).not.toBeInTheDocument();
     });
 
@@ -195,7 +195,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/subject/i), 'Test Subject');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       // Submit form
@@ -219,7 +219,7 @@ describe('Contact Component', () => {
       const mockSubmit = jest
         .fn()
         .mockImplementation(
-          () => new Promise(resolve => setTimeout(resolve, 1000))
+          () => new Promise(resolve => setTimeout(resolve, 1000)),
         );
 
       render(<Contact onSubmit={mockSubmit} />);
@@ -229,7 +229,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       // Submit form
@@ -256,7 +256,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       // Submit form
@@ -285,7 +285,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       const submitButton = screen.getByRole('button', {
@@ -309,7 +309,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       const submitButton = screen.getByRole('button', {
@@ -336,7 +336,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       const submitButton = screen.getByRole('button', {
@@ -370,7 +370,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       // Submit form
@@ -381,7 +381,7 @@ describe('Contact Component', () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText(/message sent successfully/i)
+          screen.getByText(/message sent successfully/i),
         ).toBeInTheDocument();
       });
     });
@@ -401,7 +401,7 @@ describe('Contact Component', () => {
       await user.type(emailInput, 'john@example.com');
       await user.type(
         messageInput,
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       // Submit form
@@ -428,7 +428,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       const submitButton = screen.getByRole('button', {
@@ -438,13 +438,13 @@ describe('Contact Component', () => {
 
       await waitFor(() => {
         expect(
-          screen.getByText(/message sent successfully/i)
+          screen.getByText(/message sent successfully/i),
         ).toBeInTheDocument();
       });
 
       // Should be able to send another message
       expect(
-        screen.getByRole('button', { name: /send another message/i })
+        screen.getByRole('button', { name: /send another message/i }),
       ).toBeInTheDocument();
     });
   });
@@ -491,7 +491,7 @@ describe('Contact Component', () => {
     it('validates file type', async () => {
       const user = userEvent.setup();
       render(
-        <Contact allowFileUpload={true} allowedFileTypes={['.pdf', '.doc']} />
+        <Contact allowFileUpload={true} allowedFileTypes={['.pdf', '.doc']} />,
       );
 
       const invalidFile = new File(['test'], 'test.exe', {
@@ -608,8 +608,8 @@ describe('Contact Component', () => {
         .mockImplementation(
           () =>
             new Promise((_, reject) =>
-              setTimeout(() => reject(new Error('Timeout')), 100)
-            )
+              setTimeout(() => reject(new Error('Timeout')), 100),
+            ),
         );
 
       render(<Contact onSubmit={mockSubmit} />);
@@ -619,7 +619,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       const submitButton = screen.getByRole('button', {
@@ -646,7 +646,7 @@ describe('Contact Component', () => {
       await user.type(screen.getByLabelText(/email/i), 'john@example.com');
       await user.type(
         screen.getByLabelText(/message/i),
-        'This is a test message with enough characters.'
+        'This is a test message with enough characters.',
       );
 
       const submitButton = screen.getByRole('button', {
@@ -657,7 +657,7 @@ describe('Contact Component', () => {
       // Should handle reset error gracefully
       await waitFor(() => {
         expect(
-          screen.getByText(/message sent successfully/i)
+          screen.getByText(/message sent successfully/i),
         ).toBeInTheDocument();
       });
     });

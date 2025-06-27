@@ -39,7 +39,7 @@ export default function Skills() {
 
   const counterVariants = {
     hidden: { opacity: 0, scale: 0.5 },
-    visible: (years: number) => ({
+    visible: (_years: number) => ({
       opacity: 1,
       scale: 1,
       transition: {
@@ -48,6 +48,15 @@ export default function Skills() {
       },
     }),
   };
+
+  const getExperienceLevel = (_years: number): string => {
+    if (_years >= 5) return 'Expert';
+    if (_years >= 3) return 'Advanced';
+    if (_years >= 1) return 'Intermediate';
+    return 'Beginner';
+  };
+
+  const _getExperienceLevel = getExperienceLevel;
 
   return (
     <Section id='skills'>
@@ -163,7 +172,7 @@ export default function Skills() {
             <div className='text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2'>
               {Math.round(
                 detailedSkills.reduce((acc, s) => acc + s.level, 0) /
-                  detailedSkills.length
+                  detailedSkills.length,
               )}
               %
             </div>

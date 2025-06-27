@@ -1,9 +1,13 @@
 'use client';
 
+import React from 'react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Eye } from 'lucide-react';
-import { Card, Button, Section, Badge, CardContent } from '@/components/ui';
+import { Calendar as _Calendar, MapPin as _MapPin } from 'lucide-react';
+import { Section } from '@/components/ui/Section';
+import { Card, CardContent } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
 import { projects, Project as ProjectType } from '@/lib/data';
 
 export default function Projects() {

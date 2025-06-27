@@ -90,13 +90,13 @@ describe('Skills Component', () => {
 
       expect(screen.getByRole('button', { name: /all/i })).toBeInTheDocument();
       expect(
-        screen.getByRole('button', { name: /frontend/i })
+        screen.getByRole('button', { name: /frontend/i }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('button', { name: /backend/i })
+        screen.getByRole('button', { name: /backend/i }),
       ).toBeInTheDocument();
       expect(
-        screen.getByRole('button', { name: /language/i })
+        screen.getByRole('button', { name: /language/i }),
       ).toBeInTheDocument();
     });
 
@@ -294,7 +294,7 @@ describe('Skills Component', () => {
 
       const skillsGrid = container.querySelector('.grid');
       expect(skillsGrid).toHaveClass(
-        /grid-cols-1|md:grid-cols-2|lg:grid-cols-3/
+        /grid-cols-1|md:grid-cols-2|lg:grid-cols-3/,
       );
     });
 
@@ -311,7 +311,7 @@ describe('Skills Component', () => {
       const { container } = render(<Skills />);
 
       const filterContainer = container.querySelector(
-        '[data-testid="filter-buttons"]'
+        '[data-testid="filter-buttons"]',
       );
       expect(filterContainer).toHaveClass(/flex-wrap|gap-2/);
     });

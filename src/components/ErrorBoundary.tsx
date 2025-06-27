@@ -147,7 +147,7 @@ export function useErrorHandler() {
       window.removeEventListener('error', handleError);
       window.removeEventListener(
         'unhandledrejection',
-        handleUnhandledRejection
+        handleUnhandledRejection,
       );
     };
   }, []);

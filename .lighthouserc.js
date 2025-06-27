@@ -18,11 +18,11 @@ module.exports = {
         'cumulative-layout-shift': ['warn', { maxNumericValue: 0.1 }],
         'total-blocking-time': ['warn', { maxNumericValue: 300 }],
         'speed-index': ['warn', { maxNumericValue: 2000 }],
-        'interactive': ['warn', { maxNumericValue: 3500 }],
+        interactive: ['warn', { maxNumericValue: 3500 }],
       },
     },
     upload: {
       target: 'temporary-public-storage',
     },
   },
-}; 
+};

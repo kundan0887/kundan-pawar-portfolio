@@ -22,7 +22,7 @@ interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (
     { className, variant = 'default', hover = true, children, ...props },
-    ref
+    ref,
   ) => {
     const baseStyles = 'rounded-lg transition-all duration-300';
 
@@ -45,7 +45,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
@@ -55,7 +55,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
@@ -65,7 +65,7 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
@@ -75,7 +75,7 @@ const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 Card.displayName = 'Card';

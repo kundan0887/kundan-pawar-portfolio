@@ -20,7 +20,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
       spacing = 'lg',
       ...props
     },
-    ref
+    ref,
   ) => {
     const baseStyles = 'w-full';
 
@@ -51,14 +51,14 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
           baseStyles,
           variants[variant],
           spacingStyles[spacing],
-          className
+          className,
         )}
         {...props}
       >
         {content}
       </section>
     );
-  }
+  },
 );
 
 Section.displayName = 'Section';

@@ -82,7 +82,7 @@ export const personalInfo: PersonalInfo = {
   location: 'Berlin, Germany',
   email: 'kundanpawar2987@gmail.com',
   phone: '+49 15237367909',
-  bio: "Senior Frontend Developer with 12+ years of IT experience and 6+ years in modern frontend development. Specialized in building scalable, high-performance applications using React, TypeScript, Node.js, and .NET. Proven success in micro-frontend architectures, CI/CD automation, and AWS serverless solutions for enterprise-grade systems. Passionate about clean code, test automation, and mentoring development teams.",
+  bio: 'Senior Frontend Developer with 12+ years of IT experience and 6+ years in modern frontend development. Specialized in building scalable, high-performance applications using React, TypeScript, Node.js, and .NET. Proven success in micro-frontend architectures, CI/CD automation, and AWS serverless solutions for enterprise-grade systems. Passionate about clean code, test automation, and mentoring development teams.',
   shortBio:
     'Senior Frontend Developer with 12+ years of IT experience and 6+ years in modern frontend development. Specialized in React, TypeScript, Node.js, and .NET with expertise in micro-frontend architectures and AWS serverless solutions.',
   resumeUrl: '/assets/documents/kundan_resume.pdf',
@@ -121,11 +121,7 @@ export const skills: SkillCategory[] = [
   },
   {
     category: 'Databases',
-    items: [
-      'MongoDB',
-      'SQL Server',
-      'PostgreSQL',
-    ],
+    items: ['MongoDB', 'SQL Server', 'PostgreSQL'],
   },
   {
     category: 'Cloud & DevOps',
@@ -377,7 +373,8 @@ export const experience: Experience[] = [
     role: 'Senior Frontend Developer',
     duration: 'Mar 2022 – Present',
     location: 'Berlin, Germany',
-    description: 'Leading frontend development for enterprise automotive applications with focus on micro-frontend architecture and modern React development.',
+    description:
+      'Leading frontend development for enterprise automotive applications with focus on micro-frontend architecture and modern React development.',
     achievements: [
       'Migrated legacy AEM components to headless CMS, enhancing performance by 40%',
       'Built micro-frontend architecture using React, Redux, and Feature Apps',
@@ -386,7 +383,17 @@ export const experience: Experience[] = [
       'Implemented E2E and unit test coverage using Cypress and Jest',
       'Maintained CI/CD pipelines and managed AWS S3 containers for frontend assets',
     ],
-    technologies: ['React.js', 'TypeScript', 'Redux', 'AEM Headless', 'AWS', 'Jest', 'CI/CD', 'Feature Hub', 'Cypress'],
+    technologies: [
+      'React.js',
+      'TypeScript',
+      'Redux',
+      'AEM Headless',
+      'AWS',
+      'Jest',
+      'CI/CD',
+      'Feature Hub',
+      'Cypress',
+    ],
     metrics: [
       { label: 'Performance Improvement', value: '40%' },
       { label: 'Test Coverage', value: '95%+' },
@@ -397,55 +404,76 @@ export const experience: Experience[] = [
     role: 'Full Stack Developer',
     duration: 'Jan 2022 – Feb 2022',
     location: 'Remote',
-    description: 'Developed microservices-based corporate donation platform handling high concurrent user loads.',
+    description:
+      'Developed microservices-based corporate donation platform handling high concurrent user loads.',
     achievements: [
       'Developed a microservices-based corporate donation platform (web & mobile)',
       'Built scalable infrastructure handling 10,000+ concurrent users',
       'Integrated CI/CD pipelines for rapid deployment with Docker and GitHub Actions',
       'Established reusable test architecture with Jest for all components',
     ],
-    technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'Docker', 'Jest', 'CI/CD'],
-    metrics: [
-      { label: 'Concurrent Users', value: '10,000+' },
+    technologies: [
+      'React.js',
+      'TypeScript',
+      'Node.js',
+      'MongoDB',
+      'Docker',
+      'Jest',
+      'CI/CD',
     ],
+    metrics: [{ label: 'Concurrent Users', value: '10,000+' }],
   },
   {
     company: 'Infinity Share GmbH',
     role: 'Senior Consultant',
     duration: 'Jul 2020 – Dec 2021',
     location: 'Berlin, Germany',
-    description: 'Delivered full-stack inventory solution and mentored development team for German automotive client.',
+    description:
+      'Delivered full-stack inventory solution and mentored development team for German automotive client.',
     achievements: [
       'Delivered full-stack inventory solution with responsive React frontend and C# backend',
       'Managed and mentored a 2-member dev team, driving project delivery',
       'Created advanced dynamic forms for real-time inventory data updates',
       'Wrote automated unit tests ensuring >95% test coverage',
     ],
-    technologies: ['React.js', 'Redux', 'C#', 'SQL Server', 'Jest', 'Responsive Design'],
-    metrics: [
-      { label: 'Test Coverage', value: '>95%' },
+    technologies: [
+      'React.js',
+      'Redux',
+      'C#',
+      'SQL Server',
+      'Jest',
+      'Responsive Design',
     ],
+    metrics: [{ label: 'Test Coverage', value: '>95%' }],
   },
   {
     company: 'ICT Solutions AG',
     role: 'Software Developer',
     duration: 'Jan 2019 – May 2020',
     location: 'Berlin, Germany',
-    description: 'Built and maintained enterprise intranet applications with modern web technologies.',
+    description:
+      'Built and maintained enterprise intranet applications with modern web technologies.',
     achievements: [
       'Built and maintained enterprise intranet apps with React and .NET Core',
       'Developed internal component libraries used across 5+ internal platforms',
       'Led the design and implementation of performance testing strategies',
       'Agile delivery using SCRUM and cross-functional collaboration',
     ],
-    technologies: ['React.js', '.NET Core', 'Component Libraries', 'Performance Testing', 'Agile/Scrum'],
+    technologies: [
+      'React.js',
+      '.NET Core',
+      'Component Libraries',
+      'Performance Testing',
+      'Agile/Scrum',
+    ],
   },
   {
     company: 'Previous Company',
     role: '.NET / SharePoint Developer',
     duration: '2012 – 2019',
     location: 'India',
-    description: 'Specialized in SharePoint migrations and enterprise customization across multiple versions.',
+    description:
+      'Specialized in SharePoint migrations and enterprise customization across multiple versions.',
     achievements: [
       'Successfully led end-to-end migrations: SharePoint 2010 → 2013 → 2016 → Online (M365) with zero data loss',
       'Developed robust intranet and enterprise applications using C#, .NET Framework, and SharePoint Server APIs',
@@ -453,7 +481,15 @@ export const experience: Experience[] = [
       'Built custom APIs using .NET Core to integrate SharePoint with external business systems',
       'Collaborated with infrastructure teams to optimize deployment, permissions, and governance across SharePoint environments',
     ],
-    technologies: ['C#', '.NET Core', 'SharePoint 2010/2013/2016/Online', 'React', 'JavaScript', 'SQL Server', 'SPFx'],
+    technologies: [
+      'C#',
+      '.NET Core',
+      'SharePoint 2010/2013/2016/Online',
+      'React',
+      'JavaScript',
+      'SQL Server',
+      'SPFx',
+    ],
   },
 ];
 
@@ -463,8 +499,17 @@ export const experience: Experience[] = [
 export const projects: Project[] = [
   {
     title: 'German Automotive - Product Details & Specification Journey',
-    description: 'Migrated legacy AEM components to headless CMS architecture, enhancing performance by 40%. Built micro-frontend architecture using React, Redux, and Feature Apps with comprehensive test automation.',
-    technologies: ['React.js', 'TypeScript', 'Redux', 'AEM Headless', 'AWS', 'Jest', 'CI/CD'],
+    description:
+      'Migrated legacy AEM components to headless CMS architecture, enhancing performance by 40%. Built micro-frontend architecture using React, Redux, and Feature Apps with comprehensive test automation.',
+    technologies: [
+      'React.js',
+      'TypeScript',
+      'Redux',
+      'AEM Headless',
+      'AWS',
+      'Jest',
+      'CI/CD',
+    ],
     githubUrl: '#',
     liveUrl: '#',
     imageUrl: '/projects/automotive-product.jpg',
@@ -473,8 +518,17 @@ export const projects: Project[] = [
   },
   {
     title: 'German Automotive - Customizer / Bottom Bar',
-    description: 'Built persistent micro-frontend UI for real-time vehicle customization experience. Developed state tracking logic across multi-step journeys using Redux and created Lambda functions for PDF generation.',
-    technologies: ['React.js', 'TypeScript', 'Feature Hub', 'AWS (S3, Lambda)', 'Cypress', 'Jest', 'AEM'],
+    description:
+      'Built persistent micro-frontend UI for real-time vehicle customization experience. Developed state tracking logic across multi-step journeys using Redux and created Lambda functions for PDF generation.',
+    technologies: [
+      'React.js',
+      'TypeScript',
+      'Feature Hub',
+      'AWS (S3, Lambda)',
+      'Cypress',
+      'Jest',
+      'AEM',
+    ],
     githubUrl: '#',
     liveUrl: '#',
     imageUrl: '/projects/automotive-customizer.jpg',
@@ -483,8 +537,17 @@ export const projects: Project[] = [
   },
   {
     title: 'Corporate Donation Platform',
-    description: 'Developed microservices-based corporate donation platform handling 10,000+ concurrent users. Built scalable infrastructure with comprehensive CI/CD pipelines and test automation.',
-    technologies: ['React.js', 'TypeScript', 'Node.js', 'MongoDB', 'Docker', 'Jest', 'CI/CD'],
+    description:
+      'Developed microservices-based corporate donation platform handling 10,000+ concurrent users. Built scalable infrastructure with comprehensive CI/CD pipelines and test automation.',
+    technologies: [
+      'React.js',
+      'TypeScript',
+      'Node.js',
+      'MongoDB',
+      'Docker',
+      'Jest',
+      'CI/CD',
+    ],
     githubUrl: '#',
     liveUrl: '#',
     imageUrl: '/projects/donation-platform.jpg',
@@ -493,8 +556,16 @@ export const projects: Project[] = [
   },
   {
     title: 'Inventory Management System',
-    description: 'Delivered full-stack inventory solution with responsive React frontend and C# backend. Created advanced dynamic forms for real-time inventory data updates with >95% test coverage.',
-    technologies: ['React.js', 'Redux', 'C#', 'SQL Server', 'Jest', 'Responsive Design'],
+    description:
+      'Delivered full-stack inventory solution with responsive React frontend and C# backend. Created advanced dynamic forms for real-time inventory data updates with >95% test coverage.',
+    technologies: [
+      'React.js',
+      'Redux',
+      'C#',
+      'SQL Server',
+      'Jest',
+      'Responsive Design',
+    ],
     githubUrl: '#',
     liveUrl: '#',
     imageUrl: '/projects/inventory-system.jpg',
@@ -503,8 +574,15 @@ export const projects: Project[] = [
   },
   {
     title: 'Enterprise Intranet Applications',
-    description: 'Built and maintained enterprise intranet apps with React and .NET Core. Developed internal component libraries used across 5+ internal platforms with performance optimization.',
-    technologies: ['React.js', '.NET Core', 'Component Libraries', 'Performance Testing', 'Agile/Scrum'],
+    description:
+      'Built and maintained enterprise intranet apps with React and .NET Core. Developed internal component libraries used across 5+ internal platforms with performance optimization.',
+    technologies: [
+      'React.js',
+      '.NET Core',
+      'Component Libraries',
+      'Performance Testing',
+      'Agile/Scrum',
+    ],
     githubUrl: '#',
     liveUrl: '#',
     imageUrl: '/projects/intranet-apps.jpg',
@@ -513,8 +591,17 @@ export const projects: Project[] = [
   },
   {
     title: 'SharePoint Migration & Modernization',
-    description: 'Successfully led end-to-end SharePoint migrations (2010 → 2013 → 2016 → Online) with zero data loss. Transitioned legacy apps to modern web technologies using React and SPFx.',
-    technologies: ['C#', '.NET Core', 'SharePoint', 'React', 'JavaScript', 'SQL Server', 'SPFx'],
+    description:
+      'Successfully led end-to-end SharePoint migrations (2010 → 2013 → 2016 → Online) with zero data loss. Transitioned legacy apps to modern web technologies using React and SPFx.',
+    technologies: [
+      'C#',
+      '.NET Core',
+      'SharePoint',
+      'React',
+      'JavaScript',
+      'SQL Server',
+      'SPFx',
+    ],
     githubUrl: '#',
     liveUrl: '#',
     imageUrl: '/projects/sharepoint-migration.jpg',
@@ -529,7 +616,7 @@ export const projects: Project[] = [
 export const contactInfo: ContactInfo = {
   email: 'kundanpawar2987@gmail.com',
   linkedin: 'https://in.linkedin.com/in/kundanpawar87',
-  github: 'https://github.com/kundanpawar',
+  github: 'https://github.com/kundan0887',
   twitter: 'https://twitter.com/kundanpawar',
   website: 'https://kundanpawar.com',
   location: 'Berlin, Germany',
@@ -574,7 +661,7 @@ export const keyStrengths = [
 // SOCIAL MEDIA LINKS
 // ============================================================================
 export const socialLinks = {
-  github: 'https://github.com/kundanpawar',
+  github: 'https://github.com/kundan0887',
   linkedin: 'https://in.linkedin.com/in/kundanpawar87',
   twitter: 'https://twitter.com/kundanpawar',
   email: 'mailto:kundanpawar2987@gmail.com',

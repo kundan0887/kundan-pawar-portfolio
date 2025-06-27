@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
           error: 'Invalid input.',
           details: validation.error.flatten().fieldErrors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -42,19 +42,19 @@ export async function POST(req: NextRequest) {
       console.error('Resend API Error:', error);
       return NextResponse.json(
         { success: false, error: 'Failed to send email.' },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     return NextResponse.json(
       { success: true, message: 'Message sent successfully!', data },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (err) {
     console.error('Server Error:', err);
     return NextResponse.json(
       { success: false, error: 'An unexpected error occurred.' },
-      { status: 500 }
+      { status: 500 },
     );
   }
-} 
+}

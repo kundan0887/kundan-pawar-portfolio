@@ -24,7 +24,7 @@ interface WebVitals {
 const getRating = (
   value: number,
   good: number,
-  poor: number
+  poor: number,
 ): 'good' | 'needs-improvement' | 'poor' => {
   if (value <= good) return 'good';
   if (value <= poor) return 'needs-improvement';
@@ -130,7 +130,7 @@ export default function PerformanceMonitor() {
 
         // Time to First Byte
         const navigationEntry = performance.getEntriesByType(
-          'navigation'
+          'navigation',
         )[0] as PerformanceNavigationTiming;
         if (navigationEntry) {
           setMetrics(prev => ({
@@ -256,7 +256,7 @@ export default function PerformanceMonitor() {
                 <span
                   className={cn(
                     'text-2xl font-bold',
-                    getRatingColor(overallRating)
+                    getRatingColor(overallRating),
                   )}
                 >
                   {overallScore}/100
@@ -281,7 +281,7 @@ export default function PerformanceMonitor() {
                     <span
                       className={cn(
                         'text-sm font-medium',
-                        getRatingColor(vital.rating)
+                        getRatingColor(vital.rating),
                       )}
                     >
                       {vital.value.toFixed(1)}
@@ -290,7 +290,7 @@ export default function PerformanceMonitor() {
                     <div
                       className={cn(
                         'w-2 h-2 rounded-full',
-                        getRatingColor(vital.rating).replace('text-', 'bg-')
+                        getRatingColor(vital.rating).replace('text-', 'bg-'),
                       )}
                     />
                   </div>
@@ -334,7 +334,7 @@ export default function PerformanceMonitor() {
             className={cn(
               'p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700',
               'bg-white dark:bg-slate-800 hover:shadow-xl transition-shadow',
-              'flex items-center justify-center'
+              'flex items-center justify-center',
             )}
             title='Performance Monitor'
           >
@@ -355,7 +355,7 @@ export default function PerformanceMonitor() {
               <div
                 className={cn(
                   'absolute -top-1 -right-1 w-3 h-3 rounded-full',
-                  getRatingColor(overallRating).replace('text-', 'bg-')
+                  getRatingColor(overallRating).replace('text-', 'bg-'),
                 )}
               />
             </div>
