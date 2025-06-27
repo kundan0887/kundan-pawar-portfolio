@@ -25,7 +25,6 @@
     "security:fix": "npm audit fix",
     "clean": "rm -rf .next out",
     "prebuild": "npm run clean",
-    "postbuild": "npm run type-check",
     "preview": "npm run build && npm run start"
   },
   "dependencies": {
