@@ -29,6 +29,7 @@
     "preview": "npm run build && npm run start"
   },
   "dependencies": {
+    "@react-email/components": "^0.1.1",
     "clsx": "^2.1.1",
     "critters": "^0.0.23",
     "framer-motion": "^12.19.1",
@@ -36,7 +37,9 @@
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-email": "^4.0.17",
     "react-hook-form": "^7.58.1",
+    "resend": "^4.6.0",
     "tailwind-merge": "^3.3.1",
     "zod": "^3.25.67"
   },
@@ -46,10 +49,9 @@
     "@next/bundle-analyzer": "^15.3.4",
     "@playwright/test": "^1.53.1",
     "@tailwindcss/postcss": "^4",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^14.3.1",
-    "@testing-library/react-hooks": "^8.0.1",
-    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",

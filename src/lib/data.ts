@@ -531,7 +531,7 @@ export const contactInfo: ContactInfo = {
   linkedin: 'https://in.linkedin.com/in/kundanpawar87',
   github: 'https://github.com/kundanpawar',
   twitter: 'https://twitter.com/kundanpawar',
-  website: 'https://kundanpawar.dev',
+  website: 'https://kundanpawar.com',
   location: 'Berlin, Germany',
   availability: 'Available for Remote, Hybrid & On-site roles',
 };
@@ -578,7 +578,7 @@ export const socialLinks = {
   linkedin: 'https://in.linkedin.com/in/kundanpawar87',
   twitter: 'https://twitter.com/kundanpawar',
   email: 'mailto:kundanpawar2987@gmail.com',
-  website: 'https://kundanpawar.dev',
+  website: 'https://kundanpawar.com',
 };
 
 // ============================================================================
@@ -597,7 +597,7 @@ export const siteConfig = {
     'UI/UX',
   ],
   author: 'Kundan Pawar',
-  siteUrl: 'https://kundanpawar.dev',
+  siteUrl: 'https://kundanpawar.com',
   ogImage: '/og-image.jpg',
   favicon: '/favicon.ico',
 };

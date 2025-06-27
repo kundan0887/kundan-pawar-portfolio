@@ -47,28 +47,35 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     try {
-      // Create mailto link as fallback
-      const subject = encodeURIComponent(`Portfolio Contact from ${data.name}`);
-      const body = encodeURIComponent(
-        `Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
-      );
-      const mailtoLink = `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
+      });
 
-      // Open default email client
-      window.open(mailtoLink, '_blank');
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong');
+      }
 
       setSubmitStatus('success');
       reset();
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+      // Reset status message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
     }
   };
 
