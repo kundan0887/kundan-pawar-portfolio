@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
     const { name, email, message } = validation.data;
 
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio Contact <contact@kundanpawar.dev>',
+      from: 'Portfolio Contact <contact@kundanpawar.com>',
       to: [personalInfo.email], // Your personal email
       subject: `New Message from ${name} via Portfolio`,
       replyTo: email,

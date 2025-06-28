@@ -36,8 +36,8 @@ Create and add the following images to the `/public` directory:
 
 Update the following URLs in `layout.tsx` with your actual domain:
 
-- `metadataBase: new URL('https://kundanpawar.dev')`
-- `openGraph.url: 'https://kundanpawar.dev'`
+- `metadataBase: new URL('https://kundanpawar.com')`
+- `openGraph.url: 'https://kundanpawar.com'`
 - Replace `@kundanpawar` with your actual Twitter handle
 
 ## Verification

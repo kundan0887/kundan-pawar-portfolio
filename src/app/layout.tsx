@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://kundanpawar.dev'), // Replace with your actual domain
+  metadataBase: new URL('https://kundanpawar.com'), // Replace with your actual domain
   alternates: {
     canonical: '/',
   },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://kundanpawar.dev', // Replace with your actual domain
+    url: 'https://kundanpawar.com', // Replace with your actual domain
     title: 'Kundan Pawar - Senior Frontend Developer',
     description:
       'Professional portfolio of Kundan Pawar, a Senior Frontend Developer with 12+ years of experience specializing in React, TypeScript, Next.js, and modern web technologies.',
