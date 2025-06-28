@@ -33,15 +33,10 @@ export default function NotFoundContent() {
           Page Not Found
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className='text-lg text-slate-600 dark:text-slate-400 mb-8'
-        >
-          The page you are looking for doesn't exist or has been moved. Let me
-          help you get back on track.
-        </motion.p>
+        <p className='text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto'>
+          Sorry, we couldn&apos;t find the page you&apos;re looking for. It
+          might have been moved, deleted, or you entered the wrong URL.
+        </p>
 
         {/* Navigation Options */}
         <motion.div

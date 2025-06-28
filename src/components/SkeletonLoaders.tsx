@@ -69,7 +69,7 @@ export function HeroSkeleton() {
 // About section skeleton
 export function AboutSkeleton() {
   return (
-    <div className='py-20 px-8'>
+    <div className='py-16 md:py-20 px-8'>
       <div className='max-w-4xl mx-auto'>
         <motion.div
           className='h-10 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-8'
@@ -111,7 +111,7 @@ export function AboutSkeleton() {
 // Experience section skeleton
 export function ExperienceSkeleton() {
   return (
-    <div className='py-20 px-8'>
+    <div className='py-16 md:py-20 px-8'>
       <div className='max-w-4xl mx-auto'>
         <motion.div
           className='h-10 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-12'
@@ -148,7 +148,7 @@ export function ExperienceSkeleton() {
 // Projects section skeleton
 export function ProjectsSkeleton() {
   return (
-    <div className='py-20 px-8'>
+    <div className='py-16 md:py-20 px-8'>
       <div className='max-w-6xl mx-auto'>
         <motion.div
           className='h-10 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-12'
@@ -187,7 +187,7 @@ export function ProjectsSkeleton() {
 // Skills section skeleton
 export function SkillsSkeleton() {
   return (
-    <div className='py-20 px-8'>
+    <div className='py-16 md:py-20 px-8'>
       <div className='max-w-4xl mx-auto'>
         <motion.div
           className='h-10 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-12'
@@ -230,7 +230,7 @@ export function SkillsSkeleton() {
 // Contact section skeleton
 export function ContactSkeleton() {
   return (
-    <div className='py-20 px-8'>
+    <div className='py-16 md:py-20 px-8'>
       <div className='max-w-4xl mx-auto'>
         <motion.div
           className='h-10 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-12'
@@ -299,7 +299,7 @@ export function SectionSkeleton({
   className?: string;
 }) {
   return (
-    <div className={cn('py-20 px-8', className)}>
+    <div className={cn('py-16 md:py-20 px-8', className)}>
       <div className='max-w-4xl mx-auto'>
         {title && (
           <motion.div

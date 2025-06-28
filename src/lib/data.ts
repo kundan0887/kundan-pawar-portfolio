@@ -702,9 +702,9 @@ export const navigation = [
 ];
 
 // ============================================================================
-// EXPORT ALL DATA
+// EXPORT CONFIGURATION
 // ============================================================================
-export default {
+const config = {
   personalInfo,
   skills,
   detailedSkills,
@@ -719,3 +719,5 @@ export default {
   keyAchievements,
   keyStrengths,
 };
+
+export default config;

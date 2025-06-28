@@ -23,8 +23,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     <Section
       id='home'
       variant='hero'
-      spacing='xl'
-      className='min-h-screen flex items-center justify-center relative overflow-hidden'
+      spacing='lg'
+      className='min-h-[90vh] flex items-center justify-center relative overflow-hidden'
     >
       {/* Background Pattern */}
       <div className='absolute inset-0 opacity-5 dark:opacity-10'>
@@ -59,7 +59,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 dark:text-white mb-4 lg:mb-6'
           >
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400'>
               {personalInfo.name}
             </span>
@@ -118,19 +118,26 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               Tech Stack:
             </span>
             <div className='flex flex-wrap justify-center lg:justify-start gap-2'>
-              {['React.js', 'TypeScript', '.NET Core', 'AWS'].map(
-                (tech, index) => (
-                  <motion.span
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
-                    className='px-2 sm:px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-xs sm:text-sm font-medium'
-                  >
-                    {tech}
-                  </motion.span>
-                ),
-              )}
+              {[
+                'React.js',
+                'TypeScript',
+                'JavaScript',
+                'Node.js',
+                'Next.js',
+                'AWS',
+                'MongoDB',
+                'Docker',
+              ].map((tech, index) => (
+                <motion.span
+                  key={tech}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+                  className='px-2 sm:px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-xs sm:text-sm font-medium'
+                >
+                  {tech}
+                </motion.span>
+              ))}
             </div>
           </motion.div>
         </motion.div>
@@ -221,13 +228,13 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className='hidden md:block absolute -bottom-4 -right-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-3 border border-slate-200 dark:border-slate-700'
             >
               <div className='flex items-center space-x-2'>
-                <div className='w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded flex items-center justify-center'>
-                  <span className='text-purple-600 dark:text-purple-400 font-bold text-sm'>
-                    T
+                <div className='w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded flex items-center justify-center'>
+                  <span className='text-green-600 dark:text-green-400 font-bold text-sm'>
+                    N
                   </span>
                 </div>
                 <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-                  TypeScript
+                  Node.js
                 </span>
               </div>
             </motion.div>
@@ -246,8 +253,8 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className='hidden lg:block absolute top-1/2 -right-8 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-3 border border-slate-200 dark:border-slate-700'
             >
               <div className='flex items-center space-x-2'>
-                <div className='w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded flex items-center justify-center'>
-                  <span className='text-green-600 dark:text-green-400 font-bold text-sm'>
+                <div className='w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded flex items-center justify-center'>
+                  <span className='text-orange-600 dark:text-orange-400 font-bold text-sm'>
                     A
                   </span>
                 </div>
@@ -271,13 +278,62 @@ export default function Hero({ onScrollToSection }: HeroProps) {
               className='hidden lg:block absolute top-1/2 -left-8 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-3 border border-slate-200 dark:border-slate-700'
             >
               <div className='flex items-center space-x-2'>
-                <div className='w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded flex items-center justify-center'>
-                  <span className='text-orange-600 dark:text-orange-400 font-bold text-sm'>
-                    N
+                <div className='w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded flex items-center justify-center'>
+                  <span className='text-purple-600 dark:text-purple-400 font-bold text-sm'>
+                    T
                   </span>
                 </div>
                 <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-                  .NET
+                  TypeScript
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Additional floating cards for more technologies */}
+            <motion.div
+              animate={{
+                y: [0, -8, 0],
+                rotate: [0, 2, 0],
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 1.5,
+              }}
+              className='hidden xl:block absolute -top-8 right-8 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-3 border border-slate-200 dark:border-slate-700'
+            >
+              <div className='flex items-center space-x-2'>
+                <div className='w-8 h-8 bg-black dark:bg-gray-800 rounded flex items-center justify-center'>
+                  <span className='text-white font-bold text-sm'>N</span>
+                </div>
+                <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
+                  Next.js
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              animate={{
+                y: [0, 8, 0],
+                rotate: [0, -2, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2.5,
+              }}
+              className='hidden xl:block absolute -bottom-8 left-8 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-3 border border-slate-200 dark:border-slate-700'
+            >
+              <div className='flex items-center space-x-2'>
+                <div className='w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center'>
+                  <span className='text-blue-600 dark:text-blue-400 font-bold text-sm'>
+                    D
+                  </span>
+                </div>
+                <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
+                  Docker
                 </span>
               </div>
             </motion.div>

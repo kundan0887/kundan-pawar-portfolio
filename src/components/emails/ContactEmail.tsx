@@ -28,7 +28,7 @@ const ContactEmail = ({ name, email, message }: ContactEmailProps) => (
             New Contact Form Submission
           </Heading>
           <Text className='text-gray-600'>
-            You have received a new message from your portfolio contact form.
+            You&apos;ve received a new message from your portfolio contact form.
           </Text>
           <Hr className='border-gray-300 my-5' />
           <Section>

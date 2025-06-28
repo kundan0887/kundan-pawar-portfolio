@@ -113,7 +113,7 @@ export default function Contact() {
           Get In Touch
         </h2>
         <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
-          I'm always open to discussing new opportunities and interesting
+          I&apos;m always open to discussing new opportunities and interesting
           projects. Available for Remote, Hybrid & On-site roles.
         </p>
       </motion.div>
@@ -235,7 +235,7 @@ export default function Contact() {
                 >
                   <CheckCircle className='w-5 h-5 text-green-600 dark:text-green-400' />
                   <span className='text-green-800 dark:text-green-200'>
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </span>
                 </motion.div>
               )}

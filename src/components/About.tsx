@@ -192,9 +192,9 @@ export default function About({ resumeUrl }: AboutProps) {
               Languages
             </h4>
             <div className='flex flex-wrap gap-2'>
-              {languages.map((lang, index) => (
+              {languages.map(lang => (
                 <span
-                  key={index}
+                  key={`${lang.name}-${lang.level}`}
                   className='px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm'
                 >
                   {lang.name} ({lang.level})
@@ -263,9 +263,9 @@ export default function About({ resumeUrl }: AboutProps) {
               Key Strengths
             </h4>
             <div className='grid grid-cols-2 gap-2'>
-              {keyStrengths.map((strength, index) => (
+              {keyStrengths.map(strength => (
                 <div
-                  key={index}
+                  key={strength}
                   className='flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300'
                 >
                   <div className='w-2 h-2 bg-blue-500 rounded-full' />
@@ -282,9 +282,9 @@ export default function About({ resumeUrl }: AboutProps) {
               Key Achievements
             </h4>
             <div className='space-y-2'>
-              {keyAchievements.slice(0, 4).map((achievement, index) => (
+              {keyAchievements.slice(0, 4).map(achievement => (
                 <div
-                  key={index}
+                  key={achievement}
                   className='flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300'
                 >
                   <div className='w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0' />
@@ -308,9 +308,9 @@ export default function About({ resumeUrl }: AboutProps) {
           Technology Stack
         </h3>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-          {techStack.map((tech, index) => (
+          {techStack.map(tech => (
             <motion.div
-              key={index}
+              key={tech.name}
               variants={itemVariants}
               initial='hidden'
               whileInView='visible'
