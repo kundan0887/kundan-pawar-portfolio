@@ -115,7 +115,7 @@ npm run analyze
 
 ## 🧪 Testing Strategy
 
-### Test Coverage Requirements
+### Test Coverage Requirements 
 
 - **Lines**: 70%
 - **Functions**: 70%
