@@ -46,7 +46,7 @@ const About = lazy(() => import('@/components/About'));
 
 - **Section-Specific Skeletons**: Each section has a custom skeleton loader
 - **Smooth Animations**: Framer Motion animations for loading states
-- **Progressive Reveal**: Content appears with staggered animations
+- **Progressive Reveal**: Content appears with staggered animations 
 
 ### 2. Loading States
 
