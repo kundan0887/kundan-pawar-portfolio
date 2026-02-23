@@ -6,6 +6,7 @@ import {
   testAccessibility,
   testKeyboardNavigation,
   createMockProject,
+
 } from '../utils/test-utils';
 import Projects from '@/components/Projects';
 
@@ -193,7 +194,6 @@ describe('Projects Component', () => {
     it('opens modal when project card is clicked', async () => {
       const user = userEvent.setup();
       render(<Projects />);
-
       const projectCard = screen.getByText('React App').closest('div');
       if (projectCard) {
         await user.click(projectCard);
@@ -386,3 +386,4 @@ describe('Projects Component', () => {
     });
   });
 });
+
