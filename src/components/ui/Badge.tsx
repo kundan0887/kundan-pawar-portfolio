@@ -12,7 +12,6 @@ interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
 }
-
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   (
     { className, variant = 'default', size = 'md', children, ...props },
@@ -56,4 +55,3 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
 Badge.displayName = 'Badge';
 
 export { Badge };
-
