@@ -12,6 +12,7 @@ import {
 } from '@react-email/components';
 
 interface ContactEmailProps {
+
   name: string;
   email: string;
   message: string;
@@ -20,6 +21,7 @@ interface ContactEmailProps {
 const ContactEmail = ({ name, email, message }: ContactEmailProps) => (
   <Html>
     <Head />
+
     <Preview>New Message from Your Portfolio Site</Preview>
     <Tailwind>
       <Body className='bg-gray-100 font-sans'>
@@ -63,3 +65,4 @@ const ContactEmail = ({ name, email, message }: ContactEmailProps) => (
 );
 
 export default ContactEmail;
+
