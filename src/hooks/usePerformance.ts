@@ -70,7 +70,7 @@ export function usePerformance() {
   const measurePerformance = useCallback(() => {
     if (typeof window === 'undefined') return;
 
-    const navigationEntry = performance.getEntriesByType(
+    const navigationEntry = performance.getEntriesByType( 
       'navigation',
     )[0] as PerformanceNavigationTiming;
     const paintEntries = performance.getEntriesByType('paint');
@@ -265,3 +265,4 @@ export function useIntersectionObserver(
 
   return { ref, isIntersecting, hasIntersected };
 }
+
