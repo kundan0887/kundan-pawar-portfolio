@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: {
-      index: true,
+      index: true, 
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
@@ -86,8 +86,10 @@ export const metadata: Metadata = {
     'color-scheme': 'light dark',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'default',
+
     'apple-mobile-web-app-title': 'Kundan Pawar',
     'application-name': 'Kundan Pawar Portfolio',
+
     'msapplication-TileColor': '#3b82f6',
     'msapplication-config': '/browserconfig.xml',
   },
@@ -154,7 +156,7 @@ function Analytics() {
           height='0'
           width='0'
           style={{ display: 'none', visibility: 'hidden' }}
-          title='Google Tag Manager'
+          title='Google Tag Manager' 
         />
       </noscript>
     </>
@@ -214,3 +216,4 @@ export default function RootLayout({
     </html>
   );
 }
+
