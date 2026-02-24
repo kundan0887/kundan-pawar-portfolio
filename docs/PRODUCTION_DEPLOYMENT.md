@@ -341,7 +341,7 @@ jobs:
 For deployment issues or questions:
 
 1. Check the error logs in your deployment platform
-2. Review the troubleshooting section above
+2. Review the troubleshooting section above 
 3. Contact the development team
 
 ---
