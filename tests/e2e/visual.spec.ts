@@ -36,6 +36,7 @@ test.describe('Visual Regression', () => {
 
   test('should match experience section screenshot', async ({ page }) => {
     // Navigate to experience section
+
     await page.click('text=Experience');
     await page.waitForTimeout(500);
 
