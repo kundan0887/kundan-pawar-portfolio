@@ -76,6 +76,7 @@ export default function NotFoundContent() {
                 <Search className='w-4 h-4' />
                 About Me
               </Link>
+
               <Link
                 href='/#contact'
                 className='flex items-center gap-2 p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300'
