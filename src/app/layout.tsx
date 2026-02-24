@@ -55,6 +55,7 @@ export const metadata: Metadata = {
   },
   // Open Graph metadata for social sharing
   openGraph: {
+
     type: 'website',
     locale: 'en_US',
     url: 'https://kundanpawar.com', // Replace with your actual domain
@@ -70,6 +71,7 @@ export const metadata: Metadata = {
         alt: 'Kundan Pawar - Senior Frontend Developer',
       },
     ],
+
   },
   // Twitter metadata
   twitter: {
@@ -102,7 +104,7 @@ export const viewport = {
   maximumScale: 1,
   userScalable: false,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' }, 
     { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
   ],
 };
@@ -170,7 +172,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang='en'
+      lang='en' 
       className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
@@ -216,4 +218,3 @@ export default function RootLayout({
     </html>
   );
 }
-
