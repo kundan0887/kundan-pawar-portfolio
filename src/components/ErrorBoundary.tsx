@@ -60,13 +60,14 @@ export class ErrorBoundary extends Component<Props, State> {
             className='max-w-md w-full bg-white dark:bg-slate-800 rounded-lg shadow-xl p-6 text-center'
           >
             <motion.div
+
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2 }}
               className='w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4'
             >
               <AlertTriangle className='w-8 h-8 text-red-600 dark:text-red-400' />
-            </motion.div>
+            </motion.div> 
 
             <h1 className='text-2xl font-bold text-slate-900 dark:text-white mb-2'>
               Oops! Something went wrong
@@ -122,7 +123,7 @@ export class ErrorBoundary extends Component<Props, State> {
     }
 
     return this.props.children;
-  }
+  } 
 }
 
 // Hook for functional components
@@ -154,3 +155,4 @@ export function useErrorHandler() {
 
   return error;
 }
+
