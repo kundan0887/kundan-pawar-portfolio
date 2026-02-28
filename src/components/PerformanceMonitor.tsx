@@ -335,7 +335,7 @@ export default function PerformanceMonitor() {
               'p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700',
               'bg-white dark:bg-slate-800 hover:shadow-xl transition-shadow',
               'flex items-center justify-center',
-            )}
+            )} 
             title='Performance Monitor'
           >
             <div className='relative'>
@@ -413,3 +413,4 @@ export function PerformanceBudgetAlert({
     </motion.div>
   );
 }
+
