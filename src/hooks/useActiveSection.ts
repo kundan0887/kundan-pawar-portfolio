@@ -44,7 +44,6 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
 
       // Initial check
       handleScroll();
-
       // Multiple checks to ensure sections are loaded
       setTimeout(handleScroll, 500);
       setTimeout(handleScroll, 1000);
@@ -56,3 +55,4 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
 
   return activeSection;
 }
+
