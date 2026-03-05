@@ -138,6 +138,7 @@ export function useErrorHandler() {
 
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
       console.error('Unhandled promise rejection:', event.reason);
+
       setError(new Error(event.reason));
     };
 
