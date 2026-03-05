@@ -155,4 +155,3 @@ export function useErrorHandler() {
 
   return error;
 }
-
