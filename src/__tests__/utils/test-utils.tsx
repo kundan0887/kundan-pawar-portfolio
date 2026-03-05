@@ -7,6 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 expect.extend(toHaveNoViolations);
 
 // Custom render function with providers
+
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <div id='test-root' data-testid='test-root'>
