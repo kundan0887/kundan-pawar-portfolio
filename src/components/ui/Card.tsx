@@ -18,7 +18,6 @@ interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
 interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
-
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (
     { className, variant = 'default', hover = true, children, ...props },
@@ -83,4 +82,3 @@ CardContent.displayName = 'CardContent';
 CardFooter.displayName = 'CardFooter';
 
 export { Card, CardHeader, CardContent, CardFooter };
-
