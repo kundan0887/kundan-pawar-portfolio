@@ -83,6 +83,7 @@ export default function Skills() {
         className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
       >
         {detailedSkills.map((skill: SkillType) => (
+
           <motion.div key={skill.name} variants={itemVariants}>
             <Card variant='elevated' className='p-6'>
               {/* Skill Header */}
@@ -162,7 +163,7 @@ export default function Skills() {
               Years Experience
             </div>
           </Card>
-          <Card variant='elevated' className='text-center p-6'>
+          <Card variant='elevated' className='text-center p-6'> 
             <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>
               {Array.from(new Set(detailedSkills.map(s => s.category))).length}
             </div>
@@ -185,3 +186,4 @@ export default function Skills() {
     </Section>
   );
 }
+
