@@ -123,6 +123,7 @@ export default function Skills() {
                 <div className='flex space-x-1'>
                   {[...Array(5)].map((_, i) => (
                     <div
+
                       key={i}
                       className={`w-2 h-2 rounded-full ${
                         i < Math.floor(skill.level / 20)
@@ -186,4 +187,3 @@ export default function Skills() {
     </Section>
   );
 }
-
