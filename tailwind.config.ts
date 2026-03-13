@@ -17,6 +17,7 @@ const config: Config = {
         background: 'hsl(var(--color-background))',
         foreground: 'hsl(var(--color-foreground))',
         card: {
+
           DEFAULT: 'hsl(var(--color-background))',
           foreground: 'hsl(var(--color-foreground))',
         },
@@ -126,7 +127,7 @@ const config: Config = {
           'Segoe UI',
           'Roboto',
           'Helvetica Neue',
-          'Arial',
+          'Arial', 
           'sans-serif',
         ],
         mono: [
@@ -141,7 +142,7 @@ const config: Config = {
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
-        sm: ['0.875rem', { lineHeight: '1.25rem' }],
+        sm: ['0.875rem', { lineHeight: '1.25rem' }], 
         base: ['1rem', { lineHeight: '1.5rem' }],
         lg: ['1.125rem', { lineHeight: '1.75rem' }],
         xl: ['1.25rem', { lineHeight: '1.75rem' }],
@@ -272,3 +273,4 @@ const config: Config = {
 };
 
 export default config;
+
