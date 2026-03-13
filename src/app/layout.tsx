@@ -100,7 +100,7 @@ export const metadata: Metadata = {
 // Viewport configuration
 export const viewport = {
   width: 'device-width',
-  initialScale: 1,
+  initialScale: 1, 
   maximumScale: 1,
   userScalable: false,
   themeColor: [
@@ -125,7 +125,7 @@ function Analytics() {
       {/* Google Analytics */}
       <script
         async
-        src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
+        src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID' 
       />
       <script
         dangerouslySetInnerHTML={{
@@ -159,6 +159,7 @@ function Analytics() {
           width='0'
           style={{ display: 'none', visibility: 'hidden' }}
           title='Google Tag Manager' 
+
         />
       </noscript>
     </>
@@ -218,3 +219,4 @@ export default function RootLayout({
     </html>
   );
 }
+
