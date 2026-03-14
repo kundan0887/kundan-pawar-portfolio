@@ -46,6 +46,7 @@ export default function LoadingSpinner({
   };
 
   const dotVariants = {
+
     animate: {
       scale: [1, 1.2, 1],
       opacity: [0.5, 1, 0.5],
@@ -55,10 +56,12 @@ export default function LoadingSpinner({
         ease: 'easeInOut' as const,
       },
     },
+
   };
 
   return (
     <div
+
       className={cn('flex flex-col items-center justify-center', className)}
       role='status'
       aria-label={label}
@@ -254,6 +257,7 @@ export function LoadingDots({
               : undefined
           }
         >
+
           {label}
         </motion.p>
       )}
@@ -319,3 +323,4 @@ export function LoadingOverlay({
     </AnimatePresence>
   );
 }
+
