@@ -107,6 +107,7 @@ export const viewport = {
     { media: '(prefers-color-scheme: light)', color: '#ffffff' }, 
     { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
   ],
+
 };
 
 // Theme provider component
@@ -161,6 +162,7 @@ function Analytics() {
           title='Google Tag Manager' 
 
         />
+
       </noscript>
     </>
   );
@@ -219,4 +221,3 @@ export default function RootLayout({
     </html>
   );
 }
-
