@@ -26,14 +26,13 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 
 ---
 
-## **PROFESSIONAL EXPERIENCE**
+## **PROFESSIONAL EXPERIENCE** 
 
 ### **Senior Frontend Developer** | **Accenture** | _Berlin, Germany_
 
 **Mar 2022 – Present**
 
 #### 🚗 **German Automotive – Product Details & Specification Journey**
-
 - Migrated legacy AEM components to **headless CMS**, enhancing performance by 40%
 - Built micro-frontend architecture using **React, Redux, and Feature Apps**
 - Led test automation strategy using **Jest** and **React Testing Library**
@@ -67,7 +66,6 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 ### **Senior Consultant** | **Infinity Share GmbH** | _Berlin, Germany_
 
 **Jul 2020 – Dec 2021**
-
 #### 🧾 **Inventory Management System – German Automotive Client**
 
 - Delivered full-stack inventory solution with responsive React frontend and C# backend
@@ -107,7 +105,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 
 **Master of Computer Science** | Pune University, Maharashtra, India | _2010_
 
----
+--- 
 
 ## **LANGUAGES**
 
@@ -135,5 +133,5 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 - 🚀 **Leadership:** Track record of mentoring, leading modules, and driving initiatives
 
 ---
-
 _Available immediately for Senior Frontend or Full Stack Developer roles across Germany._
+
