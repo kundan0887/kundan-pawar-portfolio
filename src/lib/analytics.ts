@@ -142,6 +142,7 @@ class Analytics {
           } else if (entry.entryType === 'layout-shift') {
             this.trackPerformance({
               name: 'CLS',
+
               value: (entry as any).value,
               unit: '',
             });
