@@ -265,4 +265,3 @@ export function useIntersectionObserver(
 
   return { ref, isIntersecting, hasIntersected };
 }
-
