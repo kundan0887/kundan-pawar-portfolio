@@ -161,6 +161,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                 {personalInfo.avatarUrl ? (
                   <img
                     src={personalInfo.avatarUrl}
+
                     alt={`${personalInfo.name} - ${personalInfo.title}`}
                     className='w-full h-full object-cover'
                     loading='eager'
@@ -262,7 +263,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
                   AWS
                 </span>
               </div>
-            </motion.div>
+            </motion.div> 
 
             <motion.div
               animate={{
@@ -344,4 +345,3 @@ export default function Hero({ onScrollToSection }: HeroProps) {
     </Section>
   );
 }
-
