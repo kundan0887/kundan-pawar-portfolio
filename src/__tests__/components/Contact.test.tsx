@@ -664,4 +664,3 @@ describe('Contact Component', () => {
     });
   });
 });
-
