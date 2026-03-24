@@ -40,7 +40,7 @@ export default function Contact() {
     // Check honeypot field
     if (data.honeypot) {
       console.log('Spam detected');
-      return;
+      return; 
     }
 
     setIsSubmitting(true);
@@ -348,3 +348,4 @@ export default function Contact() {
     </Section>
   );
 }
+
