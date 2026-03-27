@@ -1,6 +1,6 @@
 import { chromium, FullConfig } from '@playwright/test';
 
-// Extend Window interface for MSW
+// Extend Window interface for MSW 
 declare global {
   interface Window {
     __MSW_ENABLED__?: boolean;
@@ -21,4 +21,3 @@ async function globalSetup(config: FullConfig) {
 }
 
 export default globalSetup;
-
