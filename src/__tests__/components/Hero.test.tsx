@@ -15,7 +15,7 @@ jest.mock('framer-motion', () => ({
     h2: ({ children, ...props }: any) => <h2 {...props}>{children}</h2>,
     button: ({ children, ...props }: any) => (
       <button {...props}>{children}</button>
-    ),
+    ), 
     a: ({ children, ...props }: any) => <a {...props}>{children}</a>,
   },
   AnimatePresence: ({ children }: any) => children,
@@ -54,6 +54,7 @@ describe('Hero Component', () => {
 
       // Check for tech stack items
       expect(screen.getByText(/React/)).toBeInTheDocument();
+
       expect(screen.getByText(/TypeScript/)).toBeInTheDocument();
       expect(screen.getByText(/Next.js/)).toBeInTheDocument();
       expect(screen.getByText(/Node.js/)).toBeInTheDocument();
@@ -87,9 +88,11 @@ describe('Hero Component', () => {
       await user.click(primaryButton);
 
       expect(mockOnScrollToSection).toHaveBeenCalledWith('contact');
+
     });
 
     it('handles secondary CTA button click', async () => {
+
       const user = userEvent.setup();
       const mockOpen = jest.fn();
       Object.defineProperty(window, 'open', {
@@ -223,7 +226,7 @@ describe('Hero Component', () => {
       await user.click(primaryButton);
 
       expect(mockOnScrollToSection).toHaveBeenCalledWith('contact');
-    });
+    }); 
   });
 
   describe('Scroll Functionality', () => {
@@ -259,6 +262,7 @@ describe('Hero Component', () => {
 
       // Should not throw error
       await expect(user.click(primaryButton)).resolves.not.toThrow();
+
     });
   });
 
@@ -287,3 +291,4 @@ describe('Hero Component', () => {
     });
   });
 });
+
