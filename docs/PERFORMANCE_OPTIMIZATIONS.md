@@ -122,6 +122,7 @@ const About = lazy(() => import('@/components/About'));
 ### Skeleton Loaders
 
 ```typescript
+
 // Section-specific skeletons:
 -HeroSkeleton -
   AboutSkeleton -
