@@ -24,7 +24,7 @@ export default function Projects() {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     const filtered =
-      category === 'all'
+      category === 'all' 
         ? projects
         : projects.filter(project => project.category === category);
     setFilteredProjects(filtered);
@@ -64,8 +64,10 @@ export default function Projects() {
           Featured Projects
         </h2>
         <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
+
           A showcase of my recent work and technical expertise
         </p>
+
       </motion.div>
 
       {/* Filter Buttons */}
@@ -137,3 +139,4 @@ export default function Projects() {
     </Section>
   );
 }
+
