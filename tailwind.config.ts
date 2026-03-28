@@ -98,7 +98,7 @@ const config: Config = {
           300: '#fcd34d',
           400: '#fbbf24',
           500: '#f59e0b',
-          600: '#d97706',
+          600: '#d97706', 
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
@@ -136,6 +136,7 @@ const config: Config = {
           'Monaco',
           'Consolas',
           'Liberation Mono',
+
           'Courier New',
           'monospace',
         ],
@@ -273,3 +274,4 @@ const config: Config = {
 };
 
 export default config;
+
