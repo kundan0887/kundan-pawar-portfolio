@@ -75,7 +75,7 @@ const config: Config = {
           950: '#411407',
         },
         destructive: {
-          DEFAULT: 'hsl(var(--color-error-500))',
+          DEFAULT: 'hsl(var(--color-error-500))', 
           foreground: 'hsl(var(--color-background))',
         },
         success: {
@@ -98,7 +98,7 @@ const config: Config = {
           300: '#fcd34d',
           400: '#fbbf24',
           500: '#f59e0b',
-          600: '#d97706', 
+          600: '#d97706',
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
@@ -274,4 +274,3 @@ const config: Config = {
 };
 
 export default config;
-
