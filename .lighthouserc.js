@@ -3,6 +3,7 @@ module.exports = {
     collect: {
       url: ['http://localhost:3000'],
       startServerCommand: 'npm run dev',
+
       startServerReadyPattern: 'ready - started server on',
       startServerReadyTimeout: 60000,
       numberOfRuns: 3,
@@ -25,4 +26,6 @@ module.exports = {
       target: 'temporary-public-storage',
     },
   },
+
 };
+
