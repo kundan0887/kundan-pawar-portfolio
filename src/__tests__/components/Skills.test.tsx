@@ -41,7 +41,6 @@ describe('Skills Component', () => {
   describe('Skills Display', () => {
     it('renders all skills with correct data', () => {
       render(<Skills />);
-
       // Check for skill names
       mockSkills.forEach(skill => {
         expect(screen.getByText(skill.name)).toBeInTheDocument();
@@ -372,3 +371,4 @@ describe('Skills Component', () => {
     });
   });
 });
+
