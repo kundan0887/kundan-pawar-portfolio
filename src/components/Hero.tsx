@@ -268,6 +268,7 @@ export default function Hero({ onScrollToSection }: HeroProps) {
             <motion.div
               animate={{
                 y: [0, 15, 0],
+
                 rotate: [0, 3, 0],
               }}
               transition={{
