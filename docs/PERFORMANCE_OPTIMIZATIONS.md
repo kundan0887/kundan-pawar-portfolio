@@ -131,7 +131,6 @@ const About = lazy(() => import('@/components/About'));
   SkillsSkeleton -
   ContactSkeleton;
 ```
-
 ## 📈 Performance Metrics
 
 ### Target Performance Goals
