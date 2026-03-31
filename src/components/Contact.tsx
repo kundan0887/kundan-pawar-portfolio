@@ -25,6 +25,7 @@ interface FormData {
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
   >('idle');
@@ -245,7 +246,7 @@ export default function Contact() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className='flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg'
-                >
+                > 
                   <AlertCircle className='w-5 h-5 text-red-600 dark:text-red-400' />
                   <span className='text-red-800 dark:text-red-200'>
                     Something went wrong. Please try again or contact me
@@ -348,4 +349,3 @@ export default function Contact() {
     </Section>
   );
 }
-
