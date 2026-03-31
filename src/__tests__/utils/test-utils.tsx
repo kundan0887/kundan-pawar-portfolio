@@ -47,7 +47,7 @@ beforeAll(() => {
     constructor() {}
     disconnect() {}
     observe() {}
-    unobserve() {}
+    unobserve() {} 
   } as any;
 
   // Mock ResizeObserver
