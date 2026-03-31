@@ -97,6 +97,7 @@ export function usePerformance() {
 
     // Measure LCP
     new PerformanceObserver(list => {
+
       const entries = list.getEntries();
       const lcp = entries[entries.length - 1];
       if (lcp) {
@@ -112,7 +113,7 @@ export function usePerformance() {
       entries.forEach(entry => {
         const firstInputEntry = entry as FirstInputPerformanceEntry;
         if (firstInputEntry.processingStart && firstInputEntry.startTime) {
-          const fid =
+          const fid = 
             firstInputEntry.processingStart - firstInputEntry.startTime;
           setMetrics(prev => (prev ? { ...prev, firstInputDelay: fid } : null));
         }
@@ -197,14 +198,13 @@ export function usePerformance() {
     },
     [metrics],
   );
-
   return {
     metrics,
     isLoading,
     preloadResource,
     preloadCriticalResources,
     lazyLoadImage,
-    prefetchResource,
+    prefetchResource, 
     getBundleSize,
     checkPerformanceBudget,
   };
@@ -253,6 +253,7 @@ export function useIntersectionObserver(
           },
           {
             threshold: 0.1,
+
             rootMargin: '50px',
             ...options,
           },
@@ -266,3 +267,4 @@ export function useIntersectionObserver(
 
   return { ref, isIntersecting, hasIntersected };
 }
+
