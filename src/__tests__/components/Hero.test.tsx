@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
@@ -37,7 +38,7 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       // Check for main heading
-      expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument(); 
       expect(screen.getByText(/Hi, I'm/)).toBeInTheDocument();
 
       // Check for role/title
@@ -84,6 +85,7 @@ describe('Hero Component', () => {
 
       const primaryButton = screen.getByRole('button', {
         name: /get in touch/i,
+
       });
       await user.click(primaryButton);
 
@@ -115,7 +117,7 @@ describe('Hero Component', () => {
 
       const buttons = screen.getAllByRole('button');
       buttons.forEach(button => {
-        expect(button).toHaveAttribute('type', 'button');
+        expect(button).toHaveAttribute('type', 'button'); 
         expect(button).not.toBeDisabled();
       });
     });
@@ -141,7 +143,7 @@ describe('Hero Component', () => {
   });
 
   describe('Animation Triggers', () => {
-    it('has animation attributes on motion components', () => {
+    it('has animation attributes on motion components', () => { 
       const { container } = render(<Hero {...defaultProps} />);
 
       const motionElements = container.querySelectorAll('[animate]');
@@ -291,3 +293,4 @@ describe('Hero Component', () => {
     });
   });
 });
+
