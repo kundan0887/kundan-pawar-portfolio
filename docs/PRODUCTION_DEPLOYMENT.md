@@ -39,6 +39,7 @@ NEXTAUTH_URL=https://your-domain.com
 
 # Performance Monitoring
 NEXT_PUBLIC_SENTRY_DSN=your-sentry-dsn
+
 NEXT_PUBLIC_LOG_ROCKET_ID=your-logrocket-id
 ```
 
