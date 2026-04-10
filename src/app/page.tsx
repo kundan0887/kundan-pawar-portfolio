@@ -68,6 +68,7 @@ export default function Home() {
       // Calculate the offset relative to the main content area
       const mainContentTop = mainContentRef.current.offsetTop;
       const elementTop = element.offsetTop;
+
       const scrollTop = elementTop - mainContentTop - 20; // 20px offset for better spacing
 
       mainContentRef.current.scrollTo({
@@ -138,3 +139,4 @@ export default function Home() {
     </div>
   );
 }
+
