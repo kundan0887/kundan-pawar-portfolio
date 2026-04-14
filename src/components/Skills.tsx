@@ -1,187 +1,98 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Section, Card } from '@/components/ui';
-import { detailedSkills, Skill as SkillType } from '@/lib/data';
+import { skills } from '@/lib/data';
+
+const categoryEmoji: Record<string, string> = {
+  'Frontend Development': '⚡',
+  'Backend Development': '⚙️',
+  Databases: '🗄️',
+  'Cloud & DevOps': '☁️',
+  'Testing & Quality': '🧪',
+  'Architecture & Tools': '🏗️',
+};
 
 export default function Skills() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
-  const progressVariants = {
-    hidden: { width: 0 },
-    visible: (level: number) => ({
-      width: `${level}%`,
-      transition: {
-        duration: 1,
-        delay: 0.5,
-      },
-    }),
-  };
-
-  const counterVariants = {
-    hidden: { opacity: 0, scale: 0.5 },
-    visible: (_years: number) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: 0.8,
-      },
-    }),
-  };
-
-  const getExperienceLevel = (_years: number): string => {
-    if (_years >= 5) return 'Expert';
-    if (_years >= 3) return 'Advanced';
-    if (_years >= 1) return 'Intermediate';
-    return 'Beginner';
-  };
-
-  const _getExperienceLevel = getExperienceLevel;
-
   return (
-    <Section id='skills'>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className='text-center mb-16'
-      >
-        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
-          Skills & Expertise
-        </h2>
-        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
-          My technical skills and proficiency levels across various technologies
-        </p>
-      </motion.div>
+    <section id='skills' className='py-24 bg-white dark:bg-slate-950'>
+      <div className='container mx-auto px-8 max-w-6xl'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className='mb-14'
+        >
+          <p className='text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-2 tracking-wide'>
+            04 — Skills
+          </p>
+          <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight'>
+            Tech Stack
+          </h2>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
-      >
-        {detailedSkills.map((skill: SkillType) => (
-          <motion.div key={skill.name} variants={itemVariants}>
-            <Card variant='elevated' className='p-6'>
-              {/* Skill Header */}
-              <div className='flex items-center justify-between mb-4'>
-                <h3 className='text-lg font-semibold text-slate-900 dark:text-white'>
-                  {skill.name}
-                </h3>
-                <motion.div
-                  custom={skill.years}
-                  variants={counterVariants}
-                  className='text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-full'
-                >
-                  {skill.years} years
-                </motion.div>
-              </div>
-
-              {/* Progress Bar */}
-              <div className='mb-3'>
-                <div className='flex justify-between text-sm text-slate-600 dark:text-slate-300 mb-1'>
-                  <span>Proficiency</span>
-                  <span>{skill.level}%</span>
-                </div>
-                <div className='w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden'>
-                  <motion.div
-                    custom={skill.level}
-                    variants={progressVariants}
-                    className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
-                  />
-                </div>
-              </div>
-
-              {/* Category Badge */}
-              <div className='flex justify-between items-center'>
-                <span className='text-xs text-slate-500 dark:text-slate-400'>
-                  {skill.category}
+        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+          {skills.map((category, index) => (
+            <motion.div
+              key={category.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className='p-6 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-900 transition-colors'
+            >
+              <div className='flex items-center gap-2.5 mb-4'>
+                <span className='text-xl leading-none'>
+                  {categoryEmoji[category.category] || '🔧'}
                 </span>
-                <div className='flex space-x-1'>
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-2 h-2 rounded-full ${
-                        i < Math.floor(skill.level / 20)
-                          ? 'bg-blue-500'
-                          : 'bg-slate-300 dark:bg-slate-600'
-                      }`}
-                    />
-                  ))}
-                </div>
+                <h3 className='font-semibold text-slate-900 dark:text-white text-sm'>
+                  {category.category}
+                </h3>
               </div>
-            </Card>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Skills Summary */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className='mt-16 text-center'
-      >
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-          <Card variant='elevated' className='text-center p-6'>
-            <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>
-              {detailedSkills.length}
-            </div>
-            <div className='text-slate-600 dark:text-slate-300'>
-              Technologies
-            </div>
-          </Card>
-          <Card variant='elevated' className='text-center p-6'>
-            <div className='text-3xl font-bold text-green-600 dark:text-green-400 mb-2'>
-              {Math.max(...detailedSkills.map(s => s.years))}
-            </div>
-            <div className='text-slate-600 dark:text-slate-300'>
-              Years Experience
-            </div>
-          </Card>
-          <Card variant='elevated' className='text-center p-6'>
-            <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>
-              {Array.from(new Set(detailedSkills.map(s => s.category))).length}
-            </div>
-            <div className='text-slate-600 dark:text-slate-300'>Categories</div>
-          </Card>
-          <Card variant='elevated' className='text-center p-6'>
-            <div className='text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2'>
-              {Math.round(
-                detailedSkills.reduce((acc, s) => acc + s.level, 0) /
-                  detailedSkills.length,
-              )}
-              %
-            </div>
-            <div className='text-slate-600 dark:text-slate-300'>
-              Avg Proficiency
-            </div>
-          </Card>
+              <div className='flex flex-wrap gap-2'>
+                {category.items.map(item => (
+                  <span
+                    key={item}
+                    className='px-2.5 py-1 text-xs bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg border border-slate-200 dark:border-slate-700 font-medium hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default'
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
-    </Section>
+
+        {/* Bottom summary strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className='mt-10 p-6 bg-indigo-600 dark:bg-indigo-600/90 rounded-xl flex flex-wrap items-center justify-around gap-6 text-center'
+        >
+          <div>
+            <div className='text-3xl font-bold text-white'>
+              {skills.reduce((acc, cat) => acc + cat.items.length, 0)}+
+            </div>
+            <div className='text-indigo-200 text-sm mt-1'>Technologies</div>
+          </div>
+          <div className='w-px h-10 bg-indigo-500 hidden sm:block' />
+          <div>
+            <div className='text-3xl font-bold text-white'>12</div>
+            <div className='text-indigo-200 text-sm mt-1'>Years Experience</div>
+          </div>
+          <div className='w-px h-10 bg-indigo-500 hidden sm:block' />
+          <div>
+            <div className='text-3xl font-bold text-white'>{skills.length}</div>
+            <div className='text-indigo-200 text-sm mt-1'>Skill Categories</div>
+          </div>
+          <div className='w-px h-10 bg-indigo-500 hidden sm:block' />
+          <div>
+            <div className='text-3xl font-bold text-white'>95%+</div>
+            <div className='text-indigo-200 text-sm mt-1'>Test Coverage</div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }

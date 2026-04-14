@@ -1,182 +1,119 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  Calendar,
-  MapPin,
-  ExternalLink as _ExternalLinkIcon,
-} from 'lucide-react';
-import { Section } from '@/components/ui/Section';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { experience, Experience as ExperienceType } from '@/lib/data';
+import { experience } from '@/lib/data';
 
 export default function Experience() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
-    <Section id='experience'>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className='text-center mb-16'
-      >
-        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
-          Work Experience
-        </h2>
-        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
-          My professional journey in software development
-        </p>
-      </motion.div>
+    <section id='experience' className='py-24 bg-white dark:bg-slate-950'>
+      <div className='container mx-auto px-8 max-w-6xl'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className='mb-14'
+        >
+          <p className='text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-2 tracking-wide'>
+            02 — Experience
+          </p>
+          <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight'>
+            Work History
+          </h2>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        className='relative'
-      >
-        {/* Timeline Line */}
-        <div className='absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-300 dark:bg-slate-600 transform md:-translate-x-1/2' />
+        <div className='relative'>
+          {/* Vertical timeline line */}
+          <div className='absolute left-[5px] top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-800' />
 
-        <div className='space-y-12'>
-          {experience.map((job: ExperienceType, index: number) => (
-            <motion.div
-              key={`${job.company}-${job.role}`}
-              variants={itemVariants}
-              className={`relative flex items-start ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
-            >
-              {/* Timeline Dot */}
-              <div className='absolute left-4 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-slate-800 transform md:-translate-x-1/2 z-10' />
-
-              {/* Content Card */}
-              <div
-                className={`ml-12 md:ml-0 md:w-5/12 ${
-                  index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
-                }`}
+          <div className='space-y-14'>
+            {experience.map((job, index) => (
+              <motion.div
+                key={`${job.company}-${index}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className='pl-10 relative'
               >
-                <Card variant='elevated' className='p-6'>
-                  {/* Header */}
-                  <div className='mb-4'>
-                    <h3 className='text-xl font-bold text-slate-900 dark:text-white mb-2'>
+                {/* Timeline dot */}
+                <div className='absolute left-0 top-[7px] w-[11px] h-[11px] rounded-full bg-indigo-600 dark:bg-indigo-500 ring-4 ring-white dark:ring-slate-950' />
+
+                {/* Header */}
+                <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 mb-3'>
+                  <div>
+                    <h3 className='text-xl font-bold text-slate-900 dark:text-white leading-tight'>
                       {job.role}
                     </h3>
-                    <div className='flex items-center gap-4 text-slate-600 dark:text-slate-300 text-sm mb-3'>
-                      <div className='flex items-center gap-1'>
-                        <MapPin className='w-4 h-4' />
-                        <span>{job.company}</span>
-                      </div>
-                      <div className='flex items-center gap-1'>
-                        <Calendar className='w-4 h-4' />
-                        <span>{job.duration}</span>
-                      </div>
-                    </div>
-
-                    {job.location && (
-                      <p className='text-slate-500 dark:text-slate-400 text-sm'>
-                        📍 {job.location}
-                      </p>
-                    )}
+                    <p className='text-indigo-600 dark:text-indigo-400 font-medium mt-0.5'>
+                      {job.company}
+                    </p>
                   </div>
+                  <div className='flex flex-col sm:items-end gap-0.5 flex-shrink-0'>
+                    <span className='text-sm text-slate-500 dark:text-slate-400 font-mono'>
+                      {job.duration}
+                    </span>
+                    <span className='text-xs text-slate-400 dark:text-slate-500'>
+                      {job.location}
+                    </span>
+                  </div>
+                </div>
 
-                  {/* Description */}
-                  <p className='text-slate-600 dark:text-slate-300 mb-4 leading-relaxed'>
-                    {job.description}
-                  </p>
+                <p className='text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4'>
+                  {job.description}
+                </p>
 
-                  {/* Achievements */}
-                  {job.achievements && job.achievements.length > 0 && (
-                    <div className='mb-4'>
-                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
-                        Key Achievements:
-                      </h4>
-                      <ul className='space-y-1'>
-                        {job.achievements.map(
-                          (achievement: string, idx: number) => (
-                            <li
-                              key={idx}
-                              className='text-slate-600 dark:text-slate-300 text-sm flex items-start gap-2'
-                            >
-                              <span className='text-blue-600 dark:text-blue-400 mt-1'>
-                                •
-                              </span>
-                              {achievement}
-                            </li>
-                          ),
-                        )}
-                      </ul>
-                    </div>
-                  )}
+                {/* Achievements */}
+                {job.achievements.length > 0 && (
+                  <ul className='space-y-2 mb-5'>
+                    {job.achievements.slice(0, 5).map((achievement, idx) => (
+                      <li
+                        key={idx}
+                        className='flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300'
+                      >
+                        <span className='text-indigo-500 mt-0.5 flex-shrink-0 font-bold'>
+                          ▸
+                        </span>
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-                  {/* Technologies */}
-                  {job.technologies && job.technologies.length > 0 && (
-                    <div className='mb-4'>
-                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
-                        Technologies:
-                      </h4>
-                      <div className='flex flex-wrap gap-2'>
-                        {job.technologies.map((tech: string, idx: number) => (
-                          <Badge key={idx} variant='primary' size='sm'>
-                            {tech}
-                          </Badge>
-                        ))}
+                {/* Metrics */}
+                {job.metrics && job.metrics.length > 0 && (
+                  <div className='flex flex-wrap gap-2.5 mb-5'>
+                    {job.metrics.map((metric, idx) => (
+                      <div
+                        key={idx}
+                        className='inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg border border-indigo-100 dark:border-indigo-900/50'
+                      >
+                        <span className='text-base font-bold text-indigo-600 dark:text-indigo-400'>
+                          {metric.value}
+                        </span>
+                        <span className='text-xs text-slate-500 dark:text-slate-400'>
+                          {metric.label}
+                        </span>
                       </div>
-                    </div>
-                  )}
+                    ))}
+                  </div>
+                )}
 
-                  {/* Metrics */}
-                  {job.metrics && job.metrics.length > 0 && (
-                    <div>
-                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
-                        Impact:
-                      </h4>
-                      <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
-                        {job.metrics.map((metric, idx: number) => (
-                          <div
-                            key={idx}
-                            className='bg-slate-50 dark:bg-slate-700 p-3 rounded-lg'
-                          >
-                            <div className='text-lg font-bold text-blue-600 dark:text-blue-400'>
-                              {metric.value}
-                            </div>
-                            <div className='text-xs text-slate-600 dark:text-slate-300'>
-                              {metric.label}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </Card>
-              </div>
-            </motion.div>
-          ))}
+                {/* Tech tags */}
+                <div className='flex flex-wrap gap-1.5'>
+                  {job.technologies.map(tech => (
+                    <span
+                      key={tech}
+                      className='px-2 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded border border-slate-200 dark:border-slate-700 font-medium'
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </motion.div>
-    </Section>
+      </div>
+    </section>
   );
 }
