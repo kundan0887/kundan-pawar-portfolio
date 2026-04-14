@@ -26,10 +26,21 @@ const Contact = lazy(() => import('@/components/Contact'));
 
 export default function Home() {
   const mainContentRef = useRef<HTMLElement>(null);
-  const activeSection = useActiveSection(mainContentRef);
+  const scrollActiveSection = useActiveSection(mainContentRef);
+  const [clickedSection, setClickedSection] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedSections, setLoadedSections] = useState<Set<string>>(new Set());
   const [_isNavigating, setIsNavigating] = useState(false);
+
+  // Optimistic highlight: prefer the clicked section until scroll detection
+  // catches up, then hand back control to the scroll-based tracker.
+  const activeSection = clickedSection ?? scrollActiveSection;
+
+  useEffect(() => {
+    if (clickedSection && clickedSection === scrollActiveSection) {
+      setClickedSection(null);
+    }
+  }, [scrollActiveSection, clickedSection]);
 
   // Handle splash screen completion
   const handleSplashComplete = () => {
@@ -54,6 +65,7 @@ export default function Home() {
   }, [isLoading]);
 
   const handleScrollToSection = async (sectionId: string) => {
+    setClickedSection(sectionId); // highlight immediately on click
     setIsNavigating(true);
 
     // Ensure section is loaded

@@ -4,51 +4,43 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = [
-        'home',
-        'about',
-        'experience',
-        'projects',
-        'skills',
-        'contact',
-      ];
-      const container = containerRef?.current;
+    const sections = [
+      'home',
+      'about',
+      'experience',
+      'projects',
+      'skills',
+      'contact',
+    ];
 
+    const handleScroll = () => {
+      const container = containerRef?.current;
       if (!container) return;
 
-      const scrollPosition = container.scrollTop + 100;
+      // Use getBoundingClientRect so both measurements share the same
+      // viewport coordinate space — offsetTop would be relative to
+      // offsetParent (body), not the scroll container, causing mismatches.
+      const containerTop = container.getBoundingClientRect().top;
+      const threshold = 150; // px from the container's top edge
 
-      let currentActiveSection = 'home';
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
+      let current = sections[0];
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
         if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            currentActiveSection = section;
-            break;
+          const elementTop = element.getBoundingClientRect().top - containerTop;
+          if (elementTop <= threshold) {
+            current = sectionId;
           }
         }
       }
 
-      setActiveSection(currentActiveSection);
+      setActiveSection(current);
     };
 
     const container = containerRef?.current;
     if (container) {
-      container.addEventListener('scroll', handleScroll);
-
-      // Initial check
+      container.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
-      // Multiple checks to ensure sections are loaded
-      setTimeout(handleScroll, 500);
-      setTimeout(handleScroll, 1000);
-      setTimeout(handleScroll, 2000);
-
       return () => container.removeEventListener('scroll', handleScroll);
     }
   }, [containerRef]);
