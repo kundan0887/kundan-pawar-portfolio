@@ -26,7 +26,7 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
 
     const variants = {
       default: 'bg-transparent',
-      alternate: 'bg-background',
+      alternate: 'bg-white dark:bg-slate-900',
       hero: 'bg-transparent',
     };
 

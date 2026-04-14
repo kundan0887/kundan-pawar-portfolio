@@ -26,9 +26,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const baseStyles = 'rounded-lg transition-all duration-300';
 
     const variants = {
-      default: 'bg-background shadow-md',
-      elevated: 'bg-background shadow-lg hover:shadow-xl',
-      outlined: 'bg-background border border-border',
+      default: 'bg-white dark:bg-slate-800 shadow-md',
+      elevated: 'bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl',
+      outlined:
+        'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700',
       ghost: 'bg-transparent',
     };
 
