@@ -25,11 +25,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ) => {
     const baseStyles = 'rounded-lg transition-all duration-300';
 
-    const variants = { 
-      default: 'bg-white dark:bg-slate-800 shadow-md',
-      elevated: 'bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl',
-      outlined:
-        'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700',
+    const variants = {
+      default: 'bg-background shadow-md',
+      elevated: 'bg-background shadow-lg hover:shadow-xl',
+      outlined: 'bg-background border border-border',
       ghost: 'bg-transparent',
     };
 
@@ -62,7 +61,7 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
       <div ref={ref} className={cn('p-6', className)} {...props}>
         {children}
       </div>
-    ); 
+    );
   },
 );
 
@@ -71,7 +70,7 @@ const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
     return (
       <div ref={ref} className={cn('p-6 pt-0', className)} {...props}>
         {children}
-      </div> 
+      </div>
     );
   },
 );

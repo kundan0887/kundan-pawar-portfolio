@@ -97,7 +97,7 @@ export default function SplashScreen({
               <LoadingSpinner size='lg' color='white' />
             </motion.div>
 
-            {/* Progress Bar */} 
+            {/* Progress Bar */}
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}

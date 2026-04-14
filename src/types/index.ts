@@ -26,7 +26,7 @@ export interface Experience {
 export interface Project {
   title: string;
   description: string;
-  technologies: string[]; 
+  technologies: string[];
   github?: string;
   demo?: string;
   image?: string;

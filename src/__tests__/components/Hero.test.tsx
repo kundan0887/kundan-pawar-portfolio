@@ -16,7 +16,7 @@ jest.mock('framer-motion', () => ({
     h2: ({ children, ...props }: any) => <h2 {...props}>{children}</h2>,
     button: ({ children, ...props }: any) => (
       <button {...props}>{children}</button>
-    ), 
+    ),
     a: ({ children, ...props }: any) => <a {...props}>{children}</a>,
   },
   AnimatePresence: ({ children }: any) => children,
@@ -38,7 +38,7 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       // Check for main heading
-      expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument(); 
+      expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
       expect(screen.getByText(/Hi, I'm/)).toBeInTheDocument();
 
       // Check for role/title
@@ -85,16 +85,13 @@ describe('Hero Component', () => {
 
       const primaryButton = screen.getByRole('button', {
         name: /get in touch/i,
-
       });
       await user.click(primaryButton);
 
       expect(mockOnScrollToSection).toHaveBeenCalledWith('contact');
-
     });
 
     it('handles secondary CTA button click', async () => {
-
       const user = userEvent.setup();
       const mockOpen = jest.fn();
       Object.defineProperty(window, 'open', {
@@ -117,7 +114,7 @@ describe('Hero Component', () => {
 
       const buttons = screen.getAllByRole('button');
       buttons.forEach(button => {
-        expect(button).toHaveAttribute('type', 'button'); 
+        expect(button).toHaveAttribute('type', 'button');
         expect(button).not.toBeDisabled();
       });
     });
@@ -143,7 +140,7 @@ describe('Hero Component', () => {
   });
 
   describe('Animation Triggers', () => {
-    it('has animation attributes on motion components', () => { 
+    it('has animation attributes on motion components', () => {
       const { container } = render(<Hero {...defaultProps} />);
 
       const motionElements = container.querySelectorAll('[animate]');
@@ -228,7 +225,7 @@ describe('Hero Component', () => {
       await user.click(primaryButton);
 
       expect(mockOnScrollToSection).toHaveBeenCalledWith('contact');
-    }); 
+    });
   });
 
   describe('Scroll Functionality', () => {
@@ -264,7 +261,6 @@ describe('Hero Component', () => {
 
       // Should not throw error
       await expect(user.click(primaryButton)).resolves.not.toThrow();
-
     });
   });
 
@@ -293,4 +289,3 @@ describe('Hero Component', () => {
     });
   });
 });
-

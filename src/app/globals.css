@@ -104,7 +104,7 @@
 
 /* Base Styles */
 * {
-  border-color: var(--color-border);
+  border-color: hsl(var(--color-border));
 }
 
 html {
@@ -114,8 +114,8 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
   font-family: var(--font-sans);
   line-height: 1.6;
   font-feature-settings:
@@ -248,88 +248,88 @@ select:focus-visible {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-secondary-100);
+  background: hsl(var(--color-secondary-100));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-secondary-300);
+  background: hsl(var(--color-secondary-300));
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary-400);
+  background: hsl(var(--color-secondary-400));
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: var(--color-secondary-800);
+  background: hsl(var(--color-secondary-800));
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: var(--color-secondary-600);
+  background: hsl(var(--color-secondary-600));
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary-500);
+  background: hsl(var(--color-secondary-500));
 }
 
 /* Selection Styles */
 ::selection {
-  background-color: var(--color-primary-200);
-  color: var(--color-primary-900);
+  background-color: hsl(var(--color-primary-200));
+  color: hsl(var(--color-primary-900));
 }
 
 .dark ::selection {
-  background-color: var(--color-primary-800);
-  color: var(--color-primary-100);
+  background-color: hsl(var(--color-primary-800));
+  color: hsl(var(--color-primary-100));
 }
 
 /* Link Styles */
 a {
-  color: var(--color-primary-600);
+  color: hsl(var(--color-primary-600));
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--color-primary-700);
+  color: hsl(var(--color-primary-700));
   text-decoration: underline;
 }
 
 .dark a {
-  color: var(--color-primary-400);
+  color: hsl(var(--color-primary-400));
 }
 
 .dark a:hover {
-  color: var(--color-primary-300);
+  color: hsl(var(--color-primary-300));
 }
 
 /* Code Styles */
 code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background-color: var(--color-secondary-100);
-  color: var(--color-secondary-900);
+  background-color: hsl(var(--color-secondary-100));
+  color: hsl(var(--color-secondary-900));
   padding: 0.125rem 0.25rem;
   border-radius: var(--radius-sm);
 }
 
 .dark code {
-  background-color: var(--color-secondary-800);
-  color: var(--color-secondary-100);
+  background-color: hsl(var(--color-secondary-800));
+  color: hsl(var(--color-secondary-100));
 }
 
 pre {
   font-family: var(--font-mono);
-  background-color: var(--color-secondary-100);
-  color: var(--color-secondary-900);
+  background-color: hsl(var(--color-secondary-100));
+  color: hsl(var(--color-secondary-900));
   padding: 1rem;
   border-radius: var(--radius);
   overflow-x: auto;
 }
 
 .dark pre {
-  background-color: var(--color-secondary-800);
-  color: var(--color-secondary-100);
+  background-color: hsl(var(--color-secondary-800));
+  color: hsl(var(--color-secondary-100));
 }
 
 /* Utility Classes */

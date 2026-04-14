@@ -47,7 +47,7 @@ beforeAll(() => {
     constructor() {}
     disconnect() {}
     observe() {}
-    unobserve() {} 
+    unobserve() {}
   } as any;
 
   // Mock ResizeObserver
@@ -70,4 +70,4 @@ beforeAll(() => {
 afterEach(() => {
   // Clear all mocks
   jest.clearAllMocks();
-}); 
+});
