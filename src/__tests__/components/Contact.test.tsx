@@ -200,7 +200,6 @@ describe('Contact Component', () => {
 
       // Submit form
       const submitButton = screen.getByRole('button', {
-
         name: /send message/i,
       });
       await user.click(submitButton);
@@ -664,4 +663,3 @@ describe('Contact Component', () => {
     });
   });
 });
-

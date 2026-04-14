@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: {
-      index: true, 
+      index: true,
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
@@ -55,7 +55,6 @@ export const metadata: Metadata = {
   },
   // Open Graph metadata for social sharing
   openGraph: {
-
     type: 'website',
     locale: 'en_US',
     url: 'https://kundanpawar.com', // Replace with your actual domain
@@ -71,7 +70,6 @@ export const metadata: Metadata = {
         alt: 'Kundan Pawar - Senior Frontend Developer',
       },
     ],
-
   },
   // Twitter metadata
   twitter: {
@@ -100,14 +98,13 @@ export const metadata: Metadata = {
 // Viewport configuration
 export const viewport = {
   width: 'device-width',
-  initialScale: 1, 
+  initialScale: 1,
   maximumScale: 1,
   userScalable: false,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' }, 
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
   ],
-
 };
 
 // Theme provider component
@@ -126,7 +123,7 @@ function Analytics() {
       {/* Google Analytics */}
       <script
         async
-        src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID' 
+        src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
       />
       <script
         dangerouslySetInnerHTML={{
@@ -159,10 +156,8 @@ function Analytics() {
           height='0'
           width='0'
           style={{ display: 'none', visibility: 'hidden' }}
-          title='Google Tag Manager' 
-
+          title='Google Tag Manager'
         />
-
       </noscript>
     </>
   );
@@ -175,7 +170,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang='en' 
+      lang='en'
       className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >

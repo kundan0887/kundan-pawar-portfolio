@@ -311,4 +311,3 @@ function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
     </div>
   );
 }
-

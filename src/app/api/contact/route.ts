@@ -12,13 +12,13 @@ const resend = process.env.RESEND_API_KEY
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters long.'),
-  email: z.string().email('Invalid email address.'), 
+  email: z.string().email('Invalid email address.'),
   message: z.string().min(10, 'Message must be at least 10 characters long.'),
 });
 
 export async function POST(req: NextRequest) {
-  try { 
-    // Check if Resend is configured 
+  try {
+    // Check if Resend is configured
     if (!resend) {
       return NextResponse.json(
         { success: false, error: 'Email service not configured.' },
@@ -30,13 +30,13 @@ export async function POST(req: NextRequest) {
     const validation = contactFormSchema.safeParse(body);
 
     if (!validation.success) {
-      return NextResponse.json( 
+      return NextResponse.json(
         {
           success: false,
           error: 'Invalid input.',
           details: validation.error.flatten().fieldErrors,
         },
-        { status: 400 }, 
+        { status: 400 },
       );
     }
 
@@ -68,7 +68,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       { success: false, error: 'An unexpected error occurred.' },
       { status: 500 },
-
     );
   }
-} 
+}

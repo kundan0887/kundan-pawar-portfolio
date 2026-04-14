@@ -6,7 +6,6 @@ import {
   testAccessibility,
   testKeyboardNavigation,
   createMockProject,
-
 } from '../utils/test-utils';
 import Projects from '@/components/Projects';
 
@@ -386,4 +385,3 @@ describe('Projects Component', () => {
     });
   });
 });
-

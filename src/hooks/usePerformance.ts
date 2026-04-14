@@ -70,12 +70,11 @@ export function usePerformance() {
   const measurePerformance = useCallback(() => {
     if (typeof window === 'undefined') return;
 
-    const navigationEntry = performance.getEntriesByType( 
+    const navigationEntry = performance.getEntriesByType(
       'navigation',
     )[0] as PerformanceNavigationTiming;
     const paintEntries = performance.getEntriesByType('paint');
     const fcpEntry = paintEntries.find(
-
       entry => entry.name === 'first-contentful-paint',
     );
     const fpEntry = paintEntries.find(entry => entry.name === 'first-paint');
@@ -97,7 +96,6 @@ export function usePerformance() {
 
     // Measure LCP
     new PerformanceObserver(list => {
-
       const entries = list.getEntries();
       const lcp = entries[entries.length - 1];
       if (lcp) {
@@ -113,7 +111,7 @@ export function usePerformance() {
       entries.forEach(entry => {
         const firstInputEntry = entry as FirstInputPerformanceEntry;
         if (firstInputEntry.processingStart && firstInputEntry.startTime) {
-          const fid = 
+          const fid =
             firstInputEntry.processingStart - firstInputEntry.startTime;
           setMetrics(prev => (prev ? { ...prev, firstInputDelay: fid } : null));
         }
@@ -204,7 +202,7 @@ export function usePerformance() {
     preloadResource,
     preloadCriticalResources,
     lazyLoadImage,
-    prefetchResource, 
+    prefetchResource,
     getBundleSize,
     checkPerformanceBudget,
   };
@@ -267,4 +265,3 @@ export function useIntersectionObserver(
 
   return { ref, isIntersecting, hasIntersected };
 }
-

@@ -2,7 +2,6 @@ import React from 'react';
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {
-
   render,
   testAccessibility,
   createMockSkill,
@@ -36,7 +35,7 @@ describe('Skills Component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-  }); 
+  });
 
   describe('Skills Display', () => {
     it('renders all skills with correct data', () => {
@@ -158,7 +157,6 @@ describe('Skills Component', () => {
 
   describe('Hover Interactions', () => {
     it('shows skill details on hover', async () => {
-
       const user = userEvent.setup();
       render(<Skills />);
 
@@ -195,7 +193,7 @@ describe('Skills Component', () => {
   });
 
   describe('Progress Animations', () => {
-    it('animates progress bars on mount', async () => { 
+    it('animates progress bars on mount', async () => {
       render(<Skills />);
 
       const progressBars = screen.getAllByTestId('progress-bar');
@@ -371,4 +369,3 @@ describe('Skills Component', () => {
     });
   });
 });
-

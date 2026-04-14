@@ -13,7 +13,6 @@ import { Badge } from '@/components/ui/Badge';
 import { experience, Experience as ExperienceType } from '@/lib/data';
 
 export default function Experience() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -74,7 +73,7 @@ export default function Experience() {
               {/* Timeline Dot */}
               <div className='absolute left-4 md:left-1/2 w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full border-4 border-white dark:border-slate-800 transform md:-translate-x-1/2 z-10' />
 
-              {/* Content Card */} 
+              {/* Content Card */}
               <div
                 className={`ml-12 md:ml-0 md:w-5/12 ${
                   index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
@@ -152,7 +151,7 @@ export default function Experience() {
                   {/* Metrics */}
                   {job.metrics && job.metrics.length > 0 && (
                     <div>
-                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'> 
+                      <h4 className='font-semibold text-slate-900 dark:text-white mb-2'>
                         Impact:
                       </h4>
                       <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
@@ -166,7 +165,6 @@ export default function Experience() {
                             </div>
                             <div className='text-xs text-slate-600 dark:text-slate-300'>
                               {metric.label}
-
                             </div>
                           </div>
                         ))}
@@ -182,4 +180,3 @@ export default function Experience() {
     </Section>
   );
 }
-

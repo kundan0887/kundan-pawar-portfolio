@@ -12,7 +12,6 @@ import {
 } from '@react-email/components';
 
 interface ContactEmailProps {
-
   name: string;
   email: string;
   message: string;
@@ -65,4 +64,3 @@ const ContactEmail = ({ name, email, message }: ContactEmailProps) => (
 );
 
 export default ContactEmail;
-

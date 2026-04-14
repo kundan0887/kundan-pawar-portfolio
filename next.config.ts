@@ -101,13 +101,8 @@ const nextConfig: NextConfig = {
   // React strict mode
   reactStrictMode: true,
 
-  // Output optimization
-  output: 'standalone',
-
-  // Environment variables
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
-  }, 
+  // Note: 'output: standalone' is NOT compatible with Vercel — removed.
+  // Vercel manages output automatically.
 };
 
 export default nextConfig;
