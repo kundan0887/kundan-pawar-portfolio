@@ -268,7 +268,7 @@ export default function Contact() {
                 >
                   <Github className='w-4 h-4 text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors' />
                   <span className='text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors'>
-                    github.com/kundan0887
+                    {socialLinks.github.replace('https://', '')}
                   </span>
                 </a>
                 <a
@@ -279,7 +279,7 @@ export default function Contact() {
                 >
                   <Linkedin className='w-4 h-4 text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors' />
                   <span className='text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors'>
-                    linkedin.com/in/kundanpawar87
+                    {socialLinks.linkedin.replace('https://', '')}
                   </span>
                 </a>
               </div>

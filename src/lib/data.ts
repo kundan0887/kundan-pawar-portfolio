@@ -468,10 +468,10 @@ export const experience: Experience[] = [
     ],
   },
   {
-    company: 'Previous Company',
+    company: 'Various Clients (India)',
     role: '.NET / SharePoint Developer',
     duration: '2012 – 2019',
-    location: 'India',
+    location: 'Pune, India',
     description:
       'Specialized in SharePoint migrations and enterprise customization across multiple versions.',
     achievements: [

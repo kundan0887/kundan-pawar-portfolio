@@ -69,7 +69,7 @@ export default function About({ resumeUrl }: AboutProps) {
               key={stat.label}
               className={`p-8 text-center ${
                 index < stats.length - 1
-                  ? 'border-r border-slate-200 dark:border-slate-700'
+                  ? 'sm:border-r border-slate-200 dark:border-slate-700'
                   : ''
               }`}
             >

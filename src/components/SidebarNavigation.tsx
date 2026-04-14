@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu,
@@ -14,6 +14,8 @@ import {
   Github,
   Linkedin,
   Mail,
+  Moon,
+  Sun,
 } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
 
@@ -97,6 +99,21 @@ function SidebarContent({
   currentSection: string;
   onNavigate: (id: string) => void;
 }) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle('dark', next);
+    try {
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+    } catch (_) {}
+  };
+
   return (
     <div className='flex flex-col h-full'>
       {/* Profile */}
@@ -165,14 +182,14 @@ function SidebarContent({
         })}
       </nav>
 
-      {/* Social Links */}
-      <div className='p-4 border-t border-slate-800'>
+      {/* Social Links + Theme Toggle */}
+      <div className='p-4 border-t border-slate-800 space-y-2'>
         <div className='flex items-center gap-1'>
           <a
             href={socialLinks.github}
             target='_blank'
             rel='noopener noreferrer'
-            className='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
+            className='flex-1 flex items-center justify-center gap-1.5 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
           >
             <Github className='w-3.5 h-3.5' />
             GitHub
@@ -181,19 +198,36 @@ function SidebarContent({
             href={socialLinks.linkedin}
             target='_blank'
             rel='noopener noreferrer'
-            className='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
+            className='flex-1 flex items-center justify-center gap-1.5 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
           >
             <Linkedin className='w-3.5 h-3.5' />
             LinkedIn
           </a>
           <a
             href={socialLinks.email}
-            className='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
+            className='flex-1 flex items-center justify-center gap-1.5 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
           >
             <Mail className='w-3.5 h-3.5' />
             Email
           </a>
         </div>
+        <button
+          onClick={toggleTheme}
+          className='w-full flex items-center justify-center gap-2 py-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium border border-slate-800 hover:border-slate-700'
+          aria-label='Toggle dark mode'
+        >
+          {isDark ? (
+            <>
+              <Sun className='w-3.5 h-3.5' />
+              Light Mode
+            </>
+          ) : (
+            <>
+              <Moon className='w-3.5 h-3.5' />
+              Dark Mode
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

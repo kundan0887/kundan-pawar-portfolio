@@ -109,58 +109,7 @@ export const viewport = {
 
 // Theme provider component
 function ThemeProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <div className='min-h-screen bg-background text-foreground transition-colors duration-300'>
-      {children}
-    </div>
-  );
-}
-
-// Analytics component placeholder
-function Analytics() {
-  return (
-    <>
-      {/* Google Analytics */}
-      <script
-        async
-        src='https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID'
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID');
-          `,
-        }}
-      />
-
-      {/* Google Tag Manager */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');
-          `,
-        }}
-      />
-
-      {/* Google Tag Manager (noscript) */}
-      <noscript>
-        <iframe
-          src='https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX'
-          height='0'
-          width='0'
-          style={{ display: 'none', visibility: 'hidden' }}
-          title='Google Tag Manager'
-        />
-      </noscript>
-    </>
-  );
+  return <>{children}</>;
 }
 
 export default function RootLayout({
@@ -184,6 +133,16 @@ export default function RootLayout({
         />
         <link rel='preconnect' href='https://www.googletagmanager.com' />
 
+        {/* Dark mode init — runs before paint to prevent flash */}
+        <script
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            // eslint-disable-next-line quotes
+            __html:
+              "try{var t=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(t===null&&d)){document.documentElement.classList.add('dark')}}catch(e){}",
+          }}
+        />
+
         {/* Favicon and app icons */}
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
@@ -194,24 +153,8 @@ export default function RootLayout({
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//www.googletagmanager.com' />
       </head>
-      <body
-        className={`${inter.className} antialiased bg-background text-foreground`}
-      >
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src='https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX'
-            height='0'
-            width='0'
-            style={{ display: 'none', visibility: 'hidden' }}
-            title='Google Tag Manager'
-          />
-        </noscript>
-
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
-
-        {/* Analytics */}
-        <Analytics />
       </body>
     </html>
   );
