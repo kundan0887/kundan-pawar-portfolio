@@ -6,26 +6,23 @@ import { useForm } from 'react-hook-form';
 import {
   Mail,
   MapPin,
-  Clock,
   Github,
   Linkedin,
   Send,
   CheckCircle,
   AlertCircle,
 } from 'lucide-react';
-import { Button, Section, Card } from '@/components/ui';
 import { contactInfo, socialLinks } from '@/lib/data';
 
 interface FormData {
   name: string;
   email: string;
   message: string;
-  honeypot: string; // Spam protection
+  honeypot: string;
 }
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const [submitStatus, setSubmitStatus] = useState<
     'idle' | 'success' | 'error'
   >('idle');
@@ -38,11 +35,7 @@ export default function Contact() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // Check honeypot field
-    if (data.honeypot) {
-      console.log('Spam detected');
-      return;
-    }
+    if (data.honeypot) return;
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -50,9 +43,7 @@ export default function Contact() {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: data.name,
           email: data.email,
@@ -61,10 +52,7 @@ export default function Contact() {
       });
 
       const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Something went wrong');
-      }
+      if (!response.ok) throw new Error(result.error || 'Something went wrong');
 
       setSubmitStatus('success');
       reset();
@@ -73,140 +61,113 @@ export default function Contact() {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
-      // Reset status message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
-    <Section id='contact'>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className='text-center mb-16'
-      >
-        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
-          Get In Touch
-        </h2>
-        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
-          I&apos;m always open to discussing new opportunities and interesting
-          projects. Available for Remote, Hybrid & On-site roles.
-        </p>
-      </motion.div>
+    <section id='contact' className='py-24 bg-slate-50 dark:bg-slate-900'>
+      <div className='container mx-auto px-8 max-w-6xl'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className='mb-14'
+        >
+          <p className='text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-2 tracking-wide'>
+            05 — Contact
+          </p>
+          <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3'>
+            Let&apos;s work together
+          </h2>
+          <p className='text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed'>
+            I&apos;m open to new opportunities — remote, hybrid, or on-site.
+            Drop me a message and I&apos;ll get back to you promptly.
+          </p>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-        className='grid grid-cols-1 lg:grid-cols-2 gap-12'
-      >
-        {/* Contact Form */}
-        <motion.div variants={itemVariants} className='space-y-6'>
-          <Card variant='elevated' className='p-8'>
-            <h3 className='text-2xl font-bold text-slate-900 dark:text-white mb-6'>
-              Send a Message
-            </h3>
-
-            <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
-              {/* Name Field */}
-              <div>
-                <label
-                  htmlFor='name'
-                  className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'
-                >
-                  Name *
-                </label>
-                <input
-                  {...register('name', { required: 'Name is required' })}
-                  type='text'
-                  id='name'
-                  className='w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
-                  placeholder='Your name'
-                />
-                {errors.name && (
-                  <p className='mt-1 text-sm text-red-600 dark:text-red-400'>
-                    {errors.name.message}
-                  </p>
-                )}
+        <div className='grid lg:grid-cols-5 gap-10'>
+          {/* Form — 3 cols */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className='lg:col-span-3'
+          >
+            <form onSubmit={handleSubmit(onSubmit)} className='space-y-5'>
+              <div className='grid sm:grid-cols-2 gap-5'>
+                <div>
+                  <label
+                    htmlFor='contact-name'
+                    className='block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-widest mb-2'
+                  >
+                    Name *
+                  </label>
+                  <input
+                    {...register('name', { required: 'Name is required' })}
+                    id='contact-name'
+                    type='text'
+                    className='w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm transition-colors'
+                    placeholder='Your name'
+                  />
+                  {errors.name && (
+                    <p className='mt-1.5 text-xs text-red-500'>
+                      {errors.name.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor='contact-email'
+                    className='block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-widest mb-2'
+                  >
+                    Email *
+                  </label>
+                  <input
+                    {...register('email', {
+                      required: 'Email is required',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Invalid email address',
+                      },
+                    })}
+                    id='contact-email'
+                    type='email'
+                    className='w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm transition-colors'
+                    placeholder='your@email.com'
+                  />
+                  {errors.email && (
+                    <p className='mt-1.5 text-xs text-red-500'>
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              {/* Email Field */}
               <div>
                 <label
-                  htmlFor='email'
-                  className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'
-                >
-                  Email *
-                </label>
-                <input
-                  {...register('email', {
-                    required: 'Email is required',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Invalid email address',
-                    },
-                  })}
-                  type='email'
-                  id='email'
-                  className='w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
-                  placeholder='your.email@example.com'
-                />
-                {errors.email && (
-                  <p className='mt-1 text-sm text-red-600 dark:text-red-400'>
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Message Field */}
-              <div>
-                <label
-                  htmlFor='message'
-                  className='block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2'
+                  htmlFor='contact-message'
+                  className='block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-widest mb-2'
                 >
                   Message *
                 </label>
                 <textarea
-                  {...register('message', { required: 'Message is required' })}
-                  id='message'
-                  rows={5}
-                  className='w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-800 text-slate-900 dark:text-white resize-vertical'
+                  {...register('message', {
+                    required: 'Message is required',
+                  })}
+                  id='contact-message'
+                  rows={6}
+                  className='w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm resize-none transition-colors'
                   placeholder='Tell me about your project or opportunity...'
                 />
                 {errors.message && (
-                  <p className='mt-1 text-sm text-red-600 dark:text-red-400'>
+                  <p className='mt-1.5 text-xs text-red-500'>
                     {errors.message.message}
                   </p>
                 )}
               </div>
 
-              {/* Honeypot Field (Hidden) */}
+              {/* Honeypot */}
               <input
                 {...register('honeypot')}
                 type='text'
@@ -215,137 +176,130 @@ export default function Contact() {
                 autoComplete='off'
               />
 
-              {/* Submit Button */}
-              <Button
+              <button
                 type='submit'
                 disabled={isSubmitting}
-                loading={isSubmitting}
-                fullWidth
-                className='flex items-center justify-center gap-2'
+                className='w-full flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm'
               >
                 <Send className='w-4 h-4' />
-                Send Message
-              </Button>
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
 
-              {/* Status Messages */}
               {submitStatus === 'success' && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className='flex items-center gap-2 p-3 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 rounded-lg'
+                  className='flex items-center gap-2.5 p-3.5 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 rounded-lg'
                 >
-                  <CheckCircle className='w-5 h-5 text-green-600 dark:text-green-400' />
-                  <span className='text-green-800 dark:text-green-200'>
-                    Message sent successfully! I&apos;ll get back to you soon.
+                  <CheckCircle className='w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0' />
+                  <span className='text-sm text-emerald-800 dark:text-emerald-200'>
+                    Message sent! I&apos;ll be in touch soon.
                   </span>
                 </motion.div>
               )}
 
               {submitStatus === 'error' && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className='flex items-center gap-2 p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg'
+                  className='flex items-center gap-2.5 p-3.5 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50 rounded-lg'
                 >
-                  <AlertCircle className='w-5 h-5 text-red-600 dark:text-red-400' />
-                  <span className='text-red-800 dark:text-red-200'>
-                    Something went wrong. Please try again or contact me
-                    directly.
+                  <AlertCircle className='w-4 h-4 text-red-600 dark:text-red-400 flex-shrink-0' />
+                  <span className='text-sm text-red-800 dark:text-red-200'>
+                    Something went wrong. Try again or email me directly.
                   </span>
                 </motion.div>
               )}
             </form>
-          </Card>
-        </motion.div>
+          </motion.div>
 
-        {/* Contact Information */}
-        <motion.div variants={itemVariants} className='space-y-8'>
-          <Card variant='elevated' className='p-8'>
-            <h3 className='text-2xl font-bold text-slate-900 dark:text-white mb-6'>
-              Contact Information
-            </h3>
-
-            {/* Contact Details */}
-            <div className='space-y-6'>
-              <div className='flex items-start gap-4'>
-                <div className='p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg'>
-                  <Mail className='w-6 h-6 text-blue-600 dark:text-blue-400' />
+          {/* Info — 2 cols */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className='lg:col-span-2 space-y-6'
+          >
+            {/* Contact details */}
+            <div className='space-y-4'>
+              <div className='flex items-center gap-3.5'>
+                <div className='w-9 h-9 rounded-lg bg-indigo-100 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0'>
+                  <Mail className='w-4 h-4 text-indigo-600 dark:text-indigo-400' />
                 </div>
                 <div>
-                  <h4 className='font-semibold text-slate-900 dark:text-white mb-1'>
+                  <p className='text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mb-0.5'>
                     Email
-                  </h4>
+                  </p>
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className='text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors'
+                    className='text-sm text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors'
                   >
                     {contactInfo.email}
                   </a>
                 </div>
               </div>
 
-              <div className='flex items-start gap-4'>
-                <div className='p-3 bg-green-100 dark:bg-green-900/30 rounded-lg'>
-                  <MapPin className='w-6 h-6 text-green-600 dark:text-green-400' />
+              <div className='flex items-center gap-3.5'>
+                <div className='w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center flex-shrink-0'>
+                  <MapPin className='w-4 h-4 text-emerald-600 dark:text-emerald-400' />
                 </div>
                 <div>
-                  <h4 className='font-semibold text-slate-900 dark:text-white mb-1'>
+                  <p className='text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mb-0.5'>
                     Location
-                  </h4>
-                  <p className='text-slate-600 dark:text-slate-300'>
-                    {contactInfo.location}
                   </p>
-                </div>
-              </div>
-
-              <div className='flex items-start gap-4'>
-                <div className='p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg'>
-                  <Clock className='w-6 h-6 text-purple-600 dark:text-purple-400' />
-                </div>
-                <div>
-                  <h4 className='font-semibold text-slate-900 dark:text-white mb-1'>
-                    Availability
-                  </h4>
-                  <p className='text-slate-600 dark:text-slate-300'>
-                    {contactInfo.availability}
+                  <p className='text-sm text-slate-700 dark:text-slate-300'>
+                    {contactInfo.location}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className='mt-8'>
-              <h4 className='font-semibold text-slate-900 dark:text-white mb-4'>
-                Connect with me
-              </h4>
-              <div className='flex gap-4'>
+            {/* Social links */}
+            <div>
+              <p className='text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mb-3'>
+                Connect
+              </p>
+              <div className='space-y-2'>
                 <a
                   href={socialLinks.github}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors'
+                  className='flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors group'
                 >
-                  <Github className='w-6 h-6 text-slate-700 dark:text-slate-300' />
+                  <Github className='w-4 h-4 text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors' />
+                  <span className='text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors'>
+                    github.com/kundan0887
+                  </span>
                 </a>
                 <a
                   href={socialLinks.linkedin}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors'
+                  className='flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors group'
                 >
-                  <Linkedin className='w-6 h-6 text-slate-700 dark:text-slate-300' />
-                </a>
-                <a
-                  href={socialLinks.email}
-                  className='p-3 bg-slate-200 dark:bg-slate-700 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors'
-                >
-                  <Mail className='w-6 h-6 text-slate-700 dark:text-slate-300' />
+                  <Linkedin className='w-4 h-4 text-slate-500 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors' />
+                  <span className='text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors'>
+                    linkedin.com/in/kundanpawar87
+                  </span>
                 </a>
               </div>
             </div>
-          </Card>
-        </motion.div>
-      </motion.div>
-    </Section>
+
+            {/* Availability card */}
+            <div className='p-5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700'>
+              <div className='flex items-center gap-2 mb-2'>
+                <span className='w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0' />
+                <span className='text-sm font-semibold text-slate-900 dark:text-white'>
+                  Currently Available
+                </span>
+              </div>
+              <p className='text-sm text-slate-500 dark:text-slate-400'>
+                {contactInfo.availability}
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,335 +1,194 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  Download,
-  Code,
-  Cloud,
-  Users,
-  Target,
-  Award,
-  Database,
-  Globe,
-  Zap,
-  Shield,
-  GitBranch,
-  MapPin,
-  Mail,
-  Calendar,
-  GraduationCap,
-  Languages,
-  Trophy,
-  Star,
-} from 'lucide-react';
-import { Button, Section, Card } from '@/components/ui';
+import { Download, MapPin, Mail, GraduationCap } from 'lucide-react';
 import {
   personalInfo,
   education,
   languages,
-  keyAchievements,
   keyStrengths,
+  keyAchievements,
 } from '@/lib/data';
 
 interface AboutProps {
   resumeUrl: string;
 }
 
+const stats = [
+  {
+    value: '12+',
+    label: 'Years in IT',
+    color: 'text-indigo-600 dark:text-indigo-400',
+  },
+  {
+    value: '6+',
+    label: 'Years Frontend',
+    color: 'text-emerald-600 dark:text-emerald-400',
+  },
+  {
+    value: '10+',
+    label: 'Devs Mentored',
+    color: 'text-violet-600 dark:text-violet-400',
+  },
+  {
+    value: '95%+',
+    label: 'Test Coverage',
+    color: 'text-amber-600 dark:text-amber-400',
+  },
+];
+
 export default function About({ resumeUrl }: AboutProps) {
-  const _stats = [
-    {
-      icon: Award,
-      value: '12+',
-      label: 'Years IT Experience',
-      color: 'text-blue-600 dark:text-blue-400',
-      bgColor: 'bg-blue-50 dark:bg-blue-900/20',
-    },
-    {
-      icon: Target,
-      value: '6+',
-      label: 'Years Frontend Dev',
-      color: 'text-green-600 dark:text-green-400',
-      bgColor: 'bg-green-50 dark:bg-green-900/20',
-    },
-    {
-      icon: Users,
-      value: '10+',
-      label: 'Developers Mentored',
-      color: 'text-purple-600 dark:text-purple-400',
-      bgColor: 'bg-purple-50 dark:bg-purple-900/20',
-    },
-  ];
-
-  const techStack = [
-    { name: 'React.js', icon: Code, color: 'text-blue-500' },
-    { name: 'AWS', icon: Cloud, color: 'text-orange-500' },
-    { name: 'Micro-Frontend', icon: GitBranch, color: 'text-green-500' },
-    { name: '.NET Core', icon: Database, color: 'text-purple-500' },
-    { name: 'TypeScript', icon: Globe, color: 'text-indigo-500' },
-    { name: 'CI/CD', icon: Zap, color: 'text-yellow-500' },
-    { name: 'Testing', icon: Shield, color: 'text-red-500' },
-    { name: 'AEM Headless', icon: Target, color: 'text-teal-500' },
-  ];
-
-  const _containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
-  const _statsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
-    <Section id='about'>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className='text-center mb-16'
-      >
-        <h2 className='text-3xl font-bold text-center text-slate-900 dark:text-white mb-8'>
-          About Me
-        </h2>
-        <p className='text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto'>
-          Get to know me better and understand my journey in software
-          development
-        </p>
-      </motion.div>
-
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
-        {/* Left Side - Content */}
+    <section id='about' className='py-24 bg-slate-50 dark:bg-slate-900'>
+      <div className='container mx-auto px-8 max-w-6xl'>
+        {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className='space-y-8'
+          className='mb-14'
         >
-          <div>
-            <h3 className='text-2xl font-bold text-slate-900 dark:text-white mb-4'>
-              {personalInfo.name}
-            </h3>
-            <p className='text-lg text-slate-700 dark:text-slate-200 mb-4'>
-              {personalInfo.title}
-            </p>
-            <p className='text-slate-600 dark:text-slate-300 leading-relaxed'>
+          <p className='text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-2 tracking-wide'>
+            01 — About
+          </p>
+          <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight'>
+            Who I am
+          </h2>
+        </motion.div>
+
+        {/* Stats row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className='grid grid-cols-2 md:grid-cols-4 gap-0 mb-14 bg-white dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden'
+        >
+          {stats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={`p-8 text-center ${
+                index < stats.length - 1
+                  ? 'border-r border-slate-200 dark:border-slate-700'
+                  : ''
+              }`}
+            >
+              <div className={`text-4xl font-bold mb-1.5 ${stat.color}`}>
+                {stat.value}
+              </div>
+              <div className='text-sm text-slate-500 dark:text-slate-400'>
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        <div className='grid lg:grid-cols-2 gap-14'>
+          {/* Left — Bio + Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className='space-y-8'
+          >
+            <p className='text-slate-600 dark:text-slate-300 leading-relaxed text-lg'>
               {personalInfo.bio}
             </p>
-          </div>
 
-          {/* Key Information */}
-          <div className='space-y-4'>
-            <div className='flex items-center gap-3'>
-              <MapPin className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-              <span className='text-slate-600 dark:text-slate-300'>
-                {personalInfo.location}
-              </span>
-            </div>
-            <div className='flex items-center gap-3'>
-              <Mail className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className='text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors'
-              >
-                {personalInfo.email}
-              </a>
-            </div>
-            {personalInfo.phone && (
-              <div className='flex items-center gap-3'>
-                <Calendar className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-                <span className='text-slate-600 dark:text-slate-300'>
-                  {personalInfo.phone}
+            <div className='space-y-3.5'>
+              <div className='flex items-center gap-3 text-slate-600 dark:text-slate-300'>
+                <MapPin className='w-4 h-4 text-indigo-500 flex-shrink-0' />
+                <span className='text-sm'>{personalInfo.location}</span>
+              </div>
+              <div className='flex items-center gap-3 text-slate-600 dark:text-slate-300'>
+                <Mail className='w-4 h-4 text-indigo-500 flex-shrink-0' />
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className='text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors'
+                >
+                  {personalInfo.email}
+                </a>
+              </div>
+              <div className='flex items-start gap-3 text-slate-600 dark:text-slate-300'>
+                <GraduationCap className='w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5' />
+                <span className='text-sm'>
+                  {education.degree}, {education.institution} ({education.year})
                 </span>
               </div>
-            )}
-          </div>
-
-          {/* Education */}
-          <div className='space-y-3'>
-            <h4 className='text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2'>
-              <GraduationCap className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-              Education
-            </h4>
-            <div className='bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg'>
-              <p className='font-medium text-slate-900 dark:text-white'>
-                {education.degree}
-              </p>
-              <p className='text-slate-600 dark:text-slate-300'>
-                {education.institution} • {education.year}
-              </p>
             </div>
-          </div>
 
-          {/* Languages */}
-          <div className='space-y-3'>
-            <h4 className='text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2'>
-              <Languages className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-              Languages
-            </h4>
-            <div className='flex flex-wrap gap-2'>
-              {languages.map(lang => (
-                <span
-                  key={`${lang.name}-${lang.level}`}
-                  className='px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm'
-                >
-                  {lang.name} ({lang.level})
-                </span>
-              ))}
+            <div>
+              <h4 className='text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-widest mb-3'>
+                Languages
+              </h4>
+              <div className='flex flex-wrap gap-2'>
+                {languages.map(lang => (
+                  <span
+                    key={lang.name}
+                    className='px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full text-xs border border-slate-200 dark:border-slate-700'
+                  >
+                    {lang.name}{' '}
+                    <span className='text-slate-400 dark:text-slate-500'>
+                      · {lang.level}
+                    </span>
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <Button
-            onClick={() => window.open(resumeUrl, '_blank')}
-            className='flex items-center gap-2'
-          >
-            <Download className='w-4 h-4' />
-            Download Resume
-          </Button>
-        </motion.div>
-
-        {/* Right Side - Stats and Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className='space-y-8'
-        >
-          {/* Stats */}
-          <div className='grid grid-cols-2 gap-6'>
-            <Card variant='elevated' className='text-center p-6'>
-              <div className='text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2'>
-                12+
-              </div>
-              <div className='text-slate-600 dark:text-slate-300'>
-                Years IT Experience
-              </div>
-            </Card>
-            <Card variant='elevated' className='text-center p-6'>
-              <div className='text-3xl font-bold text-green-600 dark:text-green-400 mb-2'>
-                6+
-              </div>
-              <div className='text-slate-600 dark:text-slate-300'>
-                Years Frontend Dev
-              </div>
-            </Card>
-            <Card variant='elevated' className='text-center p-6'>
-              <div className='text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2'>
-                10+
-              </div>
-              <div className='text-slate-600 dark:text-slate-300'>
-                Developers Mentored
-              </div>
-            </Card>
-            <Card variant='elevated' className='text-center p-6'>
-              <div className='text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2'>
-                95%+
-              </div>
-              <div className='text-slate-600 dark:text-slate-300'>
-                Test Coverage
-              </div>
-            </Card>
-          </div>
-
-          {/* Key Strengths */}
-          <div className='space-y-3'>
-            <h4 className='text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2'>
-              <Star className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-              Key Strengths
-            </h4>
-            <div className='grid grid-cols-2 gap-2'>
-              {keyStrengths.map(strength => (
-                <div
-                  key={strength}
-                  className='flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300'
-                >
-                  <div className='w-2 h-2 bg-blue-500 rounded-full' />
-                  {strength}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Key Achievements */}
-          <div className='space-y-3'>
-            <h4 className='text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2'>
-              <Trophy className='w-5 h-5 text-blue-600 dark:text-blue-400' />
-              Key Achievements
-            </h4>
-            <div className='space-y-2'>
-              {keyAchievements.slice(0, 4).map(achievement => (
-                <div
-                  key={achievement}
-                  className='flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300'
-                >
-                  <div className='w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0' />
-                  <span>{achievement}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Tech Stack Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className='mt-16'
-      >
-        <h3 className='text-2xl font-bold text-center text-slate-900 dark:text-white mb-8'>
-          Technology Stack
-        </h3>
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-          {techStack.map(tech => (
-            <motion.div
-              key={tech.name}
-              variants={itemVariants}
-              initial='hidden'
-              whileInView='visible'
-              viewport={{ once: true }}
-              className='text-center'
+            <button
+              onClick={() => window.open(resumeUrl, '_blank')}
+              className='inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors text-sm'
             >
-              <Card
-                variant='elevated'
-                className='p-6 hover:shadow-lg transition-shadow'
-              >
-                <tech.icon className={`w-8 h-8 mx-auto mb-3 ${tech.color}`} />
-                <h4 className='font-semibold text-slate-900 dark:text-white'>
-                  {tech.name}
-                </h4>
-              </Card>
-            </motion.div>
-          ))}
+              <Download className='w-4 h-4' />
+              Download Resume
+            </button>
+          </motion.div>
+
+          {/* Right — Strengths + Achievements */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className='space-y-8'
+          >
+            <div>
+              <h4 className='text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-widest mb-4'>
+                Key Strengths
+              </h4>
+              <div className='flex flex-wrap gap-2'>
+                {keyStrengths.map(strength => (
+                  <span
+                    key={strength}
+                    className='px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm border border-indigo-100 dark:border-indigo-900/50'
+                  >
+                    {strength}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className='text-xs font-semibold text-slate-900 dark:text-white uppercase tracking-widest mb-4'>
+                Key Achievements
+              </h4>
+              <ul className='space-y-3'>
+                {keyAchievements.map(achievement => (
+                  <li
+                    key={achievement}
+                    className='flex items-start gap-3 text-slate-600 dark:text-slate-300'
+                  >
+                    <span className='w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0' />
+                    <span className='text-sm leading-relaxed'>
+                      {achievement}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
-    </Section>
+      </div>
+    </section>
   );
 }

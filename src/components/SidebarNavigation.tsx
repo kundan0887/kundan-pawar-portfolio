@@ -9,45 +9,26 @@ import {
   User,
   Briefcase,
   Code,
-  FolderOpen,
+  Layers,
   MessageSquare,
-  MapPin as _MapPin,
-  Mail,
-  Calendar as _Calendar,
-  Download as _Download,
-  ChevronRight,
   Github,
   Linkedin,
+  Mail,
 } from 'lucide-react';
-import { personalInfo } from '@/lib/data';
-import { Badge as _Badge } from '@/components/ui/Badge';
-import { Button as _Button } from '@/components/ui/Button';
-import { socialLinks } from '@/lib/data';
+import { personalInfo, socialLinks } from '@/lib/data';
 
 interface SidebarNavigationProps {
   onNavigate: (sectionId: string) => void;
   currentSection: string;
 }
 
-interface NavigationItem {
-  id: string;
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-  href: string;
-}
-
-const navigationItems: NavigationItem[] = [
-  { id: 'home', label: 'Home', icon: Home, href: '#home' },
-  { id: 'about', label: 'About', icon: User, href: '#about' },
-  {
-    id: 'experience',
-    label: 'Experience',
-    icon: Briefcase,
-    href: '#experience',
-  },
-  { id: 'projects', label: 'Projects', icon: Code, href: '#projects' },
-  { id: 'skills', label: 'Skills', icon: FolderOpen, href: '#skills' },
-  { id: 'contact', label: 'Contact', icon: MessageSquare, href: '#contact' },
+const navigationItems = [
+  { id: 'home', label: 'Home', icon: Home },
+  { id: 'about', label: 'About', icon: User },
+  { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'projects', label: 'Projects', icon: Code },
+  { id: 'skills', label: 'Skills', icon: Layers },
+  { id: 'contact', label: 'Contact', icon: MessageSquare },
 ];
 
 export default function SidebarNavigation({
@@ -56,60 +37,21 @@ export default function SidebarNavigation({
 }: SidebarNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Handle mobile overlay click
-  const handleOverlayClick = () => {
-    setIsOpen(false);
-  };
-
-  // Handle navigation
   const handleNavigation = (sectionId: string) => {
     onNavigate(sectionId);
     setIsOpen(false);
   };
 
-  // Handle keyboard navigation
-  const _handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleNavigation(sectionId);
-    }
-  };
-
   return (
     <>
       {/* Mobile Menu Button */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className='fixed top-4 left-4 z-50 lg:hidden p-3 bg-slate-900/80 backdrop-blur-sm rounded-lg border border-slate-700/50 shadow-lg hover:bg-slate-800/80 transition-all duration-300'
+      <button
+        className='fixed top-4 left-4 z-50 lg:hidden p-2.5 bg-slate-950 rounded-lg border border-slate-800 text-white shadow-lg'
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        aria-label='Toggle navigation'
       >
-        <AnimatePresence mode='wait'>
-          {isOpen ? (
-            <motion.div
-              key='close'
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X className='w-6 h-6 text-white' />
-            </motion.div>
-          ) : (
-            <motion.div
-              key='menu'
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Menu className='w-6 h-6 text-white' />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
+        {isOpen ? <X className='w-5 h-5' /> : <Menu className='w-5 h-5' />}
+      </button>
 
       {/* Mobile Overlay */}
       <AnimatePresence>
@@ -118,8 +60,8 @@ export default function SidebarNavigation({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden'
-            onClick={handleOverlayClick}
+            className='fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden'
+            onClick={() => setIsOpen(false)}
           />
         )}
       </AnimatePresence>
@@ -129,7 +71,7 @@ export default function SidebarNavigation({
         initial={{ x: -280 }}
         animate={{ x: isOpen ? 0 : -280 }}
         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-        className='fixed left-0 top-0 h-full w-70 bg-gradient-to-b from-slate-900 to-slate-800 border-r border-slate-700/50 shadow-2xl backdrop-blur-xl z-50 lg:hidden'
+        className='fixed left-0 top-0 h-full w-70 bg-slate-950 border-r border-slate-800 z-50 lg:hidden'
       >
         <SidebarContent
           currentSection={currentSection}
@@ -137,8 +79,8 @@ export default function SidebarNavigation({
         />
       </motion.aside>
 
-      {/* Desktop Sidebar - Fixed */}
-      <aside className='hidden lg:block fixed left-0 top-0 h-full w-70 bg-gradient-to-b from-slate-900 to-slate-800 border-r border-slate-700/50 shadow-2xl backdrop-blur-xl z-40'>
+      {/* Desktop Sidebar */}
+      <aside className='hidden lg:block fixed left-0 top-0 h-full w-70 bg-slate-950 border-r border-slate-800 z-40'>
         <SidebarContent
           currentSection={currentSection}
           onNavigate={onNavigate}
@@ -148,164 +90,109 @@ export default function SidebarNavigation({
   );
 }
 
-// Separate component for sidebar content
-interface SidebarContentProps {
+function SidebarContent({
+  currentSection,
+  onNavigate,
+}: {
   currentSection: string;
-  onNavigate: (sectionId: string) => void;
-}
-
-function SidebarContent({ currentSection, onNavigate }: SidebarContentProps) {
-  // Handle keyboard navigation
-  const _handleKeyDown = (e: React.KeyboardEvent, sectionId: string) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      onNavigate(sectionId);
-    }
-  };
-
+  onNavigate: (id: string) => void;
+}) {
   return (
     <div className='flex flex-col h-full'>
-      {/* Header */}
-      <div className='p-6 border-b border-slate-700/50'>
-        <div className='flex items-center gap-4'>
-          {/* Avatar */}
-          <div className='relative flex-shrink-0'>
+      {/* Profile */}
+      <div className='p-6 border-b border-slate-800'>
+        <div className='flex items-center gap-3 mb-4'>
+          <div className='w-11 h-11 rounded-full overflow-hidden ring-2 ring-indigo-500/40 flex-shrink-0'>
             {personalInfo.avatarUrl ? (
-              <div className='w-12 h-12 rounded-full overflow-hidden border-2 border-slate-700 shadow-lg'>
-                <img
-                  src={personalInfo.avatarUrl}
-                  alt={`${personalInfo.name} - ${personalInfo.title}`}
-                  className='w-full h-full object-cover'
-                />
-              </div>
+              <img
+                src={personalInfo.avatarUrl}
+                alt={personalInfo.name}
+                className='w-full h-full object-cover'
+              />
             ) : (
-              <div className='w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg'>
+              <div className='w-full h-full bg-indigo-600 flex items-center justify-center text-white font-bold text-sm'>
                 {personalInfo.name
                   .split(' ')
                   .map(n => n[0])
                   .join('')}
               </div>
             )}
-            {/* Online Status */}
-            <div className='absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-slate-900 shadow-lg'>
-              <div className='w-full h-full bg-green-400 rounded-full animate-pulse' />
-            </div>
           </div>
-
-          {/* Brand Info - Elegant Two-Line Solution */}
-          <div className='flex-1 min-w-0'>
-            <h2 className='text-lg font-bold text-white truncate'>
+          <div className='min-w-0'>
+            <p className='text-white font-semibold text-sm truncate leading-tight'>
               {personalInfo.name}
-            </h2>
-            <p className='text-sm text-slate-300 truncate'>
+            </p>
+            <p className='text-slate-400 text-xs truncate mt-0.5 leading-tight'>
               {personalInfo.title}
             </p>
-            <p className='text-xs text-slate-400 mt-1'>
-              Available for Remote, Hybrid & On-site
-            </p>
           </div>
+        </div>
+        <div className='inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-500/10 rounded-full border border-emerald-500/20'>
+          <span className='w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0' />
+          <span className='text-emerald-400 text-xs font-medium'>
+            Open to opportunities
+          </span>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className='flex-1 p-4 space-y-2'>
+      <nav className='flex-1 p-4 space-y-0.5'>
         {navigationItems.map(item => {
           const isActive = currentSection === item.id;
           const Icon = item.icon;
-
           return (
-            <motion.div
+            <button
               key={item.id}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              onClick={() => onNavigate(item.id)}
+              className={`relative w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 ${
+                isActive
+                  ? 'bg-indigo-600/15 text-indigo-400'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+              }`}
+              aria-label={`Navigate to ${item.label}`}
             >
-              <button
-                onClick={() => onNavigate(item.id)}
-                onKeyDown={e => _handleKeyDown(e, item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 group relative overflow-hidden ${
-                  isActive
-                    ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 text-white shadow-lg'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
-                }`}
-                tabIndex={0}
-                aria-label={`Navigate to ${item.label} section`}
-              >
-                {/* Active Indicator */}
-                {isActive && (
-                  <motion.div
-                    layoutId='activeIndicator'
-                    className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500 rounded-r-full'
-                    initial={false}
-                    transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                  />
-                )}
-
-                {/* Icon */}
-                <div
-                  className={`relative z-10 ${
-                    isActive
-                      ? 'text-blue-400'
-                      : 'text-slate-400 group-hover:text-blue-400'
-                  }`}
-                >
-                  <Icon className='w-5 h-5' />
-                </div>
-
-                {/* Label */}
-                <span className='font-medium relative z-10'>{item.label}</span>
-
-                {/* Hover Glow Effect */}
-                <div className='absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg' />
-
-                {/* Arrow for active item */}
-                {isActive && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className='ml-auto'
-                  >
-                    <ChevronRight className='w-4 h-4 text-blue-400' />
-                  </motion.div>
-                )}
-              </button>
-            </motion.div>
+              {isActive && (
+                <motion.span
+                  layoutId='nav-active-indicator'
+                  className='absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-indigo-500 rounded-r-full'
+                  transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                />
+              )}
+              <Icon className='w-4 h-4 flex-shrink-0' />
+              {item.label}
+            </button>
           );
         })}
       </nav>
 
       {/* Social Links */}
-      <div className='p-4 border-t border-slate-700/50'>
-        <div className='flex justify-center gap-3'>
-          <motion.a
+      <div className='p-4 border-t border-slate-800'>
+        <div className='flex items-center gap-1'>
+          <a
             href={socialLinks.github}
             target='_blank'
             rel='noopener noreferrer'
-            className='p-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg transition-all duration-300 group'
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            className='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
           >
-            <Github className='w-5 h-5 text-slate-400 group-hover:text-white transition-colors' />
-          </motion.a>
-
-          <motion.a
+            <Github className='w-3.5 h-3.5' />
+            GitHub
+          </a>
+          <a
             href={socialLinks.linkedin}
             target='_blank'
             rel='noopener noreferrer'
-            className='p-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg transition-all duration-300 group'
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            className='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
           >
-            <Linkedin className='w-5 h-5 text-slate-400 group-hover:text-white transition-colors' />
-          </motion.a>
-
-          <motion.a
+            <Linkedin className='w-3.5 h-3.5' />
+            LinkedIn
+          </a>
+          <a
             href={socialLinks.email}
-            className='p-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg transition-all duration-300 group'
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            className='flex-1 flex items-center justify-center gap-1.5 py-2.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors text-xs font-medium'
           >
-            <Mail className='w-5 h-5 text-slate-400 group-hover:text-white transition-colors' />
-          </motion.a>
+            <Mail className='w-3.5 h-3.5' />
+            Email
+          </a>
         </div>
       </div>
     </div>
