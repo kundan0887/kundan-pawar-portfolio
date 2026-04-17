@@ -9,6 +9,7 @@ export default function Experience() {
       <div className='container mx-auto px-8 max-w-6xl'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
+
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className='mb-14'
@@ -117,3 +118,4 @@ export default function Experience() {
     </section>
   );
 }
+
