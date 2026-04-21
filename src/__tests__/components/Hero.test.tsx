@@ -94,6 +94,7 @@ describe('Hero Component', () => {
     it('handles secondary CTA button click', async () => {
       const user = userEvent.setup();
       const mockOpen = jest.fn();
+
       Object.defineProperty(window, 'open', {
         writable: true,
         value: mockOpen,
@@ -217,6 +218,7 @@ describe('Hero Component', () => {
 
     it('supports Enter key activation', async () => {
       const user = userEvent.setup();
+
       render(<Hero {...defaultProps} />);
 
       const primaryButton = screen.getByRole('button', {
@@ -285,7 +287,8 @@ describe('Hero Component', () => {
       });
       await user.click(secondaryButton);
 
-      expect(mockOpen).toHaveBeenCalledWith('', '_blank');
+      expect(mockOpen).toHaveBeenCalledWith('', '_blank'); 
     });
   });
 });
+
