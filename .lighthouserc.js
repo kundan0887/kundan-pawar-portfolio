@@ -8,7 +8,7 @@ module.exports = {
       startServerReadyTimeout: 60000,
       numberOfRuns: 3,
     },
-    assert: {
+    assert: { 
       assertions: { 
         'categories:performance': ['warn', { minScore: 0.9 }],
         'categories:accessibility': ['error', { minScore: 0.95 }],
@@ -24,7 +24,9 @@ module.exports = {
     },
     upload: {
       target: 'temporary-public-storage',
+
     },
   },
 
 };
+
