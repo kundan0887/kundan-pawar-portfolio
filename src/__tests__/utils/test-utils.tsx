@@ -19,6 +19,7 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
 const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>,
+
 ) => {
   const user = userEvent.setup();
   return {
@@ -52,6 +53,7 @@ beforeAll(() => {
 
   // Mock ResizeObserver
   global.ResizeObserver = class ResizeObserver {
+
     constructor() {}
     disconnect() {}
     observe() {}
@@ -69,5 +71,6 @@ beforeAll(() => {
 
 afterEach(() => {
   // Clear all mocks
-  jest.clearAllMocks();
+  jest.clearAllMocks(); 
 });
+
