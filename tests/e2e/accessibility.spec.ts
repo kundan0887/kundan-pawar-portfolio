@@ -79,6 +79,7 @@ test.describe('Accessibility', () => {
     const count = await interactiveElements.count();
 
     for (let i = 0; i < count; i++) {
+
       await page.keyboard.press('Tab');
       const focused = page.locator(':focus');
       await expect(focused).toBeVisible();
@@ -113,7 +114,7 @@ test.describe('Accessibility', () => {
         expect(label).toBeTruthy();
       }
     }
-  });
+  }); 
 
   test('should have skip links for keyboard users', async ({ page }) => {
     // Check for skip to main content link
@@ -166,3 +167,4 @@ test.describe('Accessibility', () => {
     }
   });
 });
+
