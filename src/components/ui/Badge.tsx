@@ -3,8 +3,10 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+
   variant?:
     | 'default'
+
     | 'primary'
     | 'secondary'
     | 'success'
@@ -35,23 +37,26 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     };
 
     const sizes = {
+
       sm: 'px-2 py-0.5 text-xs',
       md: 'px-3 py-1 text-sm',
       lg: 'px-4 py-2 text-base',
     };
 
-    return (
+    return ( 
       <span
         ref={ref}
         className={cn(baseStyles, variants[variant], sizes[size], className)}
         {...props}
       >
+
         {children}
-      </span>
+      </span> 
     );
   },
 );
 
-Badge.displayName = 'Badge';
+Badge.displayName = 'Badge'; 
 
 export { Badge };
+
