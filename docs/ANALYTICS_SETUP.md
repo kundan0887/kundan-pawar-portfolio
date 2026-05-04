@@ -48,4 +48,3 @@ After setup, verify that:
 3. Social media cards display correctly when sharing
 4. PWA features work on mobile devices
 5. Favicons display correctly across browsers
-
