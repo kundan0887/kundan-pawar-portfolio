@@ -601,13 +601,14 @@ describe('Contact Component', () => {
   });
 
   describe('Error Handling', () => {
-    it('handles network timeouts gracefully', async () => {
+    it('handles network timeouts gracefully', async () => { 
       const user = userEvent.setup();
       const mockSubmit = jest
         .fn()
         .mockImplementation(
           () =>
             new Promise((_, reject) =>
+
               setTimeout(() => reject(new Error('Timeout')), 100),
             ),
         );
@@ -663,3 +664,4 @@ describe('Contact Component', () => {
     });
   });
 });
+
