@@ -38,7 +38,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
       <div className='absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-100/40 dark:bg-indigo-900/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2' />
 
       <div className='relative z-10 w-full px-8 py-24'>
-        <div className='grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto'>
+        <div className='grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto'> 
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -109,7 +109,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
             <div className='relative'>
               {/* Decorative offset frame */}
               <div className='absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-2 border-indigo-500/25 -z-10' />
-              <div className='absolute -bottom-8 -right-8 w-full h-full rounded-2xl border border-indigo-500/10 -z-20' />
+              <div className='absolute -bottom-8 -right-8 w-full h-full rounded-2xl border border-indigo-500/10 -z-20' /> 
 
               <div className='w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/80 dark:shadow-slate-900'>
                 {personalInfo.avatarUrl ? (
@@ -137,3 +137,4 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
     </section>
   );
 }
+
