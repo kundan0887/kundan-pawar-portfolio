@@ -97,6 +97,7 @@ export function usePerformance() {
     // Measure LCP
     new PerformanceObserver(list => {
       const entries = list.getEntries();
+
       const lcp = entries[entries.length - 1];
       if (lcp) {
         setMetrics(prev =>
@@ -119,6 +120,7 @@ export function usePerformance() {
     }).observe({ entryTypes: ['first-input'] });
 
     // Measure CLS
+
     let clsValue = 0;
     new PerformanceObserver(list => {
       const entries = list.getEntries();
@@ -193,7 +195,7 @@ export function usePerformance() {
       const isOverBudget = percentage > 100;
 
       return { isOverBudget, percentage };
-    },
+    }, 
     [metrics],
   );
   return {
@@ -259,9 +261,11 @@ export function useIntersectionObserver(
 
         observer.observe(node);
       }
+
     },
     [hasIntersected, options],
   );
 
   return { ref, isIntersecting, hasIntersected };
 }
+
