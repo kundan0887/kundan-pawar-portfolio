@@ -134,4 +134,3 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 
 ---
 _Available immediately for Senior Frontend or Full Stack Developer roles across Germany._
-
