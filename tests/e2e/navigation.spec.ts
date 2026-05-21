@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
+
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
@@ -108,7 +109,7 @@ test.describe('Responsive Design', () => {
     await page.goto('/');
 
     // Verify content is visible on tablet
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible(); 
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 
@@ -121,3 +122,4 @@ test.describe('Responsive Design', () => {
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 });
+
