@@ -11,6 +11,7 @@ test.describe('Navigation', () => {
     await expect(page.locator('#about')).toBeVisible();
 
     // Test navigation to Experience section
+
     await page.click('text=Experience');
     await expect(page.locator('#experience')).toBeVisible();
 
@@ -93,6 +94,7 @@ test.describe('Hero Section', () => {
 
 test.describe('Responsive Design', () => {
   test('should work on mobile devices', async ({ page }) => {
+
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
 
@@ -119,4 +121,3 @@ test.describe('Responsive Design', () => {
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 });
-
