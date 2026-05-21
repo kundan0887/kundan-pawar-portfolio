@@ -92,4 +92,3 @@ export default defineConfig({
   globalSetup: require.resolve('./tests/e2e/global-setup.ts'),
   globalTeardown: require.resolve('./tests/e2e/global-teardown.ts'),
 });
-
