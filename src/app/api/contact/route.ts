@@ -18,6 +18,7 @@ const contactFormSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+
     // Check if Resend is configured
     if (!resend) {
       return NextResponse.json(
@@ -51,6 +52,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
+
       console.error('Resend API Error:', error);
       return NextResponse.json(
         { success: false, error: 'Failed to send email.' },
@@ -71,3 +73,4 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
