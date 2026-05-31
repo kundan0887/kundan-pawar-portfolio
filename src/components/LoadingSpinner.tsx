@@ -97,6 +97,7 @@ export default function LoadingSpinner({
           animate='animate'
         >
           <div className='w-1 h-1 rounded-full bg-current' />
+
         </motion.div>
       </motion.div>
 
