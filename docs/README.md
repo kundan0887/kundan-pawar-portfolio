@@ -42,7 +42,6 @@ src/
 - npm or yarn
 
 ### Installation
-
 1. Clone the repository:
 
 ```bash
@@ -139,12 +138,12 @@ The site can be deployed to various platforms:
 ### Vercel (Recommended)
 
 1. Push your code to GitHub
-2. Connect your repository to Vercel
+2. Connect your repository to Vercel 
 3. Deploy automatically
 
 ### Netlify
 
-1. Build the project: `npm run build`
+1. Build the project: `npm run build` 
 2. Deploy the `out` directory
 
 ### Other Platforms
@@ -172,4 +171,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 Built with ❤️ using Next.js 14
-
