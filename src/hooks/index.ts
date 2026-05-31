@@ -6,4 +6,3 @@ export {
 
   useIntersectionObserver,
 } from './usePerformance'; 
-
