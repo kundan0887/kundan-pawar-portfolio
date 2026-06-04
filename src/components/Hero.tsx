@@ -14,7 +14,7 @@ const stats = [
   { value: '6+', label: 'Years Frontend' },
   { value: '10+', label: 'Devs Mentored' },
   { value: '95%+', label: 'Test Coverage' },
-];
+]; 
 
 export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
   return (
@@ -116,7 +116,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
 
               <div className='w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/80 dark:shadow-slate-900'>
                 {personalInfo.avatarUrl ? (
-                  <img
+                  <img 
                     src={personalInfo.avatarUrl}
                     alt={`${personalInfo.name} — ${personalInfo.title}`}
                     className='w-full h-full object-cover'
@@ -135,9 +135,12 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
               </div>
             </div>
           </motion.div>
+
         </div>
+
       </div>
     </section>
 
   );
 }
+
