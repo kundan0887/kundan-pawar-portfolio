@@ -26,14 +26,14 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
       let current = sections[0];
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
+
         if (element) {
           const elementTop = element.getBoundingClientRect().top - containerTop;
           if (elementTop <= threshold) {
             current = sectionId;
           }
-        }
+        } 
       }
-
       setActiveSection(current);
     };
 
@@ -41,9 +41,10 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
     if (container) {
       container.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
-      return () => container.removeEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll); 
     }
   }, [containerRef]);
 
   return activeSection;
 }
+
