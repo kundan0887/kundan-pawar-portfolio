@@ -21,6 +21,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
     <section
       id='home'
       className='relative min-h-screen flex items-center overflow-hidden bg-white dark:bg-slate-950'
+
     >
       {/* Dot grid background */}
       <div
@@ -73,6 +74,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
                 onClick={() => onScrollToSection('contact')}
                 className='inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors text-sm'
               >
+
                 Get In Touch <ArrowRight className='w-4 h-4' />
               </button>
               <button
@@ -85,6 +87,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
             </div>
 
             {/* Stats */}
+
             <div className='grid grid-cols-4 gap-4 pt-8 border-t border-slate-200 dark:border-slate-800'>
               {stats.map(stat => (
                 <div key={stat.label}>
@@ -135,6 +138,6 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
         </div>
       </div>
     </section>
+
   );
 }
-
