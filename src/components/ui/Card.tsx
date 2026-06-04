@@ -36,7 +36,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const hoverStyles = hover ? 'hover:scale-[1.02] hover:-translate-y-1' : '';
 
     return (
-      <div
+      <div 
         ref={ref}
         className={cn(baseStyles, variants[variant], hoverStyles, className)}
         {...props}
