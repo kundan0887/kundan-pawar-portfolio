@@ -31,6 +31,7 @@ export default function Experience() {
               <motion.div
                 key={`${job.company}-${index}`}
                 initial={{ opacity: 0, y: 24 }}
+
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
@@ -118,3 +119,4 @@ export default function Experience() {
     </section>
   );
 }
+
