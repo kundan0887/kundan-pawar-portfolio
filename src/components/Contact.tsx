@@ -46,6 +46,7 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: data.name,
+
           email: data.email,
           message: data.message,
         }),
@@ -303,4 +304,3 @@ export default function Contact() {
     </section>
   );
 }
-
