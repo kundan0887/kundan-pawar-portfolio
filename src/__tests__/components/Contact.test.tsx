@@ -321,7 +321,7 @@ describe('Contact Component', () => {
       await waitFor(() => {
         expect(screen.getByText(/server error/i)).toBeInTheDocument();
       });
-    });
+    }); 
 
     it('allows retry after error', async () => {
       const user = userEvent.setup();
