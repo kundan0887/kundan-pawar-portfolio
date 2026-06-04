@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
       subject: `New Message from ${name} via Portfolio`,
       replyTo: email,
       react: ContactEmail({ name, email, message }),
+
     });
 
     if (error) {
@@ -73,4 +74,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
