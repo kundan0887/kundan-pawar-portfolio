@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://kundanpawar.com';
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://kundanpawar.com';
   return {
     rules: [
       {
@@ -12,6 +12,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+
     host: baseUrl,
   };
 }
+
