@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+
   // Performance optimizations
   experimental: {
     optimizeCss: true,
@@ -24,7 +25,7 @@ const nextConfig: NextConfig = {
           {
             key: 'X-Frame-Options',
             value: 'DENY',
-          },
+          }, 
 
           {
             key: 'X-Content-Type-Options',
@@ -70,10 +71,11 @@ const nextConfig: NextConfig = {
             key: 'X-RateLimit-Limit',
             value: '100',
           },
-          {
+          { 
             key: 'X-RateLimit-Remaining',
             value: '100',
           },
+
           {
             key: 'X-RateLimit-Reset',
             value: '3600',
@@ -109,3 +111,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
