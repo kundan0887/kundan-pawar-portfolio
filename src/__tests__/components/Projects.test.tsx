@@ -234,7 +234,7 @@ describe('Projects Component', () => {
 
       // Modal should be closed
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    });
+    }); 
 
     it('closes modal when clicking outside', async () => {
       const user = userEvent.setup();
@@ -385,3 +385,4 @@ describe('Projects Component', () => {
     });
   });
 });
+
