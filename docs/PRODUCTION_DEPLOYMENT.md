@@ -43,7 +43,7 @@ NEXT_PUBLIC_SENTRY_DSN=your-sentry-dsn
 NEXT_PUBLIC_LOG_ROCKET_ID=your-logrocket-id
 ```
 
-## 🛠️ Build Commands
+## 🛠️ Build Commands 
 
 ### Development
 
@@ -169,6 +169,7 @@ npm run test:coverage
 ### Uptime Monitoring
 
 - Set up uptime monitoring with services like:
+
   - UptimeRobot
   - Pingdom
   - StatusCake
@@ -295,7 +296,7 @@ npm run build
 ```yaml
 name: Deploy
 on:
-  push:
+  push: 
     branches: [main]
 
 jobs:
@@ -349,3 +350,4 @@ For deployment issues or questions:
 
 **Last Updated**: June 2024
 **Version**: 1.0.0
+
