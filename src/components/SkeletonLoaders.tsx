@@ -117,7 +117,7 @@ export function ExperienceSkeleton() {
           className='h-10 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-12'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1 }} 
         />
 
         <div className='space-y-8'>
@@ -227,7 +227,7 @@ export function SkillsSkeleton() {
   );
 }
 
-// Contact section skeleton
+// Contact section skeleton 
 export function ContactSkeleton() {
   return (
     <div className='py-16 md:py-20 px-8'>
@@ -324,4 +324,6 @@ export function SectionSkeleton({
       </div>
     </div>
   );
+
 }
+
