@@ -131,7 +131,7 @@ export default function SplashScreen({
                   initial={{
                     x: particle.x,
                     y: particle.y,
-                    scale: 0,
+                    scale: 0, 
                   }}
                   animate={{
                     x: particle.x + (i % 2 === 0 ? 50 : -50),
@@ -193,4 +193,3 @@ export function MinimalSplashScreen({
     </AnimatePresence>
   );
 }
-
