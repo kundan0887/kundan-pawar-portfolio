@@ -63,7 +63,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
 
             <p className='text-xl lg:text-2xl font-medium text-slate-600 dark:text-slate-300 mb-5 leading-snug'>
               {personalInfo.title}
-            </p>
+            </p> 
 
             <p className='text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-10 max-w-lg'>
               {personalInfo.shortBio}
@@ -95,7 +95,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
                     {stat.value}
                   </div>
                   <div className='text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight'>
-                    {stat.label}
+                    {stat.label} 
                   </div>
                 </div>
               ))}
@@ -143,4 +143,3 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
 
   );
 }
-
