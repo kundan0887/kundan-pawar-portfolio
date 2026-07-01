@@ -17,6 +17,7 @@ export const contactFormSchema = z.object({
     .min(10, 'Message must be at least 10 characters')
     .max(1000, 'Message must be less than 1000 characters')
     .regex(/^[a-zA-Z0-9\s.,!?-]+$/, 'Message contains invalid characters'),
+
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -31,7 +32,7 @@ export const apiRequestSchema = z.object({
 // Rate limiting validation
 export const rateLimitSchema = z.object({
   ip: z.string().ip(),
-  endpoint: z.string(),
+  endpoint: z.string(), 
   timestamp: z.number(),
 });
 
@@ -78,7 +79,7 @@ export const validateUrl = (url: string): boolean => {
 };
 
 // CSRF protection
-export const generateCSRFToken = (): string => {
+export const generateCSRFToken = (): string => { 
   return (
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15)
@@ -143,3 +144,4 @@ export const handleValidationError = (error: z.ZodError): ValidationError[] => {
       new ValidationError(err.message, err.path.join('.') as string),
   );
 };
+
