@@ -251,7 +251,7 @@ describe('Skills Component', () => {
     });
 
     it('provides keyboard navigation for filter buttons', async () => {
-      const user = userEvent.setup();
+      const user = userEvent.setup(); 
       render(<Skills />);
 
       const allFilter = screen.getByRole('button', { name: /all/i });
