@@ -28,7 +28,7 @@ export default function SplashScreen({
 
   useEffect(() => {
     const startTime = Date.now();
-    const interval = setInterval(() => {
+    const interval = setInterval(() => { 
       const elapsed = Date.now() - startTime;
       const newProgress = Math.min((elapsed / duration) * 100, 100);
       setProgress(newProgress);
@@ -43,7 +43,7 @@ export default function SplashScreen({
     }, 16); // ~60fps
 
     return () => clearInterval(interval);
-  }, [duration, onComplete]);
+  }, [duration, onComplete]); 
 
   return (
     <AnimatePresence>
@@ -115,6 +115,7 @@ export default function SplashScreen({
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+
               transition={{ delay: 0.8 }}
               className='text-white/60 mt-4 text-sm'
             >
@@ -192,3 +193,4 @@ export function MinimalSplashScreen({
     </AnimatePresence>
   );
 }
+
