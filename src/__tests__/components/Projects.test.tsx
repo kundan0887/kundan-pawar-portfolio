@@ -194,6 +194,7 @@ describe('Projects Component', () => {
       const user = userEvent.setup();
       render(<Projects />);
       const projectCard = screen.getByText('React App').closest('div');
+
       if (projectCard) {
         await user.click(projectCard);
       }
