@@ -5,6 +5,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+
   ],
   darkMode: 'class',
   theme: {
@@ -33,7 +34,7 @@ const config: Config = {
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6',
+          500: '#3b82f6', 
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
@@ -65,6 +66,7 @@ const config: Config = {
           50: '#fef7ee',
           100: '#fdedd6',
           200: '#fad7ac',
+
           300: '#f6bb77',
           400: '#f1943e',
           500: '#ed7518',
@@ -81,6 +83,7 @@ const config: Config = {
         success: {
           50: '#f0fdf4',
           100: '#dcfce7',
+
           200: '#bbf7d0',
           300: '#86efac',
           400: '#4ade80',
@@ -188,6 +191,7 @@ const config: Config = {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'fade-in-up': 'fadeInUp 0.5s ease-out',
         'fade-in-down': 'fadeInDown 0.5s ease-out',
+
         'slide-in-left': 'slideInLeft 0.5s ease-out',
         'slide-in-right': 'slideInRight 0.5s ease-out',
         'scale-in': 'scaleIn 0.3s ease-out',
@@ -201,10 +205,12 @@ const config: Config = {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+
         fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+
         fadeInDown: {
           '0%': { opacity: '0', transform: 'translateY(-20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -274,3 +280,4 @@ const config: Config = {
 };
 
 export default config;
+
