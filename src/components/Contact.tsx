@@ -80,6 +80,7 @@ export default function Contact() {
           </p>
           <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3'>
             Let&apos;s work together
+
           </h2>
           <p className='text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed'>
             I&apos;m open to new opportunities — remote, hybrid, or on-site.
@@ -138,6 +139,7 @@ export default function Contact() {
                     placeholder='your@email.com'
                   />
                   {errors.email && (
+
                     <p className='mt-1.5 text-xs text-red-500'>
                       {errors.email.message}
                     </p>
@@ -304,3 +306,4 @@ export default function Contact() {
     </section>
   );
 }
+
