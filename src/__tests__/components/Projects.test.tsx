@@ -84,7 +84,6 @@ describe('Projects Component', () => {
       expect(liveLinks.length).toBeGreaterThan(0);
     });
   });
-
   describe('Filter Functionality', () => {
     it('renders filter buttons for all categories', () => {
       render(<Projects />);
@@ -120,7 +119,6 @@ describe('Projects Component', () => {
       // First filter by web
       const webFilter = screen.getByRole('button', { name: /web/i });
       await user.click(webFilter);
-
       // Then click "All"
       const allFilter = screen.getByRole('button', { name: /all/i });
       await user.click(allFilter);
@@ -386,3 +384,4 @@ describe('Projects Component', () => {
     });
   });
 });
+
