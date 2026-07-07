@@ -89,7 +89,6 @@ export default function LoadingSpinner({
             ease: 'linear' as const,
           }}
         />
-
         {/* Center dot */}
         <motion.div
           className='absolute inset-0 flex items-center justify-center'
@@ -197,6 +196,7 @@ export function LoadingPulse({
 
 // Dots loading variant
 export function LoadingDots({
+
   size = 'md',
   color = 'primary',
   customColor,
@@ -210,7 +210,7 @@ export function LoadingDots({
     <div
       className={cn('flex flex-col items-center justify-center', className)}
       role='status'
-      aria-label={label}
+      aria-label={label} 
     >
       <div className='flex space-x-1'>
         {dots.map((dot, index) => (
@@ -268,6 +268,7 @@ export function LoadingDots({
 export function LoadingSkeleton({
   className,
   lines = 1,
+
   height = 'h-4',
 }: {
   className?: string;
@@ -320,3 +321,4 @@ export function LoadingOverlay({
     </AnimatePresence>
   );
 }
+
