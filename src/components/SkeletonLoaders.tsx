@@ -81,7 +81,7 @@ export function AboutSkeleton() {
         <div className='grid md:grid-cols-2 gap-12'>
           <div className='space-y-4'>
             {Array.from({ length: 4 }).map((_, index) => (
-              <motion.div
+              <motion.div 
                 key={index}
                 className='h-4 bg-slate-200 dark:bg-slate-700 rounded animate-pulse'
                 initial={{ opacity: 0, x: -20 }}
@@ -178,6 +178,7 @@ export function ProjectsSkeleton() {
               </div>
             </motion.div>
           ))}
+
         </div>
       </div>
     </div>
@@ -326,4 +327,3 @@ export function SectionSkeleton({
   );
 
 }
-
