@@ -1,8 +1,9 @@
-export { useActiveSection } from './useActiveSection'; 
-export {
+export { useActiveSection } from './useActiveSection';
+export { 
 
-  usePerformance, 
-  useComponentPerformance,
+  usePerformance,
+  useComponentPerformance, 
 
   useIntersectionObserver,
 } from './usePerformance'; 
+
