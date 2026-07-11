@@ -18,6 +18,7 @@ export default function Experience() {
             02 — Experience
           </p>
           <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight'>
+
             Work History
           </h2>
         </motion.div>
@@ -29,7 +30,7 @@ export default function Experience() {
           <div className='space-y-14'>
             {experience.map((job, index) => (
               <motion.div
-                key={`${job.company}-${index}`}
+                key={`${job.company}-${index}`} 
                 initial={{ opacity: 0, y: 24 }}
 
                 whileInView={{ opacity: 1, y: 0 }}
@@ -119,4 +120,3 @@ export default function Experience() {
     </section>
   );
 }
-
