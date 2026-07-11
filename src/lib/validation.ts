@@ -59,6 +59,7 @@ export const sanitizeMessage = (message: string): string => {
 };
 
 // Validation helpers
+
 export const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -90,6 +91,7 @@ export const validateCSRFToken = (
   token: string,
   storedToken: string,
 ): boolean => {
+
   return token === storedToken;
 };
 
@@ -144,4 +146,3 @@ export const handleValidationError = (error: z.ZodError): ValidationError[] => {
       new ValidationError(err.message, err.path.join('.') as string),
   );
 };
-
