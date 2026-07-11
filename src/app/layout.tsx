@@ -48,11 +48,11 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
+      'max-video-preview': -1, 
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
+  }, 
   // Open Graph metadata for social sharing
   openGraph: {
     type: 'website',
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'default',
 
-    'apple-mobile-web-app-title': 'Kundan Pawar',
+    'apple-mobile-web-app-title': 'Kundan Pawar', 
     'application-name': 'Kundan Pawar Portfolio',
 
     'msapplication-TileColor': '#3b82f6',
@@ -101,6 +101,7 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
@@ -120,7 +121,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className={`${inter.variable} scroll-smooth`}
+      className={`${inter.variable} scroll-smooth`} 
       suppressHydrationWarning
     >
       <head>
@@ -134,7 +135,7 @@ export default function RootLayout({
         <link rel='preconnect' href='https://www.googletagmanager.com' />
 
         {/* Dark mode init — runs before paint to prevent flash */}
-        <script
+        <script 
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             // eslint-disable-next-line quotes
@@ -145,7 +146,7 @@ export default function RootLayout({
 
         {/* Favicon and app icons */}
         <link rel='icon' href='/favicon.ico' sizes='any' />
-        <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+        <link rel='icon' href='/favicon.svg' type='image/svg+xml' /> 
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.json' />
 
@@ -156,6 +157,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
-    </html>
+    </html> 
   );
 }
+
