@@ -29,15 +29,16 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
       alternate: 'bg-white dark:bg-slate-900',
       hero: 'bg-transparent',
     };
-
     const spacingStyles = {
-      sm: 'py-8 md:py-12',
+      sm: 'py-8 md:py-12', 
       md: 'py-12 md:py-16',
+
       lg: 'py-16 md:py-20',
       xl: 'py-20 md:py-24',
     };
 
     const content = container ? (
+
       <div className='container mx-auto px-4'>{children}</div>
     ) : (
       children
@@ -46,17 +47,18 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
     return (
       <section
         ref={ref}
-        id={id}
+        id={id} 
         className={cn(
           baseStyles,
           variants[variant],
-          spacingStyles[spacing],
+          spacingStyles[spacing], 
           className,
         )}
         {...props}
       >
         {content}
       </section>
+
     );
   },
 );
@@ -64,3 +66,4 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
 Section.displayName = 'Section';
 
 export { Section };
+
