@@ -1,4 +1,4 @@
-import { chromium, FullConfig } from '@playwright/test';
+import { chromium, FullConfig } from '@playwright/test'; 
 
 // Extend Window interface for MSW 
 declare global {
@@ -21,3 +21,4 @@ async function globalSetup(config: FullConfig) {
 }
 
 export default globalSetup;
+
