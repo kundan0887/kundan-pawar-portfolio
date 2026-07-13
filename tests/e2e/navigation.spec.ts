@@ -5,7 +5,6 @@ test.describe('Navigation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
   });
-
   test('should navigate to all sections via sidebar', async ({ page }) => {
     // Test navigation to About section
     await page.click('text=About');
@@ -22,7 +21,7 @@ test.describe('Navigation', () => {
 
     // Test navigation to Skills section
     await page.click('text=Skills');
-    await expect(page.locator('#skills')).toBeVisible();
+    await expect(page.locator('#skills')).toBeVisible(); 
 
     // Test navigation to Contact section
     await page.click('text=Contact');
@@ -95,7 +94,6 @@ test.describe('Hero Section', () => {
 
 test.describe('Responsive Design', () => {
   test('should work on mobile devices', async ({ page }) => {
-
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
 
@@ -118,8 +116,7 @@ test.describe('Responsive Design', () => {
     await page.goto('/');
 
     // Verify content is visible on desktop
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible(); 
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 });
-
