@@ -120,4 +120,3 @@ test.describe('Responsive Design', () => {
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 });
-
