@@ -466,6 +466,7 @@ describe('Contact Component', () => {
       const file = new File(['test content'], 'test.txt', {
         type: 'text/plain',
       });
+
       const fileInput = screen.getByLabelText(/attach file/i);
 
       await user.upload(fileInput, file);
@@ -665,3 +666,4 @@ describe('Contact Component', () => {
     });
   });
 });
+
