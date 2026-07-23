@@ -109,7 +109,7 @@ The site supports dark mode with automatic detection based on system preferences
 
 ## 📦 Dependencies
 
-### Production Dependencies
+### Production Dependencies 
 
 - `next` - React framework
 - `react` - UI library
@@ -133,7 +133,7 @@ The site supports dark mode with automatic detection based on system preferences
 
 ## 🚀 Deployment
 
-The site can be deployed to various platforms:
+The site can be deployed to various platforms: 
 
 ### Vercel (Recommended)
 
@@ -171,3 +171,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 Built with ❤️ using Next.js 14
+
