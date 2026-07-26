@@ -118,6 +118,7 @@ const config: Config = {
           700: '#b91c1c',
           800: '#991b1b',
           900: '#7f1d1d',
+
           950: '#450a0a',
         },
       },
@@ -282,3 +283,4 @@ const config: Config = {
 };
 
 export default config;
+
