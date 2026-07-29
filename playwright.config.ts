@@ -14,7 +14,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
+  reporter: [ 
     ['html'],
     ['json', { outputFile: 'test-results/results.json' }],
     ['junit', { outputFile: 'test-results/results.xml' }],
@@ -28,7 +28,7 @@ export default defineConfig({
     trace: 'on-first-retry',
 
     /* Take screenshot on failure */
-    screenshot: 'only-on-failure',
+    screenshot: 'only-on-failure', 
 
     /* Record video on failure */
     video: 'retain-on-failure',
@@ -37,9 +37,10 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+      use: { ...devices['Desktop Chrome'] }, 
+    }, 
 
     {
       name: 'firefox',
@@ -50,7 +51,6 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
     /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
@@ -62,11 +62,12 @@ export default defineConfig({
     },
 
     /* Test against branded browsers. */
+
     // {
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-    // {
+    // { 
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
@@ -92,3 +93,4 @@ export default defineConfig({
   globalSetup: require.resolve('./tests/e2e/global-setup.ts'),
   globalTeardown: require.resolve('./tests/e2e/global-teardown.ts'),
 });
+
