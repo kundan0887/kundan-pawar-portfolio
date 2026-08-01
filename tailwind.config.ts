@@ -74,6 +74,7 @@ const config: Config = {
           700: '#b8430f',
           800: '#933514',
           900: '#762e14',
+
           950: '#411407',
         },
         destructive: {
@@ -220,6 +221,7 @@ const config: Config = {
         slideInLeft: {
           '0%': { opacity: '0', transform: 'translateX(-20px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
+
         },
         slideInRight: {
           '0%': { opacity: '0', transform: 'translateX(20px)' },
@@ -244,6 +246,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'gradient-primary': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -283,4 +286,3 @@ const config: Config = {
 };
 
 export default config;
-
