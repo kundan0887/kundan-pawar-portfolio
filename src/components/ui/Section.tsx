@@ -46,12 +46,12 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
 
     return (
       <section
-        ref={ref}
+        ref={ref} 
         id={id} 
         className={cn(
           baseStyles,
           variants[variant],
-          spacingStyles[spacing], 
+          spacingStyles[spacing],
           className,
         )}
         {...props}
@@ -66,4 +66,3 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
 Section.displayName = 'Section';
 
 export { Section };
-
