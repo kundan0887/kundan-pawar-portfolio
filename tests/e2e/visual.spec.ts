@@ -18,7 +18,8 @@ test.describe('Visual Regression', () => {
   test('should match hero section screenshot', async ({ page }) => {
     // Take screenshot of hero section
     const heroSection = page.locator('#home');
-    await expect(heroSection).toHaveScreenshot('hero-section.png', {
+    await expect(heroSection).toHaveScreenshot('hero-section.png', { 
+
       animations: 'disabled',
     });
   });
@@ -107,7 +108,6 @@ test.describe('Visual Regression', () => {
       animations: 'disabled',
     });
   });
-
   test('should match desktop layout screenshot', async ({ page }) => {
     // Set desktop viewport
     await page.setViewportSize({ width: 1920, height: 1080 });
@@ -163,3 +163,4 @@ test.describe('Visual Regression', () => {
     });
   });
 });
+
