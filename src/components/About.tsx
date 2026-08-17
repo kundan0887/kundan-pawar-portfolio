@@ -28,6 +28,7 @@ const stats = [
   {
     value: '10+',
     label: 'Devs Mentored',
+
     color: 'text-violet-600 dark:text-violet-400',
   },
   {
@@ -112,7 +113,7 @@ export default function About({ resumeUrl }: AboutProps) {
               <div className='flex items-start gap-3 text-slate-600 dark:text-slate-300'>
                 <GraduationCap className='w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5' />
                 <span className='text-sm'>
-                  {education.degree}, {education.institution} ({education.year})
+                  {education.degree}, {education.institution} ({education.year}) 
                 </span>
               </div>
             </div>
@@ -192,3 +193,4 @@ export default function About({ resumeUrl }: AboutProps) {
     </section>
   );
 }
+
