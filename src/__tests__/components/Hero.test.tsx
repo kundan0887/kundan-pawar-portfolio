@@ -4,6 +4,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { render, testAccessibility } from '../utils/test-utils';
+
 import Hero from '@/components/Hero';
 
 // Mock Framer Motion
@@ -11,7 +12,7 @@ jest.mock('framer-motion', () => ({
   motion: {
     div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
     span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
-    p: ({ children, ...props }: any) => <p {...props}>{children}</p>,
+    p: ({ children, ...props }: any) => <p {...props}>{children}</p>, 
     h1: ({ children, ...props }: any) => <h1 {...props}>{children}</h1>,
     h2: ({ children, ...props }: any) => <h2 {...props}>{children}</h2>,
     button: ({ children, ...props }: any) => (
@@ -63,7 +64,7 @@ describe('Hero Component', () => {
   });
 
   describe('CTA Buttons', () => {
-    it('displays CTA buttons with correct text', () => {
+    it('displays CTA buttons with correct text', () => { 
       render(<Hero {...defaultProps} />);
 
       // Check for primary CTA button
@@ -114,7 +115,7 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       const buttons = screen.getAllByRole('button');
-      buttons.forEach(button => {
+      buttons.forEach(button => { 
         expect(button).toHaveAttribute('type', 'button');
         expect(button).not.toBeDisabled();
       });
@@ -142,6 +143,7 @@ describe('Hero Component', () => {
 
   describe('Animation Triggers', () => {
     it('has animation attributes on motion components', () => {
+
       const { container } = render(<Hero {...defaultProps} />);
 
       const motionElements = container.querySelectorAll('[animate]');
@@ -184,6 +186,7 @@ describe('Hero Component', () => {
       // Check for proper section role
       const section = screen.getByRole('region', { hidden: true });
       expect(section).toBeInTheDocument();
+
     });
 
     it('has proper color contrast', () => {
@@ -255,9 +258,10 @@ describe('Hero Component', () => {
           onScrollToSection={mockErrorScroll}
           resumeUrl='/assets/documents/kundan_resume.pdf'
         />,
+
       );
 
-      const primaryButton = screen.getByRole('button', {
+      const primaryButton = screen.getByRole('button', { 
         name: /get in touch/i,
       });
 
@@ -291,3 +295,4 @@ describe('Hero Component', () => {
     });
   });
 });
+
