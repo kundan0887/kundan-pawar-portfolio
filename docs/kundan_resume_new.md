@@ -50,7 +50,6 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 - **Tech Stack:** React.js, TypeScript, Feature Hub, AWS (S3, Lambda), Cypress, Jest, AEM, CI/CD
 
 ---
-
 ### **Full Stack Developer** | **Go Deed Inc.** | _Remote_
 
 **Jan 2022 – Feb 2022**
@@ -58,6 +57,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 - Developed a microservices-based corporate donation platform (web & mobile)
 - Built scalable infrastructure handling 10,000+ concurrent users
 - Integrated CI/CD pipelines for rapid deployment with Docker and GitHub Actions
+
 - Established reusable test architecture with **Jest** for all components
 - **Tech Stack:** React.js, TypeScript, Node.js, MongoDB, Docker, Jest, CI/CD
 
@@ -107,7 +107,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 
 --- 
 
-## **LANGUAGES**
+## **LANGUAGES** 
 
 **English:** Fluent | **German:** A1 (Learning) | **Hindi & Marathi:** Native
 
@@ -119,6 +119,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 ✅ Implemented 95%+ automated test coverage using Jest & Cypress  
 ✅ Built AWS Lambda-based PDF generation tool for custom vehicle quotes  
 ✅ Delivered fully offline workforce planning tool using React and D3.js  
+
 ✅ Mentored 10+ junior developers and introduced clean coding practices  
 ✅ Optimized CI/CD pipelines for faster and error-free deployments
 
@@ -134,4 +135,3 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 
 ---
 _Available immediately for Senior Frontend or Full Stack Developer roles across Germany._
-
