@@ -104,8 +104,10 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
 
           {/* Right — Profile Image */}
           <motion.div
+
             initial={{ opacity: 0, scale: 0.93 }}
-            animate={{ opacity: 1, scale: 1 }}
+
+            animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.65, delay: 0.15 }}
             className='order-1 lg:order-2 flex justify-center lg:justify-end'
           >
@@ -115,7 +117,7 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
               <div className='absolute -bottom-8 -right-8 w-full h-full rounded-2xl border border-indigo-500/10 -z-20' /> 
 
               <div className='w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl shadow-slate-200/80 dark:shadow-slate-900'>
-                {personalInfo.avatarUrl ? (
+                {personalInfo.avatarUrl ? ( 
                   <img 
                     src={personalInfo.avatarUrl}
                     alt={`${personalInfo.name} — ${personalInfo.title}`}
@@ -143,3 +145,4 @@ export default function Hero({ onScrollToSection, resumeUrl }: HeroProps) {
 
   );
 }
+
