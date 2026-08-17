@@ -25,7 +25,7 @@ export default function Skills() {
           <p className='text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-2 tracking-wide'>
             04 — Skills
           </p>
-          <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight'>
+          <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight'> 
             Tech Stack
           </h2>
         </motion.div>
@@ -45,7 +45,8 @@ export default function Skills() {
                   {categoryEmoji[category.category] || '🔧'}
                 </span>
                 <h3 className='font-semibold text-slate-900 dark:text-white text-sm'>
-                  {category.category}
+                  {category.category} 
+
                 </h3>
               </div>
               <div className='flex flex-wrap gap-2'>
@@ -75,7 +76,7 @@ export default function Skills() {
               {skills.reduce((acc, cat) => acc + cat.items.length, 0)}+
             </div>
             <div className='text-indigo-200 text-sm mt-1'>Technologies</div>
-          </div>
+          </div> 
           <div className='w-px h-10 bg-indigo-500 hidden sm:block' />
           <div>
             <div className='text-3xl font-bold text-white'>12</div>
@@ -86,7 +87,7 @@ export default function Skills() {
             <div className='text-3xl font-bold text-white'>{skills.length}</div>
             <div className='text-indigo-200 text-sm mt-1'>Skill Categories</div>
           </div>
-          <div className='w-px h-10 bg-indigo-500 hidden sm:block' />
+          <div className='w-px h-10 bg-indigo-500 hidden sm:block' /> 
           <div>
             <div className='text-3xl font-bold text-white'>95%+</div>
             <div className='text-indigo-200 text-sm mt-1'>Test Coverage</div>
@@ -96,3 +97,4 @@ export default function Skills() {
     </section>
   );
 }
+
