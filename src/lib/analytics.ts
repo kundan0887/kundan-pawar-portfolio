@@ -45,7 +45,7 @@ class Analytics {
         event_category: event.category,
         event_label: event.label,
         value: event.value,
-      });
+      }); 
     }
   }
 
@@ -162,7 +162,6 @@ class Analytics {
 
     // Track initial page view
     this.trackPageView(window.location.pathname);
-
     // Start collecting performance metrics
     this.collectWebVitals();
 
@@ -191,3 +190,4 @@ export const analytics = new Analytics();
 if (typeof window !== 'undefined') {
   analytics.init();
 }
+
