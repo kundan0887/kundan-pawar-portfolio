@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
       replyTo: email,
       react: ContactEmail({ name, email, message }),
 
-    });
+    }); 
 
     if (error) {
 
