@@ -14,7 +14,6 @@ interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
-
 interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
@@ -37,7 +36,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
 
     return (
       <div 
-        ref={ref}
+        ref={ref} 
         className={cn(baseStyles, variants[variant], hoverStyles, className)}
         {...props}
       >
@@ -60,11 +59,12 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <div ref={ref} className={cn('p-6', className)} {...props}>
-        {children}
-      </div>
+        {children} 
+
+      </div> 
     );
   },
-);
+); 
 
 const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
   ({ className, children, ...props }, ref) => {
@@ -79,6 +79,7 @@ const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
 Card.displayName = 'Card';
 CardHeader.displayName = 'CardHeader';
 CardContent.displayName = 'CardContent';
-CardFooter.displayName = 'CardFooter';
+CardFooter.displayName = 'CardFooter'; 
 
 export { Card, CardHeader, CardContent, CardFooter };
+
