@@ -2,6 +2,7 @@ import React from 'react';
 
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import '@testing-library/jest-dom';
 import { render, testAccessibility } from '../utils/test-utils';
 
@@ -33,7 +34,6 @@ describe('Hero Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-
   describe('Rendering', () => {
     it('renders hero section with correct content', () => {
       render(<Hero {...defaultProps} />);
@@ -117,7 +117,7 @@ describe('Hero Component', () => {
       const buttons = screen.getAllByRole('button');
       buttons.forEach(button => { 
         expect(button).toHaveAttribute('type', 'button');
-        expect(button).not.toBeDisabled();
+        expect(button).not.toBeDisabled(); 
       });
     });
   });
@@ -159,6 +159,7 @@ describe('Hero Component', () => {
   });
 
   describe('Accessibility', () => {
+
     it('meets accessibility standards', async () => {
       await testAccessibility(<Hero {...defaultProps} />);
     });
@@ -196,7 +197,7 @@ describe('Hero Component', () => {
       const headings = screen.getAllByRole('heading');
       headings.forEach(heading => {
         expect(heading).toHaveClass(/text-slate-900|text-white/);
-      });
+      }); 
     });
   });
 
@@ -295,3 +296,4 @@ describe('Hero Component', () => {
     });
   });
 });
+
