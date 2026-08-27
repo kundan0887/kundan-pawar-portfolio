@@ -55,6 +55,7 @@ export default function NotFoundContent() {
 
             <Button
               variant='outline'
+
               onClick={() => window.history.back()}
               className='flex items-center gap-2 w-full sm:w-auto'
             >
