@@ -35,7 +35,7 @@ export * from '@testing-library/react';
 export { customRender as render };
 
 // Accessibility testing helper
-export const testAccessibility = async (component: ReactElement) => {
+export const testAccessibility = async (component: ReactElement) => { 
   const { container } = render(component);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
@@ -48,6 +48,7 @@ beforeAll(() => {
     constructor() {}
     disconnect() {}
     observe() {}
+
     unobserve() {}
   } as any;
 
@@ -73,4 +74,3 @@ afterEach(() => {
   // Clear all mocks
   jest.clearAllMocks(); 
 });
-
