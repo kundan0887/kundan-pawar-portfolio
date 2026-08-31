@@ -36,7 +36,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 - Migrated legacy AEM components to **headless CMS**, enhancing performance by 40%
 - Built micro-frontend architecture using **React, Redux, and Feature Apps**
 - Led test automation strategy using **Jest** and **React Testing Library**
-- Collaborated with cross-functional teams to modernize component workflows
+- Collaborated with cross-functional teams to modernize component workflows 
 - **Tech Stack:** React.js, TypeScript, Redux, AEM Headless, AWS, Jest, CI/CD
 
 #### 🛠️ **German Automotive – Customizer / Bottom Bar**
@@ -70,7 +70,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 
 - Delivered full-stack inventory solution with responsive React frontend and C# backend
 - Managed and mentored a 2-member dev team, driving project delivery
-- Created advanced dynamic forms for real-time inventory data updates
+- Created advanced dynamic forms for real-time inventory data updates 
 - Wrote automated unit tests ensuring >95% test coverage
 - **Tech Stack:** React.js, Redux, C#, SQL Server, Jest, Responsive Design
 
@@ -116,6 +116,7 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 ## **KEY ACHIEVEMENTS**
 
 ✅ Reduced app load times by 40% via optimization & AEM decoupling  
+
 ✅ Implemented 95%+ automated test coverage using Jest & Cypress  
 ✅ Built AWS Lambda-based PDF generation tool for custom vehicle quotes  
 ✅ Delivered fully offline workforce planning tool using React and D3.js  
@@ -128,10 +129,11 @@ Senior Frontend Developer with **12+ years of IT experience** and **6+ years in 
 ## **WHAT I BRING TO YOUR TEAM**
 
 - 🔧 **Technical Depth:** Hands-on expertise across frontend, backend, and cloud stacks
-- 🤝 **Collaboration:** Proven success with international, Agile-based delivery teams
+- 🤝 **Collaboration:** Proven success with international, Agile-based delivery teams 
 - 🧠 **Problem Solving:** Fast learner with a solution-driven mindset
 - 🧪 **Quality First:** Strong emphasis on testing, clean code, and scalable architecture
 - 🚀 **Leadership:** Track record of mentoring, leading modules, and driving initiatives
 
 ---
 _Available immediately for Senior Frontend or Full Stack Developer roles across Germany._
+
