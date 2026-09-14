@@ -158,14 +158,14 @@ describe('Contact Component', () => {
 
       expect(
         screen.queryByText(/message must be at least 10 characters/i),
-      ).not.toBeInTheDocument();
+      ).not.toBeInTheDocument(); 
     });
 
     it('clears validation errors when user starts typing', async () => {
       const user = userEvent.setup();
       render(<Contact />);
 
-      const submitButton = screen.getByRole('button', {
+      const submitButton = screen.getByRole('button', { 
         name: /send message/i,
 
       });
@@ -345,7 +345,7 @@ describe('Contact Component', () => {
       });
       await user.click(submitButton);
 
-      // Wait for error
+      // Wait for error 
       await waitFor(() => {
         expect(screen.getByText(/network error/i)).toBeInTheDocument();
       });
@@ -375,6 +375,7 @@ describe('Contact Component', () => {
       );
 
       // Submit form
+
       const submitButton = screen.getByRole('button', {
         name: /send message/i,
       });
@@ -433,6 +434,7 @@ describe('Contact Component', () => {
       );
 
       const submitButton = screen.getByRole('button', {
+
         name: /send message/i,
       });
       await user.click(submitButton);
@@ -666,4 +668,3 @@ describe('Contact Component', () => {
     });
   });
 });
-
