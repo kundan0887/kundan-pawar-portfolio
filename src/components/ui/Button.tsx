@@ -15,8 +15,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       className,
       variant = 'primary',
+
       size = 'md',
       children,
+
       loading = false,
       fullWidth = false,
       disabled,
@@ -71,3 +73,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = 'Button';
 
 export { Button };
+
