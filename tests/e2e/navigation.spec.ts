@@ -27,7 +27,6 @@ test.describe('Navigation', () => {
     await page.click('text=Contact');
     await expect(page.locator('#contact')).toBeVisible();
   });
-
   test('should highlight active section in sidebar', async ({ page }) => {
     // Scroll to different sections and verify active state
     await page.evaluate(() => {
@@ -120,3 +119,4 @@ test.describe('Responsive Design', () => {
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 });
+
