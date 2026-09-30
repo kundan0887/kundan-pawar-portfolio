@@ -156,7 +156,7 @@ export function usePerformance() {
       });
     });
 
-    observer.observe(img);
+    observer.observe(img); 
   }, []);
 
   // Prefetch resources
@@ -268,4 +268,3 @@ export function useIntersectionObserver(
 
   return { ref, isIntersecting, hasIntersected };
 }
-
