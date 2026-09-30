@@ -2,6 +2,7 @@
 // PORTFOLIO DATA CONFIGURATION
 // ============================================================================
 // This file contains all the data for your portfolio.
+
 // Update the values below to customize your portfolio content.
 // ============================================================================
 
@@ -388,6 +389,7 @@ export const experience: Experience[] = [
       'TypeScript',
       'Redux',
       'AEM Headless',
+
       'AWS',
       'Jest',
       'CI/CD',
@@ -411,7 +413,7 @@ export const experience: Experience[] = [
       'Built scalable infrastructure handling 10,000+ concurrent users',
       'Integrated CI/CD pipelines for rapid deployment with Docker and GitHub Actions',
       'Established reusable test architecture with Jest for all components',
-    ],
+    ], 
     technologies: [
       'React.js',
       'TypeScript',
@@ -595,7 +597,7 @@ export const projects: Project[] = [
       'Successfully led end-to-end SharePoint migrations (2010 → 2013 → 2016 → Online) with zero data loss. Transitioned legacy apps to modern web technologies using React and SPFx.',
     technologies: [
       'C#',
-      '.NET Core',
+      '.NET Core', 
       'SharePoint',
       'React',
       'JavaScript',
@@ -642,7 +644,7 @@ export const languages = [
 export const keyAchievements = [
   'Reduced app load times by 40% via optimization & AEM decoupling',
   'Implemented 95%+ automated test coverage using Jest & Cypress',
-  'Built AWS Lambda-based PDF generation tool for custom vehicle quotes',
+  'Built AWS Lambda-based PDF generation tool for custom vehicle quotes', 
   'Delivered fully offline workforce planning tool using React and D3.js',
   'Mentored 10+ junior developers and introduced clean coding practices',
   'Optimized CI/CD pipelines for faster and error-free deployments',
@@ -721,4 +723,3 @@ const config = {
 };
 
 export default config;
-
