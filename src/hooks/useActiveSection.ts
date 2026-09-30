@@ -47,4 +47,3 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
 
   return activeSection;
 }
-
