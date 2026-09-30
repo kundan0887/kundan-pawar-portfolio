@@ -55,6 +55,7 @@ describe('Hero Component', () => {
       render(<Hero {...defaultProps} />);
 
       // Check for tech stack items
+
       expect(screen.getByText(/React/)).toBeInTheDocument();
 
       expect(screen.getByText(/TypeScript/)).toBeInTheDocument();
@@ -112,7 +113,7 @@ describe('Hero Component', () => {
     });
 
     it('buttons have proper accessibility attributes', () => {
-      render(<Hero {...defaultProps} />);
+      render(<Hero {...defaultProps} />); 
 
       const buttons = screen.getAllByRole('button');
       buttons.forEach(button => { 
@@ -189,7 +190,6 @@ describe('Hero Component', () => {
       expect(section).toBeInTheDocument();
 
     });
-
     it('has proper color contrast', () => {
       render(<Hero {...defaultProps} />);
 
@@ -233,7 +233,6 @@ describe('Hero Component', () => {
       expect(mockOnScrollToSection).toHaveBeenCalledWith('contact');
     });
   });
-
   describe('Scroll Functionality', () => {
     it('calls onScrollToSection with correct section ID', async () => {
       const user = userEvent.setup();
@@ -296,3 +295,4 @@ describe('Hero Component', () => {
     });
   });
 });
+
