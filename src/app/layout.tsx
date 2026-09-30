@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'UI/UX',
     'Full Stack Developer',
   ],
-  authors: [{ name: 'Kundan Pawar' }],
+  authors: [{ name: 'Kundan Pawar' }], 
   creator: 'Kundan Pawar',
   publisher: 'Kundan Pawar',
   formatDetection: {
@@ -160,4 +160,3 @@ export default function RootLayout({
     </html> 
   );
 }
-
