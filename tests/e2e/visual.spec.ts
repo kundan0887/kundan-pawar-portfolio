@@ -24,7 +24,7 @@ test.describe('Visual Regression', () => {
     });
   });
 
-  test('should match about section screenshot', async ({ page }) => {
+  test('should match about section screenshot', async ({ page }) => { 
     // Navigate to about section
     await page.click('text=About');
     await page.waitForTimeout(500);
@@ -163,4 +163,3 @@ test.describe('Visual Regression', () => {
     });
   });
 });
-
