@@ -51,6 +51,7 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
           className='flex flex-wrap gap-2 mb-10'
+
         >
           {categories.map(cat => (
             <button
