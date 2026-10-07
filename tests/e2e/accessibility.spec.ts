@@ -37,7 +37,7 @@ test.describe('Accessibility', () => {
     for (let i = 1; i < headingLevels.length; i++) {
       expect(headingLevels[i] - headingLevels[i - 1]).toBeLessThanOrEqual(1);
     }
-  });
+  }); 
 
   test('should have proper ARIA labels and roles', async ({ page }) => {
     // Check for navigation role
@@ -73,6 +73,7 @@ test.describe('Accessibility', () => {
     await expect(focusedElement).toBeVisible();
 
     // Test tab through all interactive elements
+
     const interactiveElements = page.locator(
       'a, button, input, textarea, select',
     );
@@ -167,4 +168,3 @@ test.describe('Accessibility', () => {
     }
   });
 });
-
