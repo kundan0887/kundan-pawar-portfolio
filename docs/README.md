@@ -7,7 +7,7 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
 - **Next.js 14** with App Router
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
-- **Framer Motion** for animations
+- **Framer Motion** for animations 
 - **Lucide React** for icons
 - **ESLint & Prettier** for code quality
 - **Responsive Design** for all devices
@@ -104,8 +104,8 @@ The site supports dark mode with automatic detection based on system preferences
 - `next.config.ts` - Next.js configuration
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `tsconfig.json` - TypeScript configuration
-- `eslint.config.mjs` - ESLint configuration
-- `.prettierrc` - Prettier configuration
+- `eslint.config.mjs` - ESLint configuration 
+- `.prettierrc` - Prettier configuration 
 
 ## 📦 Dependencies
 
@@ -171,4 +171,3 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 Built with ❤️ using Next.js 14
-
