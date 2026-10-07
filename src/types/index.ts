@@ -32,7 +32,7 @@ export interface Project {
   image?: string;
 }
 
-export interface Contact {
+export interface Contact { 
   email: string;
   linkedin?: string;
   github?: string;
