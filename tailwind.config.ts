@@ -9,6 +9,7 @@ const config: Config = {
   ],
   darkMode: 'class',
   theme: {
+
     extend: {
       colors: {
         // Semantic color tokens for components
@@ -106,7 +107,7 @@ const config: Config = {
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
-          950: '#451a03',
+          950: '#451a03', 
         }, 
         error: {
           50: '#fef2f2',
@@ -274,6 +275,7 @@ const config: Config = {
         '400': '400ms',
         '600': '600ms',
         '800': '800ms',
+
       },
       transitionTimingFunction: {
         'bounce-in': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
@@ -286,3 +288,4 @@ const config: Config = {
 };
 
 export default config;
+
