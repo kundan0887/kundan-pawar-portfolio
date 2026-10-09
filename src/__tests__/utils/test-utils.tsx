@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
+import { render, RenderOptions } from '@testing-library/react'; 
 import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
@@ -74,3 +74,4 @@ afterEach(() => {
   // Clear all mocks
   jest.clearAllMocks(); 
 });
+
