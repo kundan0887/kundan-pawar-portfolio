@@ -38,12 +38,13 @@ export function useActiveSection(containerRef?: RefObject<HTMLElement | null>) {
     };
 
     const container = containerRef?.current;
-    if (container) {
+    if (container) { 
       container.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
       return () => container.removeEventListener('scroll', handleScroll); 
     }
-  }, [containerRef]);
+  }, [containerRef]); 
 
   return activeSection;
 }
+
