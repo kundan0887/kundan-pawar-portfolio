@@ -84,6 +84,7 @@ global.IntersectionObserver = class IntersectionObserver {
   constructor() {}
   disconnect() {}
   observe() {}
+
   unobserve() {}
 };
 
@@ -108,8 +109,10 @@ global.console = {
   // Uncomment to ignore a specific log level
   // log: jest.fn(),
   // debug: jest.fn(),
+
   // info: jest.fn(),
 
   // warn: jest.fn(),
   // error: jest.fn(),
 };
+
