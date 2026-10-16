@@ -130,6 +130,7 @@ export default function LoadingSpinner({
 // Pulse loading variant
 export function LoadingPulse({
   size = 'md',
+
   color = 'primary',
   customColor,
   className,
@@ -167,6 +168,7 @@ export function LoadingPulse({
             ? { backgroundColor: customColor }
             : undefined
         }
+
       />
 
       {showLabel && (
@@ -200,9 +202,10 @@ export function LoadingDots({
   size = 'md',
   color = 'primary',
   customColor,
+
   className,
   label = 'Loading...',
-  showLabel = false,
+  showLabel = false, 
 }: LoadingSpinnerProps) {
   const dots = [0, 1, 2];
 
@@ -233,6 +236,7 @@ export function LoadingDots({
               duration: 1.5,
               repeat: Infinity,
               delay: index * 0.2,
+
               ease: 'easeInOut' as const,
             }}
           />
@@ -305,7 +309,7 @@ export function LoadingOverlay({
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className='fixed inset-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center'
@@ -321,4 +325,3 @@ export function LoadingOverlay({
     </AnimatePresence>
   );
 }
-
