@@ -90,6 +90,7 @@ export default function Experience() {
                         key={idx}
                         className='inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg border border-indigo-100 dark:border-indigo-900/50'
                       >
+
                         <span className='text-base font-bold text-indigo-600 dark:text-indigo-400'>
                           {metric.value}
                         </span>
@@ -120,3 +121,4 @@ export default function Experience() {
     </section>
   );
 }
+
