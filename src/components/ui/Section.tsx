@@ -8,7 +8,6 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   container?: boolean;
   spacing?: 'sm' | 'md' | 'lg' | 'xl';
 }
-
 const Section = React.forwardRef<HTMLElement, SectionProps>(
   (
     {
