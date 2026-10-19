@@ -69,13 +69,14 @@ export default function NotFoundContent() {
             <h3 className='text-sm font-medium text-slate-700 dark:text-slate-300 mb-4'>
               Quick Navigation
             </h3>
+
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
               <Link
                 href='/#about'
                 className='flex items-center gap-2 p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300'
               >
                 <Search className='w-4 h-4' />
-                About Me
+                About Me 
               </Link>
 
               <Link
@@ -98,3 +99,4 @@ export default function NotFoundContent() {
     </div>
   );
 }
+
