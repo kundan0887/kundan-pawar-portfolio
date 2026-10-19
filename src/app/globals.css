@@ -54,6 +54,7 @@
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg:
@@ -160,7 +161,6 @@ h5 {
   font-size: 1.125rem;
   font-weight: 600;
 }
-
 h6 {
   font-size: 1rem;
   font-weight: 600;
@@ -216,7 +216,7 @@ select:focus-visible {
 
 .animate-fade-in-down {
   animation: fadeInDown var(--transition-normal) ease-out;
-}
+} 
 
 .animate-slide-in-left {
   animation: slideInLeft var(--transition-normal) ease-out;
@@ -229,7 +229,6 @@ select:focus-visible {
 .animate-scale-in {
   animation: scaleIn var(--transition-fast) ease-out;
 }
-
 .animate-bounce-gentle {
   animation: bounceGentle 2s infinite;
 }
@@ -263,6 +262,7 @@ select:focus-visible {
 
 .dark ::-webkit-scrollbar-track {
   background: hsl(var(--color-secondary-800));
+
 }
 
 .dark ::-webkit-scrollbar-thumb {
@@ -325,6 +325,7 @@ pre {
 
 .text-pretty {
   text-wrap: pretty;
+
 }
 
 /* Reduced Motion */
@@ -405,3 +406,4 @@ pre {
     page-break-after: avoid;
   }
 }
+
