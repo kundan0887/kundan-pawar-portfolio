@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page }) => { 
     await page.goto('/');
   });
   test('should navigate to all sections via sidebar', async ({ page }) => {
@@ -15,8 +15,8 @@ test.describe('Navigation', () => {
     await page.click('text=Experience');
     await expect(page.locator('#experience')).toBeVisible();
 
-    // Test navigation to Projects section
-    await page.click('text=Projects');
+    // Test navigation to Projects section 
+    await page.click('text=Projects'); 
     await expect(page.locator('#projects')).toBeVisible();
 
     // Test navigation to Skills section
@@ -89,7 +89,7 @@ test.describe('Hero Section', () => {
     await expect(page.locator('text=Next.js')).toBeVisible();
     await expect(page.locator('text=Node.js')).toBeVisible();
   });
-});
+}); 
 
 test.describe('Responsive Design', () => {
   test('should work on mobile devices', async ({ page }) => {
@@ -119,4 +119,3 @@ test.describe('Responsive Design', () => {
     await expect(page.locator('button:has-text("Get In Touch")')).toBeVisible();
   });
 });
-
