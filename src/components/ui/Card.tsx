@@ -82,4 +82,3 @@ CardContent.displayName = 'CardContent';
 CardFooter.displayName = 'CardFooter'; 
 
 export { Card, CardHeader, CardContent, CardFooter };
-
