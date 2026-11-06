@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   },
   description:
     'Professional portfolio of Kundan Pawar, a Senior Frontend Developer with 12+ years of experience specializing in React, TypeScript, Next.js, and modern web technologies.',
+
   keywords: [
     'Kundan Pawar',
     'Senior Frontend Developer',
