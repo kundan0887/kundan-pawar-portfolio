@@ -262,6 +262,7 @@ export const detailedSkills: Skill[] = [
   {
     name: 'MongoDB',
     level: 80,
+
     years: 5,
     category: 'Database',
     color: 'from-green-600 to-green-800',
