@@ -73,6 +73,7 @@ export default function SidebarNavigation({
         initial={{ x: -280 }}
         animate={{ x: isOpen ? 0 : -280 }}
         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+
         className='fixed left-0 top-0 h-full w-70 bg-slate-950 border-r border-slate-800 z-50 lg:hidden'
       >
         <SidebarContent
@@ -82,7 +83,7 @@ export default function SidebarNavigation({
       </motion.aside>
 
       {/* Desktop Sidebar */}
-      <aside className='hidden lg:block fixed left-0 top-0 h-full w-70 bg-slate-950 border-r border-slate-800 z-40'>
+      <aside className='hidden lg:block fixed left-0 top-0 h-full w-70 bg-slate-950 border-r border-slate-800 z-40'> 
         <SidebarContent
           currentSection={currentSection}
           onNavigate={onNavigate}
@@ -232,3 +233,4 @@ function SidebarContent({
     </div>
   );
 }
+
