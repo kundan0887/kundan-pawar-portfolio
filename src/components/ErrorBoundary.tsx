@@ -18,11 +18,11 @@ interface State {
 
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
-    super(props);
+    super(props); 
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(error: Error): State { 
     return { hasError: true, error };
   }
 
@@ -56,7 +56,9 @@ export class ErrorBoundary extends Component<Props, State> {
         <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 flex items-center justify-center p-4'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
+
             animate={{ opacity: 1, y: 0 }}
+
             className='max-w-md w-full bg-white dark:bg-slate-800 rounded-lg shadow-xl p-6 text-center'
           >
             <motion.div
@@ -155,3 +157,4 @@ export function useErrorHandler() {
 
   return error;
 }
+
