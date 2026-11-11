@@ -85,7 +85,7 @@ test.describe('Visual Regression', () => {
     await expect(sidebar).toHaveScreenshot('sidebar-navigation.png', {
       animations: 'disabled',
     });
-  });
+  }); 
 
   test('should match mobile layout screenshot', async ({ page }) => {
     // Set mobile viewport
@@ -107,6 +107,7 @@ test.describe('Visual Regression', () => {
       fullPage: true,
       animations: 'disabled',
     });
+
   });
   test('should match desktop layout screenshot', async ({ page }) => {
     // Set desktop viewport
@@ -163,3 +164,4 @@ test.describe('Visual Regression', () => {
     });
   });
 });
+
