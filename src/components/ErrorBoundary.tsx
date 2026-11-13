@@ -102,6 +102,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
             <div className='flex flex-col sm:flex-row gap-3 justify-center'>
               <Button
+
                 onClick={this.handleRetry}
                 className='flex items-center gap-2'
               >
@@ -114,6 +115,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 onClick={this.handleGoHome}
                 className='flex items-center gap-2'
               >
+
                 <Home className='w-4 h-4' />
                 Go Home
               </Button>
@@ -157,4 +159,3 @@ export function useErrorHandler() {
 
   return error;
 }
-
