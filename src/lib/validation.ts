@@ -106,7 +106,7 @@ export const validateInputLength = (
 
 // File validation
 export const fileValidationSchema = z.object({
-  name: z.string().max(255),
+  name: z.string().max(255), 
   size: z.number().max(5 * 1024 * 1024), // 5MB max
   type: z.string().refine((type: string) => {
     const allowedTypes = [
@@ -136,6 +136,7 @@ export class ValidationError extends Error {
     public field?: string,
   ) {
     super(message);
+
     this.name = 'ValidationError';
   }
 }
@@ -146,3 +147,4 @@ export const handleValidationError = (error: z.ZodError): ValidationError[] => {
       new ValidationError(err.message, err.path.join('.') as string),
   );
 };
+
