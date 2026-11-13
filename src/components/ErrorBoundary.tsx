@@ -61,6 +61,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
             className='max-w-md w-full bg-white dark:bg-slate-800 rounded-lg shadow-xl p-6 text-center'
           >
+
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
