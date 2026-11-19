@@ -162,6 +162,7 @@ function SidebarContent({
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
+
               className={`relative w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 ${
                 isActive
                   ? 'bg-indigo-600/15 text-indigo-400'
@@ -233,4 +234,3 @@ function SidebarContent({
     </div>
   );
 }
-
