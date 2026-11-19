@@ -170,7 +170,7 @@ function SidebarContent({
               }`}
               aria-label={`Navigate to ${item.label}`}
             >
-              {isActive && (
+              {isActive && ( 
                 <motion.span
                   layoutId='nav-active-indicator'
                   className='absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-indigo-500 rounded-r-full'
@@ -234,3 +234,4 @@ function SidebarContent({
     </div>
   );
 }
+
