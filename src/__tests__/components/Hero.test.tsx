@@ -283,7 +283,6 @@ describe('Hero Component', () => {
         writable: true,
         value: mockOpen,
       });
-
       render(<Hero onScrollToSection={mockOnScrollToSection} resumeUrl='' />);
 
       const secondaryButton = screen.getByRole('button', {
