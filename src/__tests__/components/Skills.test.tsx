@@ -369,3 +369,4 @@ describe('Skills Component', () => {
     });
   });
 });
+
