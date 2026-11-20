@@ -26,7 +26,7 @@ export default function NotFoundContent() {
         {/* Error Message */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }} 
           transition={{ delay: 0.3 }}
           className='text-3xl font-bold text-slate-900 dark:text-white mb-4'
         >
@@ -59,6 +59,7 @@ export default function NotFoundContent() {
               onClick={() => window.history.back()}
               className='flex items-center gap-2 w-full sm:w-auto'
             >
+
               <ArrowLeft className='w-4 h-4' />
               Go Back
             </Button>
@@ -84,12 +85,11 @@ export default function NotFoundContent() {
                 className='flex items-center gap-2 p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-700 dark:text-slate-300'
               >
                 <Mail className='w-4 h-4' />
-                Contact
+                Contact 
               </Link>
             </div>
-          </div>
+          </div> 
         </motion.div>
-
         {/* Background Decoration */}
         <div className='absolute inset-0 overflow-hidden pointer-events-none'>
           <div className='absolute top-20 left-20 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl' />
@@ -99,4 +99,3 @@ export default function NotFoundContent() {
     </div>
   );
 }
-
