@@ -77,7 +77,7 @@ export default function Contact() {
         >
           <p className='text-sm font-mono text-indigo-600 dark:text-indigo-400 mb-2 tracking-wide'>
             05 — Contact
-          </p>
+          </p> 
           <h2 className='text-4xl font-bold text-slate-900 dark:text-white tracking-tight mb-3'>
             Let&apos;s work together
 
@@ -169,14 +169,13 @@ export default function Contact() {
                   </p>
                 )}
               </div>
-
               {/* Honeypot */}
               <input
                 {...register('honeypot')}
                 type='text'
                 className='hidden'
                 tabIndex={-1}
-                autoComplete='off'
+                autoComplete='off' 
               />
 
               <button
@@ -204,6 +203,7 @@ export default function Contact() {
               {submitStatus === 'error' && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
+
                   animate={{ opacity: 1, y: 0 }}
                   className='flex items-center gap-2.5 p-3.5 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50 rounded-lg'
                 >
@@ -228,6 +228,7 @@ export default function Contact() {
               <div className='flex items-center gap-3.5'>
                 <div className='w-9 h-9 rounded-lg bg-indigo-100 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0'>
                   <Mail className='w-4 h-4 text-indigo-600 dark:text-indigo-400' />
+
                 </div>
                 <div>
                   <p className='text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mb-0.5'>
@@ -306,3 +307,4 @@ export default function Contact() {
     </section>
   );
 }
+
