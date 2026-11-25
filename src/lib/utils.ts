@@ -10,6 +10,7 @@ export function formatDate(date: string | Date): string {
   return d.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
+
   });
 }
 
