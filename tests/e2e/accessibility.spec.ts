@@ -44,7 +44,7 @@ test.describe('Accessibility', () => {
     const nav = page.locator('nav');
     await expect(nav).toHaveAttribute('role', 'navigation');
 
-    // Check for main content area
+    // Check for main content area 
     const main = page.locator('main');
     await expect(main).toHaveAttribute('role', 'main');
 
